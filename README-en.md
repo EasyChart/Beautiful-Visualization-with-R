@@ -1,4 +1,4 @@
-# Beautiful-Visualization-with-R
+# Beautiful Visualization with R
 <p>
     <img src="https://github.com/EasyChart/EasyCharts/blob/master/Pics/RV.jpg" alt="微信公众号"  width="300">
 </p>
