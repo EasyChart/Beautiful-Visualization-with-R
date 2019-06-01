@@ -1,0 +1,106 @@
+############################################################################################################
+主题元素                   类型                      描述
+===========================================================================================================
+line                                                 所有线属性
+rect                                                 所有矩形区域属性
+text                                                 所有文本属性
+title                                                所有标题属性
+----------------------------------------------------------------------------------------------------------- 
+plot.title                 text                      图表标题
+plot.subtitle              text                      图表副标题
+plot.caption               text                      图表备注
+plot.background            rect                      图表背景
+plot.spacing               top\right\bottom\left     图表边距    
+plot.margin                margin(10,0,10,0,unit="pt")
+----------------------------------------------------------------------------------------------------------- 
+panel.background           rect                      面板（绘图区）背景
+panel.border               rect                      面板（绘图区）边框
+panel.spacing              rect                      分面面板（绘图区）边距
+panel.grid                 line                      网格线系统
+panel.grid.major           line                      主网格线
+panel.grid.minor           line                      次网格线
+panel.grid.major.x         line                      x轴（横轴）主网格线
+panel.grid.major.y         line                      y轴（横轴）主网格线
+panel.grid.minor.x         line                      x轴（横轴）次网格线
+panel.grid.minor.y         line                      y轴（横轴）次网格线
+----------------------------------------------------------------------------------------------------------- 
+axis.line                  segment                   坐标轴线   
+axis.line.x
+axis.line.y
+----------------------------------------------------------------------------------------------------------- 
+axis.title                 text                       轴标题
+axis.title.x               text                      x轴标题  
+axis.title.y               text                      y轴标题 
+----------------------------------------------------------------------------------------------------------- 
+axis.text                  text                       轴刻度标签
+axis.text.x                text                      x轴刻度标签   
+axis.text.y                text                      y轴刻度标签 
+----------------------------------------------------------------------------------------------------------- 
+axis.ticks                 line                       坐标轴刻度线
+axis.ticks.x               line                       x轴刻度线
+axis.ticks.y               line                       y轴刻度线
+axis.ticks.length          line                       刻度线长度
+axis.ticks.margin          line                       刻度线和刻度标签之间的间距
+----------------------------------------------------------------------------------------------------------- 
+legend.background          rect                       #图例背景
+legend.margin                                         #图例边界
+legend.spacing                                        #图例间的空距（unit）
+legend.spacing.x                                      #水平空距，继承自legend.spacing
+legend.spacing.y
+legend.key                                            #图例符号
+legend.key.size                                       #图例符号大小
+legend.key.height                                     #图例符号高度  unit(1,"cm")  #library(grid)
+legend.key.width                                      #图例符号宽度
+legend.text                                           #图例文本标签
+legend.text.align                                     #图例文本标签对齐方式（0左对齐，1右对齐）
+legend.title               text                       #图例标题
+legend.title.align                                    #图例标题对齐方式
+legend.position                                       #图例位置（none、left、right、bottom、top、数值向量）
+legend.direction                                      #图例排列方向（"horizontal"、"vertical"）
+legend.justification                                  #图例居中方式（center或者两数值向量）
+legend.box                                            #多图例排版方式（"horizontal"、"vertical"）
+legend.box.just                                       #多图例居中方式    
+legend.box.margin                   
+legend.box.background
+legend.box.spacing
+----------------------------------------------------------------------------------------------------------- 
+strip.background           rect                       分面标签背景
+strip.text                 text                       分面标签文本
+strip.text.x                                      
+strip.text.y
+-----------------------------------------------------------------------------------------------------------            
+--------------
+element_text()
+----------------------------------------------------
+Argument    Description               Default Value
+-----------------------------------------------------
+family      font family               ""
+face        font  face                "plain"
+colour      font color                "black"
+size        font size(pts)            10
+hjust       horizontal justification  0.5
+vjust       vertical justification    0.5
+angle       text angle                0
+lineheight  line height               1.1
+--------------
+element_line()
+-----------------------------------------------------
+Argument    Description               Default Value
+-------------------------------------------------------
+colour      line color                "black"
+size        line thickness            0.5
+linetype    type of line              1
+--------------
+element_rect()
+---------------------------------------------------
+Argument    Description               Default Value
+---------------------------------------------------
+fill        fill color                NA(none)
+colour      border color              "black"
+size        thickness of border line  0.5
+linetype    type of border line       1(solid)
+-----------------------------------------------------
+针对默认主题中含有坐标轴线，如需重置，需附加
+panel.border=element_blank()
+坐标轴交界点完全重叠：lineend="square"
+

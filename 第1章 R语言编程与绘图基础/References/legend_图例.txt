@@ -1,0 +1,107 @@
+labs(fill/colour/shape/size/alpha/linetype="")  #隐藏图例标题
+scale_xxx_yyy(title="title"==name="title")
+#################################################################################################################
+guide_colourbar(
+      title=waiver(), 
+      title.position=NULL,
+      title.theme=NULL, 
+      title.hjust=NULL,title.vjust = NULL,
+      label=TRUE,label.position=NULL,label.theme = NULL,
+      label.hjust = NULL, label.vjust = NULL, 
+      barwidth =NULL,barheight = NULL, nbin = 20,raster=TRUE,ticks=TRUE,
+      draw.ulim=TRUE, draw.llim = TRUE, 
+      direction = NULL,
+      default.unit="line",reverse=FALSE,order=0,...
+)
+
+guide=guide_legend(
+      title=NULL,
+      title.position="left",
+      title.theme=element_text(size=15,face="italic",colour="red",angle=45),
+      keywidth=3,keyheight=1,
+      label.position="bottom",
+      direction="horizontal",
+      label.hjust=0.5,label.vjust=0.5,
+      label.theme=element_text(size=15,face="italic",colour="red",angle=45),
+      override.aes=list(alpha=1)),
+      nrow=8,ncol=8,byrow=TRUE,reverse = TRUE
+)
+
+arguments          guide_colourbar         guide_legend                      theme::legend
+title                                                                        legend.title
+title.position                                                               legend.position
+title.theme
+title.vjust
+title.hjust
+label                                                                        legend.text
+label.position
+label.theme
+label.vjust
+label.hjust
+direction                                                                    legend.direction
+override.aes
+size               barwidth/barheight     key.width/key.height/key.size      legend.key.width/legend.key.height/legend.key.size
+分箱数             nbin                   nrow/ncol/byrow                                   
+刻度线             ticks/draw.ulim/draw.llim
+default.unit="line"
+reverse=FALSE
+order=0
+                   raster
+
+scale_xxx_YYY(guide=colourbar/legend)
+scale_xxx_YYY(guide=guide_colourbar()/guide_legend())
+-------------------------------------------------------------------------------------------------------------------
+scale_fill_discrete(guide=FALSE)                            #移除图例
+scale_fill_discrete(guide=guide_legend(reverse=TRUE))       #标度中设置
+scale_fill_discrete(breaks=rev(levels(PlantGrowth$group)))  #标度中设置（反转分类变量顺序）
+scale_fill_discrete(breaks=c("trt1","ctrl","trt2"))         #标度中设置
+scale_fill_discrete(name="Experimental\nCondition",
+                    breaks=c("ctrl","trt1","trt2"),
+                    labels=c("Control","Treatment 1","Treatment 2"))
+
+guides(fill/color=legend/colorbar)
+guides(fill/color=guide_legend(...)/guide_colorbar(...))
+------------------------------------------------------------------------------------------------------------- 
+guides(fill=FALSE)                           #移除图例
+guides(fill=guide_legend(title=NULL))        #隐藏图例标题
+guides(fill=guide_legend(reverse=TRUE))      #调整图例顺序
+guides(fill=guide_legend(title=""))          #重命名图例
+#################################################################################################################
+theme(
+legend.background          rect     #图例背景
+legend.margin                       #图例边界
+legend.spacing                      #图例间的空距（unit）
+legend.spacing.x                    #水平空距，继承自legend.spacing
+legend.spacing.y
+legend.key                          #图例符号
+legend.key.size                     #图例符号大小
+legend.key.height                   #图例符号高度  unit(1,"cm")  #library(grid)
+legend.key.width                    #图例符号宽度
+legend.text                         #图例文本标签
+legend.text.align                   #图例文本标签对齐方式（0左对齐，1右对齐）
+legend.title               text     #图例标题
+legend.title.align                  #图例标题对齐方式
+legend.position                     #图例位置（none、left、right、bottom、top、数值向量）
+legend.direction                    #图例排列方向（"horizontal"、"vertical"）
+legend.justification                #图例居中方式（center或者两数值向量）
+legend.box                          #多图例排版方式（"horizontal"、"vertical"）
+legend.box.just                     #多图例居中方式    
+legend.box.margin                   
+legend.box.background
+legend.box.spacing 
+)    
+---------------------------------------------------------------------------------------------------------------------
+theme(legend.position="none")                   #移除图例
+theme(legend.title=element_blank())             #隐藏图例标题
+themes(legend.background=theme_rect(colour="purple",fill="pink",size=3,linetype="dashed"))  #图例背景
+themes(legend.key       =theme_rect(colour='purple',fill='pink',size=0.5,linetype="dashed"))#图例符号背景
+themes(legend.key.size  =unit(2,'cm'))   #图例符号大小  #library(grid)
+themes(legend.key.width =unit(5,'cm'))   #图例符号宽度  #library(grid)
+themes(legend.key.height=unit(5,'cm'))
+themes(legend.text      =theme_text(colour="red",angle=45,size=10,hjust=3,vjust=3,face="bold"))   #图例文本设置
+themes(legend.title     =theme_text(colour="red",angle=45,size=10,hjust=3,vjust=7,face="italic")) #图例标题设置
+
+themes(legend.position="none")
+themes(legend.position="left")
+themes(legend.position=c(0.5,0.5))   #图例位置设置
+themes(legend.justification="right",legend.position=c(0.25,0.3)) #图例居中方式                 
