@@ -1,4 +1,5 @@
-#devtools::install_github("GuangchuangYu/gglayer")
+
+
 library(ggplot2)
 library(grid)
 library(RColorBrewer)
@@ -90,14 +91,14 @@ findParams <- function(mu, sigma, skew, kurt) {
        type = c("SN", "SL", "SU", "SB")[value$type])
 }
 
-# normal
-n <- rnorm(100)
-# right-skew
-s <- rJohnson(100, findParams(0, 1, 2.2, 13.1))
-# leptikurtic
-k <- rJohnson(100, findParams(0, 1, 0, 20))
-# mixture
-mm <- rnorm(100, rep(c(-1, 1), each = 50) * sqrt(0.9), sqrt(0.1))
+# 均值为3，标准差为1的正态分布
+n <- rnorm(100,3,1)
+# Johnson分布的偏斜度2.2和峰度13
+s <- rJohnson(100, findParams(3, 1, 2., 13.1))
+# Johnson分布的偏斜度0和峰度20）
+k <- rJohnson(100, findParams(3, 1, 2.2, 20))
+# 两个峰的均值μ1，μ2分别为1.89和3.79，σ1 = σ2 =0.31
+mm <- rnorm(100, rep(c(2, 4), each = 50) * sqrt(0.9), sqrt(0.1))
 
 mydata <- data.frame(
   Class = factor(rep(c("n", "s", "k", "mm"), each = 100),
