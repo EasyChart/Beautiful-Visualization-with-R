@@ -1,4 +1,7 @@
-
+# somewhat hackish solution to:
+# https://twitter.com/EamonCaddigan/status/646759751242620928
+# based mostly on copy/pasting from ggplot2 geom_violin source:
+# https://github.com/hadley/ggplot2/blob/master/R/geom-violin.r
 
 library(ggplot2)
 library(grid)
