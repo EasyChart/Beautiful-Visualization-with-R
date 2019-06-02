@@ -1,13 +1,16 @@
-# somewhat hackish solution to:
-# https://twitter.com/EamonCaddigan/status/646759751242620928
-# based mostly on copy/pasting from ggplot2 geom_violin source:
-# https://github.com/hadley/ggplot2/blob/master/R/geom-violin.r
+
 
 library(ggplot2)
 library(grid)
 library(RColorBrewer)
 library(dplyr)
 library(SuppDists) #提供rJohnson()函数
+
+# somewhat hackish solution to:
+# https://twitter.com/EamonCaddigan/status/646759751242620928
+# based mostly on copy/pasting from ggplot2 geom_violin source:
+# https://github.com/hadley/ggplot2/blob/master/R/geom-violin.r
+
 "%||%" <- function(a, b) {
   if (!is.null(a)) a else b
 }
@@ -82,6 +85,7 @@ GeomFlatViolin <-
 set.seed(141079)
 
 # Generate sample data -------------------------------------------------------
+#findParams函数参考：https://github.com/hadley/boxplots-paper
 
 findParams <- function(mu, sigma, skew, kurt) {
   value <- .C("JohnsonMomentFitR", as.double(mu), as.double(sigma),

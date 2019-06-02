@@ -50,6 +50,9 @@ ggplot(data, aes(x =class, y = BAI2013))+
 
 
 #-------------------------------------------------(c)多数据系列的小提琴图SplitViolin------------------------------------------------
+#Reference:    
+# https://stackoverflow.com/a/45614547
+# https://gist.github.com/Karel-Kroeze/746685f5613e01ba820a31e57f87ec87
 
 GeomSplitViolin <- ggproto("GeomSplitViolin", GeomViolin, 
                            draw_group = function(self, data, ..., draw_quantiles = NULL){

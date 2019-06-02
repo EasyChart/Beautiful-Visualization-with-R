@@ -1,11 +1,13 @@
 
-#EasyCharts团队出品，如有商用必究，
+#EasyCharts团队出品，
 #如需使用与深入学习，请联系微信：EasyCharts
 
 library(ggplot2)
 library(RColorBrewer)
 library(SuppDists) #提供rJohnson()函数
 
+
+#Reference：https://github.com/hadley/boxplots-paper
 
 source("lvplot/calculate.r")
 source("lvplot/draw.r")

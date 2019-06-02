@@ -1,6 +1,8 @@
 
-#EasyCharts团队出品，如有商用必究，
+#EasyCharts团队出品，
 #如需使用与深入学习，请联系微信：EasyCharts
+
+#Reference：https://github.com/hadley/boxplots-paper
 
 library(ggplot2)
 library(RColorBrewer)
