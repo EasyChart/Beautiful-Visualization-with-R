@@ -1,24 +1,23 @@
+#EasyChartså›¢é˜Ÿå‡ºå“ï¼Œ
+#å¦‚æœ‰é—®é¢˜ä¿®æ­£ä¸æ·±å…¥å­¦ä¹ ï¼Œå¯è”ç³»å¾®ä¿¡ï¼šEasyCharts
 
-#EasyChartsÍÅ¶Ó³öÆ·£¬ÈçÓĞÉÌÓÃ±Ø¾¿£¬
-#ÈçĞèÊ¹ÓÃÓëÉîÈëÑ§Ï°£¬ÇëÁªÏµÎ¢ĞÅ£ºEasyCharts
-
-#--------------------------------------------Í¼7-4-1 ÈÈÁ¦Í¼ ·½·¨1---------------------------------------------------
+#--------------------------------------------å›¾7-4-1 çƒ­åŠ›å›¾ æ–¹æ³•1---------------------------------------------------
 library(ComplexHeatmap)
 library(circlize)
 library(dendextend)
 
-df<-scale(mtcars) #Ê¹ÓÃscale·½·¨À´¶ÔÊı¾İ½øĞĞ±ê×¼»¯£¬ÒÔÏû³ıÁ¿¸Ù¶ÔÊı¾İ½á¹¹µÄÓ°Ïì
-row_dend = hclust(dist(df))   # ¸ù¾İĞĞ¶ÔÊı¾İ½øĞĞÏµÍ³ĞÔ¾ÛÀà
-col_dend = hclust(dist(t(df)))  # ¸ù¾İÁĞ¶ÔÊı¾İ½øĞĞÏµÍ³ĞÔ¾ÛÀà
-mycol <-rev(brewer.pal(n = 7, name = "RdYlBu")) #¹¹ÔìÑÕÉ«Ó³Éä·½°¸
+df<-scale(mtcars) #ä½¿ç”¨scaleæ–¹æ³•æ¥å¯¹æ•°æ®è¿›è¡Œæ ‡å‡†åŒ–ï¼Œä»¥æ¶ˆé™¤é‡çº²å¯¹æ•°æ®ç»“æ„çš„å½±å“
+row_dend = hclust(dist(df))   # æ ¹æ®è¡Œå¯¹æ•°æ®è¿›è¡Œç³»ç»Ÿæ€§èšç±»
+col_dend = hclust(dist(t(df)))  # æ ¹æ®åˆ—å¯¹æ•°æ®è¿›è¡Œç³»ç»Ÿæ€§èšç±»
+mycol <-rev(brewer.pal(n = 7, name = "RdYlBu")) #æ„é€ é¢œè‰²æ˜ å°„æ–¹æ¡ˆ
 Heatmap(df, col = mycol,name = "mtcars",rect_gp = gpar(col = "black"),
-        column_dend_height = unit(4, "cm"), #Éè¶¨ÁĞ¾ÛÀàÏÔÊ¾²¿·ÖµÄ¸ß¶È
-        row_dend_width = unit(4, "cm"),    #Éè¶¨ĞĞ¾ÛÀàÏÔÊ¾²¿·ÖµÄ¿í¶È
-        cluster_rows = color_branches(row_dend, k = 4), #Éè¶¨ĞĞ¾ÛÀà³É4Àà
-        cluster_columns = color_branches(col_dend, k = 2)) #Éè¶¨ÁĞ¾ÛÀà³É2Àà
+        column_dend_height = unit(4, "cm"), #è®¾å®šåˆ—èšç±»æ˜¾ç¤ºéƒ¨åˆ†çš„é«˜åº¦
+        row_dend_width = unit(4, "cm"),    #è®¾å®šè¡Œèšç±»æ˜¾ç¤ºéƒ¨åˆ†çš„å®½åº¦
+        cluster_rows = color_branches(row_dend, k = 4), #è®¾å®šè¡Œèšç±»æˆ4ç±»
+        cluster_columns = color_branches(col_dend, k = 2)) #è®¾å®šåˆ—èšç±»æˆ2ç±»
 
 
-#------------------------------------------Í¼7-4-1 ÈÈÁ¦Í¼ ·½·¨2-----------------------------------------------------
+#------------------------------------------å›¾7-4-1 çƒ­åŠ›å›¾ æ–¹æ³•2-----------------------------------------------------
 library(gplots)
 colormap <- colorRampPalette(rev(brewer.pal(n = 7, name = "RdYlBu")))(100)
 
@@ -38,7 +37,7 @@ heatmap.2(scale(mtcars), scale = "none", col = colormap,
           trace = "none", density.info = "none")
 
 
-#-----------------------------------Í¼7-4-1 ÈÈÁ¦Í¼£º·½·¨3------------------------------------------------
+#-----------------------------------å›¾7-4-1 çƒ­åŠ›å›¾ï¼šæ–¹æ³•3------------------------------------------------
 library(RColorBrewer)
 library(pheatmap)
 colormap <- colorRampPalette(rev(brewer.pal(n = 7, name = "RdYlBu")))(100)
