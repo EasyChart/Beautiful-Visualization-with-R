@@ -1,12 +1,12 @@
+#EasyChartså›¢é˜Ÿå‡ºå“ï¼Œ
+#å¦‚æœ‰é—®é¢˜ä¿®æ­£ä¸æ·±å…¥å­¦ä¹ ï¼Œå¯è”ç³»å¾®ä¿¡ï¼šEasyCharts
 
-#EasyChartsÍÅ¶Ó³öÆ·£¬ÈçÓĞÉÌÓÃ±Ø¾¿£¬
-#ÈçĞèÊ¹ÓÃÓëÉîÈëÑ§Ï°£¬ÇëÁªÏµÎ¢ĞÅ£ºEasyCharts
 
 library(RColorBrewer)  
 library(dplyr)
 library(graphics)
 
-#-------------------------Í¼7-1-1 ±ıÍ¼(a)------------------------------------------
+#-------------------------å›¾7-1-1 é¥¼å›¾(a)------------------------------------------
 df <- data.frame(value = c(24.20,30.90,12.50,12.30,8.10,12.10), 
                  group = c('LVS','SJM','MCE','Galaxy','MGM','Wynn'))
 df <-arrange(df,value)
@@ -18,7 +18,7 @@ pie(df$value,labels=labs, init.angle=90,col =  brewer.pal(nrow(df), "Reds"),
 
 
 
-#-------------------------Í¼7-1-1 ±ıÍ¼(b)------------------------------------------
+#-------------------------å›¾7-1-1 é¥¼å›¾(b)------------------------------------------
 df <- data.frame(value = c(24.20,75.90,12.50,12.30,8.10,12.10), 
                  group = c('LVS','SJM','MCE','Galaxy','MGM','Wynn'))
 df <-arrange(df,desc(value))
@@ -38,7 +38,7 @@ pie(df$value,labels=labs, init.angle=90,col =gg_color_hue(n),
 pie(df$value,labels=labs, init.angle=90,col ="#3182BD",
     border="black")
 
-#-------------------------Í¼7-1-1 ±ıÍ¼(c)------------------------------------------
+#-------------------------å›¾7-1-1 é¥¼å›¾(c)------------------------------------------
 df <- data.frame(value = c(24.20,75.90,12.50,12.30,8.10,12.10), 
                  group = c('LVS','SJM','MCE','Galaxy','MGM','Wynn'))
 df <-arrange(df,value)
@@ -49,7 +49,7 @@ pie(df$value,labels=labs, init.angle=90,col =  brewer.pal(nrow(df), "Reds"),
     border="black")
 
 
-#-------------------------Í¼7-1-1 ±ıÍ¼(d)------------------------------------------
+#-------------------------å›¾7-1-1 é¥¼å›¾(d)------------------------------------------
 df <- data.frame(value = c(24.20,30.90,12.50,12.30,8.10,12.10), 
                  group = c('LVS','SJM','MCE','Galaxy','MGM','Wynn'))
 df <-arrange(df,desc(value))
