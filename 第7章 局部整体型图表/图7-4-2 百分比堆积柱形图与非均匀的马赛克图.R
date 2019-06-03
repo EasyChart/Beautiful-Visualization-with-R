@@ -1,11 +1,10 @@
-
-#EasyChartsÍÅ¶Ó³öÆ·£¬ÈçÓĞÉÌÓÃ±Ø¾¿£¬
-#ÈçĞèÊ¹ÓÃÓëÉîÈëÑ§Ï°£¬ÇëÁªÏµÎ¢ĞÅ£ºEasyCharts
+#EasyChartså›¢é˜Ÿå‡ºå“ï¼Œ
+#å¦‚æœ‰é—®é¢˜ä¿®æ­£ä¸æ·±å…¥å­¦ä¹ ï¼Œå¯è”ç³»å¾®ä¿¡ï¼šEasyCharts
 
 library(ggplot2)
 library(RColorBrewer)
-library(reshape2)  #Ìá¹©melt()º¯Êı
-library(plyr)      #Ìá¹©ddply()º¯Êı,join()º¯Êı
+library(reshape2)  #æä¾›melt()å‡½æ•°
+library(plyr)      #æä¾›ddply()å‡½æ•°,join()å‡½æ•°
 
 df <- data.frame(segment = c("A", "B", "C","D"),
                       Alpha = c(2400	,1200,	600	,250), 
@@ -20,7 +19,7 @@ segpct<-rowSums(df[,2:ncol(df)])
 
 for (i in 1:nrow(df)){
   for (j in 2:ncol(df)){
-    df[i,j]<-df[i,j]/segpct[i]*100  #½«Êı×Ö×ª»»³É°Ù·Ö±È
+    df[i,j]<-df[i,j]/segpct[i]*100  #å°†æ•°å­—è½¬æ¢æˆç™¾åˆ†æ¯”
   }
 }
 
@@ -31,13 +30,13 @@ df$xmin <- (df$xmax - segpct)
 dfm <- melt(df, id = c("segment", "xmin", "xmax"),value.name="percentage")
 colnames(dfm)[ncol(dfm)]<-"percentage"
 
-#ddply()º¯ÊıÊ¹ÓÃ×Ô¶¨ÒåÍ³¼Æº¯Êı£¬¶Ôdata.frame·Ö×é¼ÆËã
+#ddply()å‡½æ•°ä½¿ç”¨è‡ªå®šä¹‰ç»Ÿè®¡å‡½æ•°ï¼Œå¯¹data.frameåˆ†ç»„è®¡ç®—
 dfm1 <- ddply(dfm, .(segment), transform, ymax = cumsum(percentage))
 dfm1 <- ddply(dfm1, .(segment), transform,ymin = ymax - percentage)
 dfm1$xtext <- with(dfm1, xmin + (xmax - xmin)/2)
 dfm1$ytext <- with(dfm1, ymin + (ymax - ymin)/2)
 
-#join()º¯Êı£¬Á¬½ÓÁ½¸ö±í¸ñdata.frame
+#join()å‡½æ•°ï¼Œè¿æ¥ä¸¤ä¸ªè¡¨æ ¼data.frame
 dfm2<-join(melt_df, dfm1, by = c("segment", "variable"), type = "left", match = "all")
 
 ggplot()+
