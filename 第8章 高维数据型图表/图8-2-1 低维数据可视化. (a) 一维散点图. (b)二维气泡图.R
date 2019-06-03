@@ -1,6 +1,9 @@
 
+#EasyCharts团队出品，
+#如有问题修正与深入学习，可联系微信：EasyCharts
+
 library(ggplot2)
-library(scatterplot3d)
+#library(scatterplot3d)
 library(scales)
 library(wesanderson)
 library(RColorBrewer)
@@ -10,7 +13,7 @@ library(grid)
 Alz<-read.csv("Facet_Data.csv", header = T)
 df<-Alz[,c("Class","SOD","tau","age")]
 
-#-------------------------------------------------------------��άɢ��ͼ----------------------------------------------------
+#-------------------------------------------------------------ÈýÎ¬É¢µãÍ¼----------------------------------------------------
 library(plot3D)
 colors0 <- wes_palette(n=3, name="Darjeeling1")
 
@@ -41,7 +44,7 @@ legend("right",title =  "Species",legend=levels(df$Class),pch=21,
        cex=1,y.intersp=1,pt.bg = colors0,bg="white",bty="n")
 
 
-#----------------------------------------------------��ά����ͼ------------------------------------------------------
+#----------------------------------------------------ÈýÎ¬ÆøÅÝÍ¼------------------------------------------------------
 Alz<-read.csv("Facet_Data.csv", header = T)
 df<-Alz[,c("Class","SOD","tau","age")]
 
