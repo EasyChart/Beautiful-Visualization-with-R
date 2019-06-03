@@ -1,13 +1,9 @@
-
-#EasyChartsÍÅ¶Ó³öÆ·£¬ÈçÓĞÉÌÓÃ±Ø¾¿£¬
-#ÈçĞèÊ¹ÓÃÓëÉîÈëÑ§Ï°£¬ÇëÁªÏµÎ¢ĞÅ£ºEasyCharts
-
+#EasyChartså›¢é˜Ÿå‡ºå“ï¼Œ
+#å¦‚æœ‰é—®é¢˜ä¿®æ­£ä¸æ·±å…¥å­¦ä¹ ï¼Œå¯è”ç³»å¾®ä¿¡ï¼šEasyCharts
 
 library(ggplot2)
 library(RColorBrewer)
-library(SuppDists) #Ìá¹©rJohnson()º¯Êı
-
-
+library(SuppDists) #æä¾›rJohnson()å‡½æ•°
 
 set.seed(141079)
 
@@ -23,13 +19,13 @@ findParams <- function(mu, sigma, skew, kurt) {
        xi = value$xi, lambda = value$lambda,
        type = c("SN", "SL", "SU", "SB")[value$type])
 }
-# ¾ùÖµÎª3£¬±ê×¼²îÎª1µÄÕıÌ¬·Ö²¼
+# å‡å€¼ä¸º3ï¼Œæ ‡å‡†å·®ä¸º1çš„æ­£æ€åˆ†å¸ƒ
 n <- rnorm(100,3,1)
-# Johnson·Ö²¼µÄÆ«Ğ±¶È2.2ºÍ·å¶È13
+# Johnsonåˆ†å¸ƒçš„åæ–œåº¦2.2å’Œå³°åº¦13
 s <- rJohnson(100, findParams(3, 1, 2., 13.1))
-# Johnson·Ö²¼µÄÆ«Ğ±¶È0ºÍ·å¶È20£©
+# Johnsonåˆ†å¸ƒçš„åæ–œåº¦0å’Œå³°åº¦20ï¼‰
 k <- rJohnson(100, findParams(3, 1, 2.2, 20))
-# Á½¸ö·åµÄ¾ùÖµ¦Ì1£¬¦Ì2·Ö±ğÎª1.89ºÍ3.79£¬¦Ò1 = ¦Ò2 =0.31
+# ä¸¤ä¸ªå³°çš„å‡å€¼Î¼1ï¼ŒÎ¼2åˆ†åˆ«ä¸º1.89å’Œ3.79ï¼ŒÏƒ1 = Ïƒ2 =0.31
 mm <- rnorm(100, rep(c(2, 4), each = 50) * sqrt(0.9), sqrt(0.1))
 
 mydata <- data.frame(
@@ -38,7 +34,7 @@ mydata <- data.frame(
   Value = c(n, s, k, mm)
 )
 
-#--------------------------------------Í¼5-2-1ËÄÖÖ²»Í¬Êı¾İ·ÖÎöµÄ·Ö²¼ÀàÍ¼±í. (b)ºËÃÜ¶È¹À¼ÆÇúÏßÍ¼.-----------------------------------------------------------
+#--------------------------------------å›¾5-2-1å››ç§ä¸åŒæ•°æ®åˆ†æçš„åˆ†å¸ƒç±»å›¾è¡¨. (b)æ ¸å¯†åº¦ä¼°è®¡æ›²çº¿å›¾.-----------------------------------------------------------
 ggplot(mydata, aes(Value,fill=Class))+
   geom_density(alpha=1,bw=0.3,colour="black",size=0.25)+
   scale_fill_manual(values=brewer.pal(7,"Set2")[c(1,2,4,5)])+
@@ -54,16 +50,14 @@ ggplot(mydata, aes(Value,fill=Class))+
   )
 
 
-
-
-#------------------------------------Í¼5-2-1ËÄÖÖ²»Í¬Êı¾İ·ÖÎöµÄ·Ö²¼ÀàÍ¼±í. (a) Í³¼ÆÖ±·½Í¼.-----------------------------------------------
+#------------------------------------å›¾5-2-1å››ç§ä¸åŒæ•°æ®åˆ†æçš„åˆ†å¸ƒç±»å›¾è¡¨. (a) ç»Ÿè®¡ç›´æ–¹å›¾.-----------------------------------------------
 library(reshape2)
 
 type<-as.character(unique(mydata$Class))
 step<-0.2
 breaks<- seq(min(mydata$Value)-step,max(mydata$Value)+step,step)
 
-mydata1<-data.frame(xvals=numeric(),yvals=numeric(),variable=character()) #´´½¨¿ÕµÄData.Frame
+mydata1<-data.frame(xvals=numeric(),yvals=numeric(),variable=character()) #åˆ›å»ºç©ºçš„Data.Frame
 for (i in 1:length(type)){
   x <-mydata[mydata$Class==type[i],2] #rnorm(250 , mean=10 , sd=1)
   hg <- hist(x, breaks = breaks , plot = FALSE) # Make histogram data but do not plot
@@ -72,7 +66,7 @@ for (i in 1:length(type)){
 
 }
 
-mydata2<-data.frame(xvals=numeric(),value=numeric(),variable=character()) #´´½¨¿ÕµÄData.Frame
+mydata2<-data.frame(xvals=numeric(),value=numeric(),variable=character()) #åˆ›å»ºç©ºçš„Data.Frame
 for (i in 1:nrow(mydata1)){
   N<-mydata1$yvals[i]
   temp<-data.frame(xvals=rep(mydata1$xvals[i],N),value=1:N,variable=rep(mydata1$variable[i],N))
