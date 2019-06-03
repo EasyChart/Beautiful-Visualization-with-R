@@ -1,11 +1,11 @@
 
-#EasyChartsÍÅ¶Ó³öÆ·£¬ÈçÓĞÉÌÓÃ±Ø¾¿£¬
-#ÈçĞèÊ¹ÓÃÓëÉîÈëÑ§Ï°£¬ÇëÁªÏµÎ¢ĞÅ£ºEasyCharts
+#EasyChartså›¢é˜Ÿå‡ºå“ï¼Œ
+#å¦‚æœ‰é—®é¢˜ä¿®æ­£ä¸æ·±å…¥å­¦ä¹ ï¼Œå¯è”ç³»å¾®ä¿¡ï¼šEasyCharts
 
 library(ggplot2)
 library(RColorBrewer)  
 
-#-----------------------------(b) ´øÍ¸Ã÷¶ÈÉèÖÃµÄÉ¢µãÍ¼------------------------------
+#-----------------------------(b) å¸¦é€æ˜åº¦è®¾ç½®çš„æ•£ç‚¹å›¾------------------------------
 mydata<-read.csv("HighDensity_Scatter_Data.csv",stringsAsFactors=FALSE)
 
 ggplot(data = mydata, aes(x,y)) +
@@ -17,7 +17,7 @@ ggplot(data = mydata, aes(x,y)) +
     legend.position="none"
   )
 
-#-----------------------------------(c) kmeans¾ÛÀàµÄÉ¢µãÍ¼-----------------------------
+#-----------------------------------(c) kmeansèšç±»çš„æ•£ç‚¹å›¾-----------------------------
 
 kmeansResult<- kmeans(mydata, 2, nstart = 20)
 
@@ -34,15 +34,15 @@ ggplot(data = mydata, aes(x,y,color=cluster)) +
     legend.position=c(0.85,0.15)
   )
 
-#---------------------------------(d) ´øÍÖÔ²±ê¶¨µÄ¾ÛÀàÉ¢µãÍ¼--------------------------------------------------
+#---------------------------------(d) å¸¦æ¤­åœ†æ ‡å®šçš„èšç±»æ•£ç‚¹å›¾--------------------------------------------------
 
 ggplot(data = mydata, aes(x,y,color=cluster)) +
   geom_point (alpha=0.2)+
-  # »æÖÆÍ¸Ã÷¶ÈÎª0.2 µÄÉ¢µãÍ¼
+  # ç»˜åˆ¶é€æ˜åº¦ä¸º0.2 çš„æ•£ç‚¹å›¾
   stat_ellipse(aes(x=x,y=y,fill= cluster), geom="polygon", level=0.95, alpha=0.2) +
-  #»æÖÆÍÖÔ²±ê¶¨²»Í¬Àà±ğ£¬Èç¹ûÊ¡ÂÔ¸ÃÓï¾ä£¬Ôò»æÖÆÍ¼3-1-7(c)
-  scale_color_manual(values=c("#00AFBB","#FC4E07")) +#Ê¹ÓÃ²»Í¬ÑÕÉ«±ê¶¨²»Í¬Êı¾İÀà±ğ
-  scale_fill_manual(values=c("#00AFBB","#FC4E07"))+  #Ê¹ÓÃ²»Í¬ÑÕÉ«±ê¶¨²»Í¬ÍÖÀà±ğ
+  #ç»˜åˆ¶æ¤­åœ†æ ‡å®šä¸åŒç±»åˆ«ï¼Œå¦‚æœçœç•¥è¯¥è¯­å¥ï¼Œåˆ™ç»˜åˆ¶å›¾3-1-7(c)
+  scale_color_manual(values=c("#00AFBB","#FC4E07")) +#ä½¿ç”¨ä¸åŒé¢œè‰²æ ‡å®šä¸åŒæ•°æ®ç±»åˆ«
+  scale_fill_manual(values=c("#00AFBB","#FC4E07"))+  #ä½¿ç”¨ä¸åŒé¢œè‰²æ ‡å®šä¸åŒæ¤­ç±»åˆ«
   labs(x = "Axis X",y="Axis Y")+
   theme(
     text=element_text(size=15,color="black"),
