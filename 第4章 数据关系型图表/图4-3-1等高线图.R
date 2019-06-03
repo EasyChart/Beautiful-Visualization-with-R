@@ -1,7 +1,5 @@
-
-#EasyChartsÍÅ¶Ó³öÆ·£¬ÈçÓĞÉÌÓÃ±Ø¾¿£¬
-#ÈçĞèÊ¹ÓÃÓëÉîÈëÑ§Ï°£¬ÇëÁªÏµÎ¢ĞÅ£ºEasyCharts
-
+#EasyChartså›¢é˜Ÿå‡ºå“ï¼Œ
+#å¦‚æœ‰é—®é¢˜ä¿®æ­£ä¸æ·±å…¥å­¦ä¹ ï¼Œå¯è”ç³»å¾®ä¿¡ï¼šEasyCharts
 
 library(ggplot2)
 library( directlabels)
@@ -10,7 +8,7 @@ library(RColorBrewer)
 rf <- colorRampPalette(rev(brewer.pal(11,'Spectral')))
 colormap <- colorRampPalette(rev(brewer.pal(11,'Spectral')))(32)
 
-z<-as.matrix(read.table("µÈ¸ßÏß.txt",header=TRUE))
+z<-as.matrix(read.table("ç­‰é«˜çº¿.txt",header=TRUE))
 colnames(z)<-seq(1,ncol(z),by=1)
 max_z<-max(z)
 min_z<-min(z)
@@ -19,7 +17,7 @@ map<-melt(z)
 colnames(map)<-c("Var1","Var2","value")
 head(map)
 Contour<-ggplot(map,aes(x=Var1,y=Var2,z=value))+
-          geom_tile(aes(fill=value))+#¸ù¾İ¸ß¶ÈÌî³ä
+          geom_tile(aes(fill=value))+#æ ¹æ®é«˜åº¦å¡«å……
           scale_fill_gradientn(colours=colormap)+
           geom_contour(aes(colour= ..level..),breaks=breaks_lines,color="black")+#
           labs(x="X-Axis",y="Y-Axis",fill="Z-Value")+
