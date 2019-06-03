@@ -1,12 +1,13 @@
-
+#EasyCharts团队出品，
+#如有问题修正与深入学习，可联系微信：EasyCharts
 
 library(ggplot2) 
 
-#---------------------------������ϵ������ͼ----------------------------------------------------
+#---------------------------单数剧系列柱形图----------------------------------------------------
 
 mydata<-data.frame(Cut=c("Fair","Good","Very Good","Premium","Ideal"), 
                    Price=c(4300,3800,3950,4700,3500)) 
-#���򷽷�1���������ݿ�data.frame
+#排序方法1：基于数据框data.frame
 library(dplyr)
 mydata2<-arrange(mydata,desc(Price))
 mydata$Cut <- factor(mydata$Cut, levels = mydata2$Cut)
@@ -14,14 +15,14 @@ ggplot(data=mydata,aes(Cut,Price))+
   geom_bar(stat = "identity", width = 0.8,
            colour="black",size=0.25,fill="#FC4E07",alpha=1)
 
-#���򷽷�2����������vector
+#排序方法2：基于向量vector
 order<-sort(mydata$Price,index.return=TRUE,decreasing = TRUE) 
 mydata$Cut <- factor(mydata$Cut, levels = mydata$Cut[order$ix]) 
 ggplot(data=mydata,aes(Cut,Price))+ 
   geom_bar(stat = "identity", width = 0.8,
            colour="black",size=0.25,fill="#FC4E07",alpha=1)
 
-#---------------------------˫����ϵ������ͼ----------------------------------------------------
+#---------------------------双数剧系列柱形图----------------------------------------------------
 library(reshape2)
 mydata<-read.csv("MultiColumn_Data.csv",sep=",",na.strings="NA",stringsAsFactors=FALSE)
 
@@ -41,7 +42,7 @@ ggplot(data=mydata,aes(Catergory,value,fill=variable))+
     legend.position = c(0.88,0.88)
   )
 
-#-------------------------------�ѻ�����ͼ-------------------------------------------------------
+#-------------------------------堆积柱形图-------------------------------------------------------
 mydata<-read.csv("StackedColumn_Data.csv",sep=",",na.strings="NA",stringsAsFactors=FALSE)
 
 sum<-sort(rowSums(mydata[,2:ncol(mydata)]),index.return=TRUE)
@@ -64,7 +65,7 @@ ggplot(data=mydata,aes(variable,value,fill=Clarity))+
     legend.position = c(0.85,0.82)
   )
 
-#------------------------------�ٷֱȶѻ�����ͼ-------------------------------------------------------
+#------------------------------百分比堆积柱形图-------------------------------------------------------
 
 mydata<-read.csv("StackedColumn_Data.csv",sep=",",na.strings="NA",stringsAsFactors=FALSE)
 Per<-(as.matrix(mydata[5,2:ncol(mydata)])) / t(as.matrix(colSums(mydata[,2:ncol(mydata)]))) 
