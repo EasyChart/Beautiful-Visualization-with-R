@@ -1,11 +1,11 @@
 
-#EasyChartsÍÅ¶Ó³öÆ·£¬ÈçÓĞÉÌÓÃ±Ø¾¿£¬
-#ÈçĞèÊ¹ÓÃÓëÉîÈëÑ§Ï°£¬ÇëÁªÏµÎ¢ĞÅ£ºEasyCharts
+#EasyChartså›¢é˜Ÿå‡ºå“ï¼Œ
+#å¦‚æœ‰é—®é¢˜ä¿®æ­£ä¸æ·±å…¥å­¦ä¹ ï¼Œå¯è”ç³»å¾®ä¿¡ï¼šEasyCharts
 
 library(ggplot2)       
 library(RColorBrewer)
 
-#---------------------------µ¥Êı¾çÏµÁĞÌõĞÎÍ¼----------------------------------------------------
+#---------------------------å•æ•°å‰§ç³»åˆ—æ¡å½¢å›¾----------------------------------------------------
 mydata<-read.csv("Stackedbar_Data.csv",sep=",",na.strings="NA",stringsAsFactors=FALSE)
 
 mydata$Country <- factor(mydata$Country, levels = mydata$Country[order(mydata$Pensions)])
@@ -22,7 +22,7 @@ ggplot(data=mydata,aes(Country,Pensions))+
     legend.position = "right"# c(0.83,0.15)
   )
 
-#---------------------------Ë«Êı¾çÏµÁĞÌõĞÎÍ¼----------------------------------------------------
+#---------------------------åŒæ•°å‰§ç³»åˆ—æ¡å½¢å›¾----------------------------------------------------
 library(reshape)
 mydata<-read.csv("Stackedbar_Data.csv",sep=",",na.strings="NA",stringsAsFactors=FALSE)
 
@@ -44,7 +44,7 @@ ggplot(data=mydata,aes(Country,value,fill=variable))+
   )
 
 
-#-------------------------------¶Ñ»ıÌõĞÎÍ¼-------------------------------------------------------
+#-------------------------------å †ç§¯æ¡å½¢å›¾-------------------------------------------------------
 mydata<-read.csv("Stackedbar_Data.csv",sep=",",na.strings="NA",stringsAsFactors=FALSE)
 
 
@@ -66,7 +66,7 @@ ggplot(data=mydata,aes(Country,value,fill=variable))+
     legend.position = "right"# c(0.83,0.15)
   )
 
-#------------------------------°Ù·Ö±È¶Ñ»ıÖùĞÎÍ¼-------------------------------------------------------
+#------------------------------ç™¾åˆ†æ¯”å †ç§¯æŸ±å½¢å›¾-------------------------------------------------------
 mydata<-read.csv("Stackedbar_Data.csv",sep=",",na.strings="NA",stringsAsFactors=FALSE)
 
 sum<-sort(rowSums(mydata[,2:ncol(mydata)]),index.return=TRUE)
