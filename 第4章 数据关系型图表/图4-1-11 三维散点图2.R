@@ -1,4 +1,7 @@
 
+#EasyCharts团队出品，
+#如有问题修正与深入学习，可联系微信：EasyCharts
+
 library(plot3D)
 library(scales)
 library(RColorBrewer)
@@ -108,7 +111,7 @@ legend("right",title =  "Weight",legend=breaks,pch=21,
        pt.bg = legend_prc,bg="white",bty="n")
 
 
-#-----------------------------------������ϵ��--------------------------------
+#-----------------------------------¶àÊý¾ÝÏµÁÐ--------------------------------
 library(wesanderson)
 pmar <- par(mar = c(5.1, 4.1, 4.1, 7.1))
 colors0 <-  wes_palette(n=3, name="Darjeeling1")
