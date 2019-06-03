@@ -1,3 +1,6 @@
+#EasyCharts团队出品，
+#如有问题修正与深入学习，可联系微信：EasyCharts
+
 library(plot3D)
 
 library(RColorBrewer)
@@ -5,8 +8,6 @@ library(RColorBrewer)
 mydata0<-read.csv("Facting_Data.csv",check.names =FALSE)
 
 N<-ncol(mydata0)-1
-
-#colnames(mydata0)<-c("X_Axis",seq(60,25,-5))
 
 mydata<-data.frame(x=numeric(),y=numeric(),variable=character())
 
