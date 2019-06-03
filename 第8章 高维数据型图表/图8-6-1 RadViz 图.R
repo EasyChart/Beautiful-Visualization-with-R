@@ -1,9 +1,9 @@
+#EasyChartså›¢é˜Ÿå‡ºå“ï¼Œ
+#å¦‚æœ‰é—®é¢˜ä¿®æ­£ä¸æ·±å…¥å­¦ä¹ ï¼Œå¯è”ç³»å¾®ä¿¡ï¼šEasyCharts
 
-#EasyChartsÍÅ¶Ó³öÆ·£¬ÈçÓĞÉÌÓÃ±Ø¾¿£¬
-#ÈçĞèÊ¹ÓÃÓëÉîÈëÑ§Ï°£¬ÇëÁªÏµÎ¢ĞÅ£ºEasyCharts
+#Reference: https://cran.r-project.org/web/packages/Radviz/vignettes/single_cell_projections.html
 
-
-#--------------------------Í¼7-6-1 RadvizÍ¼ (b)¶àÊı¾İÏµÁĞ----------------------------------
+#--------------------------å›¾7-6-1 Radvizå›¾ (b)å¤šæ•°æ®ç³»åˆ—----------------------------------
 library(ggplot2)
 library(wesanderson)
 library(Radviz)
@@ -44,18 +44,18 @@ legend( "bottomright",
 
 p
 
-#--------------------------Í¼7-6-1 RadvizÍ¼ (a)¸ßÃÜ¶Èµ¥Êı¾İÏµÁĞ----------------------------------
+#--------------------------å›¾7-6-1 Radvizå›¾ (a)é«˜å¯†åº¦å•æ•°æ®ç³»åˆ—----------------------------------
 library(bodenmiller)
 data(refPhenoMat)
 data(refFuncMat)
 refMat <- cbind(refPhenoMat,refFuncMat)
 norm <- apply(refMat,2,do.L,fun=function(x) quantile(x,c(0.025,0.975)))
 ct.S <- make.S(dimnames(refPhenoMat)[[2]])
-## compute the similarity matrix
+## è®¡ç®—ç›¸å…³ç³»æ•°çŸ©é˜µ
 ct.sim <- cosine(norm)
-## the current radviz-independent measure of projection efficiency
+## radviz-independentæŠ•å½±æ•ˆç‡æµ‹é‡æ–¹æ³• 
 in.da(ct.S,ct.sim)
-## the current radviz-independent measure of projection efficiency
+## radviz-independentæŠ•å½±æ•ˆç‡æµ‹é‡æ–¹æ³• 
 rv.da(ct.S,ct.sim)
 ct.rv <- do.radviz(norm,ct.S)
 
