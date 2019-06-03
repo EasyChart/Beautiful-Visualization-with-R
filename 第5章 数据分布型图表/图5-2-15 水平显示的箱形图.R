@@ -1,6 +1,5 @@
-
-#EasyChartsÍÅ¶Ó³öÆ·£¬ÈçÓĞÉÌÓÃ±Ø¾¿£¬
-#ÈçĞèÊ¹ÓÃÓëÉîÈëÑ§Ï°£¬ÇëÁªÏµÎ¢ĞÅ£ºEasyCharts
+#EasyChartså›¢é˜Ÿå‡ºå“ï¼Œ
+#å¦‚æœ‰é—®é¢˜ä¿®æ­£ä¸æ·±å…¥å­¦ä¹ ï¼Œå¯è”ç³»å¾®ä¿¡ï¼šEasyCharts
 
 library(ggplot2)
 library(RColorBrewer)
@@ -13,7 +12,7 @@ data <- data.frame(BAI2013 = rnorm(300), class = rep(letters[1:3], 100),
                    treatment = rep(c("elevated","ambient"),150))
 data<-transform(data,dist_cat_n=as.numeric(class), scat_adj=ifelse(treatment == "ambient",-0.2,0.2))
 
-#--------------------------------------------------Í¼5-2-13 Ë®Æ½ÏÔÊ¾µÄÏäĞÍÍ¼(a)-----------------------------------------------
+#--------------------------------------------------å›¾5-2-13 æ°´å¹³æ˜¾ç¤ºçš„ç®±å‹å›¾(a)-----------------------------------------------
 ggplot(data, aes(class,BAI2013))+
   geom_boxplot(aes(fill=factor(treatment)),
                size=0.5,outlier.size = 1,
@@ -29,7 +28,7 @@ ggplot(data, aes(class,BAI2013))+
         legend.background=element_rect(colour=NA,fill=NA),
         axis.ticks=element_line(colour="black"))
 
-#----------------------------------------------------Í¼5-2-13 Ë®Æ½ÏÔÊ¾µÄÏäĞÍÍ¼(b)-----------------------------------------------
+#----------------------------------------------------å›¾5-2-13 æ°´å¹³æ˜¾ç¤ºçš„ç®±å‹å›¾(b)-----------------------------------------------
 ggplot(data, aes(BAI2013,class))+
   geom_boxploth(aes(fill=factor(treatment)),
                size=0.5,outlier.size = 1,
