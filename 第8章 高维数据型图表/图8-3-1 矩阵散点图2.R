@@ -1,7 +1,6 @@
+#EasyChartså›¢é˜Ÿå‡ºå“ï¼Œ
+#å¦‚æœ‰é—®é¢˜ä¿®æ­£ä¸æ·±å…¥å­¦ä¹ ï¼Œå¯è”ç³»å¾®ä¿¡ï¼šEasyCharts
 
-
-#EasyChartsÍÅ¶Ó³öÆ·£¬ÈçÓĞÉÌÓÃ±Ø¾¿£¬
-#ÈçĞèÊ¹ÓÃÓëÉîÈëÑ§Ï°£¬ÇëÁªÏµÎ¢ĞÅ£ºEasyCharts
 library(graphics)
 
 library(psych)
@@ -29,7 +28,7 @@ pairs(iris[1:4], main = "Anderson's Iris Data -- 3 species",
       pch = 21, bg = c("red", "green3", "blue")[unclass(iris$Species)])
 
 
-#Ïà¹ØÏµÊıÇóÈ¡
+#ç›¸å…³ç³»æ•°æ±‚å–
 df<-iris[, 1:4]
 r <- round(cor(df, df), digits=2)
 txt <- paste0("R = ", r)
