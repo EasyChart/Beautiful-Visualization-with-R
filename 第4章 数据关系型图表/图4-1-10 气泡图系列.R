@@ -1,13 +1,13 @@
 
-#EasyChartsÍÅ¶Ó³öÆ·£¬ÈçÓĞÉÌÓÃ±Ø¾¿£¬
-#ÈçĞèÊ¹ÓÃÓëÉîÈëÑ§Ï°£¬ÇëÁªÏµÎ¢ĞÅ£ºEasyCharts
+#EasyChartså›¢é˜Ÿå‡ºå“ï¼Œ
+#å¦‚æœ‰é—®é¢˜ä¿®æ­£ä¸æ·±å…¥å­¦ä¹ ï¼Œå¯è”ç³»å¾®ä¿¡ï¼šEasyCharts
 
 library(ggplot2)
 library(RColorBrewer)
 library(ggrepel)
 attach(mtcars)
 
- #-------------------------------(c) ´øÊı¾İ±êÇ©µÄÆøÅİÍ¼-------------------------------------------------------------
+ #-------------------------------(c) å¸¦æ•°æ®æ ‡ç­¾çš„æ°”æ³¡å›¾-------------------------------------------------------------
 
  ggplot(data=mtcars, aes(x=wt,y=mpg))+
    geom_point(aes(size=disp,fill=disp),shape=21,colour="black",alpha=0.8)+
@@ -24,7 +24,7 @@ attach(mtcars)
    )
 
 
-#--------------------------(d) ·½¿é×´µÄÆøÅİÍ¼--------------------------------------------------
+#--------------------------(d) æ–¹å—çŠ¶çš„æ°”æ³¡å›¾--------------------------------------------------
 ggplot(mtcars, aes(wt,mpg))+
   geom_point(aes(size=disp,fill=disp),shape=22,colour="black",alpha=0.8)+
   scale_fill_gradient2(low=brewer.pal(7,"Set1")[2],high=brewer.pal(7,"Set1")[1],
