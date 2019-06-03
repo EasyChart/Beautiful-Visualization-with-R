@@ -1,13 +1,11 @@
-
-#EasyChartsÍÅ¶Ó³öÆ·£¬ÈçÓĞÉÌÓÃ±Ø¾¿£¬
-#ÈçĞèÊ¹ÓÃÓëÉîÈëÑ§Ï°£¬ÇëÁªÏµÎ¢ĞÅ£ºEasyCharts
-
+#EasyChartså›¢é˜Ÿå‡ºå“ï¼Œ
+#å¦‚æœ‰é—®é¢˜ä¿®æ­£ä¸æ·±å…¥å­¦ä¹ ï¼Œå¯è”ç³»å¾®ä¿¡ï¼šEasyCharts
 
 library(ggplot2)
 library(RColorBrewer)  
 library(reshape2)
 
-#-----------------------------------Í¼4-7-2 ĞĞ·ÖÃæµÄ´øÌî³äµÄÇúÏßÍ¼(a)-------------------------------------------
+#-----------------------------------å›¾4-7-2 è¡Œåˆ†é¢çš„å¸¦å¡«å……çš„æ›²çº¿å›¾(a)-------------------------------------------
 mydata0<-read.csv("Facting_Data.csv",stringsAsFactors=FALSE)
 
 colnames(mydata0)<-c("X_Axis",seq(60,25,-5))
@@ -23,7 +21,7 @@ ggplot(mydata,aes(X_Axis,value,fill=variable))+
     legend.position="none"
   )
 
-#-----------------------------------Í¼4-7-2 ĞĞ·ÖÃæµÄ´øÌî³äµÄÇúÏßÍ¼(b)-------------------------------------------
+#-----------------------------------å›¾4-7-2 è¡Œåˆ†é¢çš„å¸¦å¡«å……çš„æ›²çº¿å›¾(b)-------------------------------------------
 library(RColorBrewer)
 colormap <- colorRampPalette(rev(brewer.pal(11,'Spectral')))(32)
 mydata0<-read.csv("Facting_Data.csv",stringsAsFactors=FALSE)
