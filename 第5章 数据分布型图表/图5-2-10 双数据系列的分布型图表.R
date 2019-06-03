@@ -1,17 +1,15 @@
-
-#EasyChartsÍÅ¶Ó³öÆ·£¬ÈçÓĞÉÌÓÃ±Ø¾¿£¬
-#ÈçĞèÊ¹ÓÃÓëÉîÈëÑ§Ï°£¬ÇëÁªÏµÎ¢ĞÅ£ºEasyCharts
-
+#EasyChartså›¢é˜Ÿå‡ºå“ï¼Œ
+#å¦‚æœ‰é—®é¢˜ä¿®æ­£ä¸æ·±å…¥å­¦ä¹ ï¼Œå¯è”ç³»å¾®ä¿¡ï¼šEasyCharts
 
 library(ggplot2)
-#-------------------------------------------------(a)ºÍ(b) ¶àÊı¾İÏµÁĞµÄÏäĞÍÍ¼--------------------------------------------------------
+#-------------------------------------------------(a)å’Œ(b) å¤šæ•°æ®ç³»åˆ—çš„ç®±å‹å›¾--------------------------------------------------------
 set.seed(141079)
 data <- data.frame(BAI2013 = rnorm(300),
                  class = rep(letters[1:3], 100),
                  treatment = rep(c("elevated","ambient"),150)) 
 
 
-#(a)¶àÊı¾İÏµÁĞµÄÏäĞÍÍ¼
+#(a)å¤šæ•°æ®ç³»åˆ—çš„ç®±å‹å›¾
 ggplot(data, aes(x = class, y = BAI2013))+
   geom_boxplot(outlier.size = 1, aes(fill=factor(treatment)),
                position = position_dodge(0.8),size=0.5) +  
@@ -25,7 +23,7 @@ ggplot(data, aes(x = class, y = BAI2013))+
         legend.background=element_rect(colour=NA,fill=NA),
         axis.ticks=element_line(colour="black"))
 
-#(b) ´ø¶¶¶¯É¢µãµÄ¶àÊı¾İÏµÁĞÏäĞÍÍ¼
+#(b) å¸¦æŠ–åŠ¨æ•£ç‚¹çš„å¤šæ•°æ®ç³»åˆ—ç®±å‹å›¾
 
 
 data<-transform(data,dist_cat_n=as.numeric(class),
@@ -49,7 +47,7 @@ ggplot(data, aes(x =class, y = BAI2013))+
         axis.ticks=element_line(colour="black"))
 
 
-#-------------------------------------------------(c)¶àÊı¾İÏµÁĞµÄĞ¡ÌáÇÙÍ¼SplitViolin------------------------------------------------
+#-------------------------------------------------(c)å¤šæ•°æ®ç³»åˆ—çš„å°æç´å›¾SplitViolin------------------------------------------------
 #Reference:    
 # https://stackoverflow.com/a/45614547
 # https://gist.github.com/Karel-Kroeze/746685f5613e01ba820a31e57f87ec87
@@ -119,7 +117,7 @@ ggplot(data, aes(x = class, y = BAI2013,fill=factor(treatment)))+
         legend.background=element_rect(colour=NA,fill=NA),
         axis.ticks=element_line(colour="black"))
 
-#----------------------------------------------------(d)  ¶àÊı¾İÏµÁĞµÄ¶¹×´Í¼-----------------------------
+#----------------------------------------------------(d)  å¤šæ•°æ®ç³»åˆ—çš„è±†çŠ¶å›¾-----------------------------
 library(beanplot)
 par(mai=c(0.5,0.5,0.25,1.2))
 beanplot(BAI2013 ~treatment*class, data,col = list("#FF6B5E", "#00C3C2"),
