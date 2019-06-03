@@ -1,6 +1,5 @@
-
-#EasyChartsÍÅ¶Ó³öÆ·£¬ÈçÓĞÉÌÓÃ±Ø¾¿£¬
-#ÈçĞèÊ¹ÓÃÓëÉîÈëÑ§Ï°£¬ÇëÁªÏµÎ¢ĞÅ£ºEasyCharts
+#EasyChartså›¢é˜Ÿå‡ºå“ï¼Œ
+#å¦‚æœ‰é—®é¢˜ä¿®æ­£ä¸æ·±å…¥å­¦ä¹ ï¼Œå¯è”ç³»å¾®ä¿¡ï¼šEasyCharts
 
 library(Rtsne) # Load package
 library(ggplot2)
