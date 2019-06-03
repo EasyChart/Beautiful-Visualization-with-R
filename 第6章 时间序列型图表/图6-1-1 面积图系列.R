@@ -1,13 +1,12 @@
-
-#EasyChartsÍÅ¶Ó³öÆ·£¬ÈçÓĞÉÌÓÃ±Ø¾¿£¬
-#ÈçĞèÊ¹ÓÃÓëÉîÈëÑ§Ï°£¬ÇëÁªÏµÎ¢ĞÅ£ºEasyCharts
+#EasyChartså›¢é˜Ÿå‡ºå“ï¼Œ
+#å¦‚æœ‰é—®é¢˜ä¿®æ­£ä¸æ·±å…¥å­¦ä¹ ï¼Œå¯è”ç³»å¾®ä¿¡ï¼šEasyCharts
 
 library(ggplot2)
 library(RColorBrewer)
 library(reshape2)
 
 
-#-------------------------Í¼6-1-1 ¶àÊı¾İÏµÁĞÍ¼. (a)ÕÛÏßÍ¼-------------------------
+#-------------------------å›¾6-1-1 å¤šæ•°æ®ç³»åˆ—å›¾. (a)æŠ˜çº¿å›¾-------------------------
 mydata<-read.csv("Line_Data.csv",stringsAsFactors=FALSE) 
 mydata$date<-as.Date(mydata$date)
 
@@ -23,7 +22,7 @@ ggplot(mydata, aes(x =date, y = value,color=variable) )+
          legend.position = c(0.15,0.8),
          legend.background = element_blank()) 
 
-#-------------------------Í¼6-1-1 ¶àÊı¾İÏµÁĞÍ¼.(b)Ãæ»ıÍ¼.-------------------------
+#-------------------------å›¾6-1-1 å¤šæ•°æ®ç³»åˆ—å›¾.(b)é¢ç§¯å›¾.-------------------------
 ggplot(mydata, aes(x =date, y = value,group=variable) )+
   geom_area(aes(fill=variable),alpha=0.5,position="identity")+ 
   geom_line(aes(color=variable),size=0.75)+#color="black",
@@ -36,7 +35,7 @@ ggplot(mydata, aes(x =date, y = value,group=variable) )+
          legend.background = element_blank()) 
 
 
-#--------------------------------------Í¼6-1-2 Ìî³äÃæ»ıÕÛÏßÍ¼. (a)´¿É«Ìî³ä-------------------
+#--------------------------------------å›¾6-1-2 å¡«å……é¢ç§¯æŠ˜çº¿å›¾. (a)çº¯è‰²å¡«å……-------------------
 mydata<-read.csv("Area_Data.csv",stringsAsFactors=FALSE) 
 mydata$date<-as.Date(mydata$date)
 ggplot(mydata, aes(x =date, y = value) )+
@@ -49,7 +48,7 @@ ggplot(mydata, aes(x =date, y = value) )+
          axis.text = element_text(size=10,face="plain",color="black")) 
 
 
-#------------------------Í¼6-1-2 Ìî³äÃæ»ıÕÛÏßÍ¼.(b)ÑÕÉ«Ó³ÉäÌî³ä.------------------------
+#------------------------å›¾6-1-2 å¡«å……é¢ç§¯æŠ˜çº¿å›¾.(b)é¢œè‰²æ˜ å°„å¡«å…….------------------------
 
 x<-as.numeric(mydata$date)
 newdata<-data.frame(spline(x,mydata$value,n=1000,method= "natural"))
@@ -67,7 +66,7 @@ ggplot(newdata, aes(x =date, y = y) )+ #geom_area(fill="#FF6B5E",alpha=0.75)
          legend.position = c(0.12,0.75),
          legend.background = element_blank() )
 
-#------------------------Í¼6-1-3 ¼Ğ²ãÌî³äÃæ»ıÍ¼. (a)µ¥É«------------------------------
+#------------------------å›¾6-1-3 å¤¹å±‚å¡«å……é¢ç§¯å›¾. (a)å•è‰²------------------------------
 
 mydata<-read.csv("Line_Data.csv",stringsAsFactors=FALSE) 
 mydata$date<-as.Date(mydata$date)
@@ -93,7 +92,7 @@ ggplot(mydata1, aes(x =date))+
          legend.position = c(0.15,0.8),
          legend.background = element_blank()) 
 
-#------------------------Í¼6-1-3 ¼Ğ²ãÌî³äÃæ»ıÍ¼.  (b)¶àÉ«------------------------------
+#------------------------å›¾6-1-3 å¤¹å±‚å¡«å……é¢ç§¯å›¾.  (b)å¤šè‰²------------------------------
 mydata1$ymin<-apply(mydata1[,c(2,3)], 1, min)
 mydata1$ymax<-apply(mydata1[,c(2,3)], 1, max)
 
@@ -127,7 +126,7 @@ ggplot(mydata1, aes(x =date))+
          legend.position = c(0.15,0.8),
          legend.background = element_blank()) 
 
-#--------------------------------Í¼6-1-3 ¼Ğ²ãÌî³äÃæ»ıÍ¼.(c)ÑÕÉ«Ó³ÉäÌî³ä.------------------------------------------
+#--------------------------------å›¾6-1-3 å¤¹å±‚å¡«å……é¢ç§¯å›¾.(c)é¢œè‰²æ˜ å°„å¡«å…….------------------------------------------
 library(ggridges)
 ggplot(mydata1, aes(x=date)) +
   geom_ridgeline_gradient( aes(y=ymin, height = ymax-ymin,  fill = ymax-ymin)) +
