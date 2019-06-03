@@ -1,10 +1,9 @@
 
-#EasyCharts团队出品，如有商用必究，
-#如需使用与深入学习，请联系微信：EasyCharts
-
+#EasyCharts鍥㈤槦鍑哄搧锛屽鏈夊晢鐢ㄥ繀绌讹紝
+#濡傞渶浣跨敤涓庢繁鍏ュ涔狅紝璇疯仈绯诲井淇★細EasyCharts
 
 library(ggplot2)
-library(data.table) #提供data.table()函数
+library(data.table) #鎻愪緵data.table()鍑芥暟
 library(ggTimeSeries)
 library(RColorBrewer)
 set.seed(1234)
@@ -15,9 +14,9 @@ dat <- data.table(
 dat[, ValueCol := ValueCol + (strftime(date,"%u") %in% c(6,7) * runif(1) * 0.75), .I]
 dat[, ValueCol := ValueCol + (abs(as.numeric(strftime(date,"%m")) - 6.5)) * runif(1) * 0.75, .I]
 
-dat$Year<- as.integer(strftime(dat$date, '%Y'))   #年份
-dat$month <- as.integer(strftime(dat$date, '%m')) #月份
-dat$week<- as.integer(strftime(dat$date, '%W'))   #周数
+dat$Year<- as.integer(strftime(dat$date, '%Y'))   #骞翠唤
+dat$month <- as.integer(strftime(dat$date, '%m')) #鏈堜唤
+dat$week<- as.integer(strftime(dat$date, '%W'))   #鍛ㄦ暟
 
 MonthLabels <- dat[,list(meanWkofYr = mean(week)), by = c('month') ]
 MonthLabels$month <-month.abb[MonthLabels$month]
@@ -42,19 +41,17 @@ ggplot(data=dat,aes(date=date,fill=ValueCol))+
 library(dplyr)
 dat17 <- filter(dat,Year==2017)[,c(1,2)]
 
-dat17$month <- as.integer(strftime(dat17$date, '%m'))  #月份
+dat17$month <- as.integer(strftime(dat17$date, '%m'))  #鏈堜唤
 dat17$monthf<-factor(dat17$month,levels=as.character(1:12),
                      labels=c("Jan","Feb","Mar","Apr","May","Jun","Jul","Aug","Sep","Oct","Nov","Dec"),ordered=TRUE)
-dat17$weekday<-as.integer(strftime(dat17$date, '%u'))#周数
+dat17$weekday<-as.integer(strftime(dat17$date, '%u'))#鍛ㄦ暟
 dat17$weekdayf<-factor(dat17$weekday,levels=(1:7),
                        labels=(c("Mon","Tue","Wed","Thu","Fri","Sat","Sun")),ordered=TRUE)
-dat17$yearmonth<- strftime(dat17$date, '%m%Y')   #月份
+dat17$yearmonth<- strftime(dat17$date, '%m%Y')   #鏈堜唤
 dat17$yearmonthf<-factor(dat17$yearmonth)
-dat17$week<- as.integer(strftime(dat17$date, '%W'))#周数
+dat17$week<- as.integer(strftime(dat17$date, '%W'))#鍛ㄦ暟
 
 dat17<-dat17 %>% group_by(monthf)%>%mutate(monthweek=1+week-min(week))
-  
-#dat17<-ddply(dat17,.(monthf),transform,monthweek=1+week-min(week)) #library(plyr)
 
 dat17$day<-strftime(dat17$date, "%d")
 
