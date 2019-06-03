@@ -1,11 +1,11 @@
 
-#EasyChartsÍÅ¶Ó³öÆ·£¬ÈçÓĞÉÌÓÃ±Ø¾¿£¬
-#ÈçĞèÊ¹ÓÃÓëÉîÈëÑ§Ï°£¬ÇëÁªÏµÎ¢ĞÅ£ºEasyCharts
+#EasyChartså›¢é˜Ÿå‡ºå“ï¼Œ
+#å¦‚æœ‰é—®é¢˜ä¿®æ­£ä¸æ·±å…¥å­¦ä¹ ï¼Œå¯è”ç³»å¾®ä¿¡ï¼šEasyCharts
 
 library(ggplot2)
 library(scales)
 library(reshape)
-#--------------------------------------(a)Á½Äê·İ¶Ô±È---------------------------------------------------------------
+#--------------------------------------(a)ä¸¤å¹´ä»½å¯¹æ¯”---------------------------------------------------------------
 
 df <- read.csv("Slopecharts_Data1.csv")
 colnames(df) <- c("continent", "1952", "1957")
@@ -14,15 +14,15 @@ right_label <- paste(df$continent, round(df$`1957`),sep=", ")
 df$class <- ifelse((df$`1957` - df$`1952`) < 0, "red", "green")
 
 p <- ggplot(df) + 
-  geom_segment(aes(x=1, xend=2, y=`1952`, yend=`1957`, col=class), size=.75, show.legend=F) +  #Á¬½ÓÏß
-  geom_vline(xintercept=1, linetype="solid", size=.1) + # 1952ÄêµÄ´¹Ö±Ö±Ïß
-  geom_vline(xintercept=2, linetype="solid", size=.1) + # 1957ÄêµÄ´¹Ö±Ö±Ïß
-  geom_point(aes(x=1, y=`1952`), size=3,shape=21,fill="grey80",color="black") + # 1952ÄêµÄÊı¾İµã
-  geom_point(aes(x=2, y=`1957`), size=3,shape=21,fill="grey80",color="black") + # 1957ÄêµÄÊı¾İµã
+  geom_segment(aes(x=1, xend=2, y=`1952`, yend=`1957`, col=class), size=.75, show.legend=F) +  #è¿æ¥çº¿
+  geom_vline(xintercept=1, linetype="solid", size=.1) + # 1952å¹´çš„å‚ç›´ç›´çº¿
+  geom_vline(xintercept=2, linetype="solid", size=.1) + # 1957å¹´çš„å‚ç›´ç›´çº¿
+  geom_point(aes(x=1, y=`1952`), size=3,shape=21,fill="grey80",color="black") + # 1952å¹´çš„æ•°æ®ç‚¹
+  geom_point(aes(x=2, y=`1957`), size=3,shape=21,fill="grey80",color="black") + # 1957å¹´çš„æ•°æ®ç‚¹
   scale_color_manual(labels = c("Up", "Down"), values = c("green"="#A6D854","red"="#FC4E07")) +  
   xlim(.5, 2.5) 
 
-# Ìí¼ÓÎÄ±¾ĞÅÏ¢
+# æ·»åŠ æ–‡æœ¬ä¿¡æ¯
 p <- p + geom_text(label=left_label, y=df$`1952`, x=rep(1, NROW(df)), hjust=1.1, size=3.5)
 p <- p + geom_text(label=right_label, y=df$`1957`, x=rep(2, NROW(df)), hjust=-0.1, size=3.5)
 p <- p + geom_text(label="1952", x=1, y=1.02*(max(df$`1952`, df$`1957`)), hjust=1.2, size=5)   
@@ -31,7 +31,7 @@ p <- p + geom_text(label="1957", x=2, y=1.02*(max(df$`1952`, df$`1957`)), hjust=
 p<-p+theme_void()
 p
 
-#-------------------------------------(b)¶àÄê·İ¶Ô±È---------------------------------------------------------------------------------
+#-------------------------------------(b)å¤šå¹´ä»½å¯¹æ¯”---------------------------------------------------------------------------------
 library(ggalt)
 
 df <- read.csv("Slopecharts_Data2.csv")
