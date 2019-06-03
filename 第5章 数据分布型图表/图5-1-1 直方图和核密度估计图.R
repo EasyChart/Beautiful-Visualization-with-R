@@ -1,12 +1,11 @@
-
-#EasyChartsÍÅ¶Ó³öÆ·£¬ÈçÓĞÉÌÓÃ±Ø¾¿£¬
-#ÈçĞèÊ¹ÓÃÓëÉîÈëÑ§Ï°£¬ÇëÁªÏµÎ¢ĞÅ£ºEasyCharts
+#EasyChartså›¢é˜Ÿå‡ºå“ï¼Œ
+#å¦‚æœ‰é—®é¢˜ä¿®æ­£ä¸æ·±å…¥å­¦ä¹ ï¼Œå¯è”ç³»å¾®ä¿¡ï¼šEasyCharts
 
 library(ggplot2)  
 
 df<-read.csv("Hist_Density_Data.csv",stringsAsFactors=FALSE) 
 
-#--------------------------------------------(a2) ¶àÊı¾çÏµÁĞÖ±·½Í¼-----------------------------------
+#--------------------------------------------(a2) å¤šæ•°å‰§ç³»åˆ—ç›´æ–¹å›¾-----------------------------------
 
 ggplot(df, aes(x=MXSPD, fill=Location))+  
   geom_histogram(binwidth = 1,alpha=0.55,colour="black",size=0.25)+#, aes(fill = ..count..) )
@@ -17,7 +16,7 @@ ggplot(df, aes(x=MXSPD, fill=Location))+
     legend.background = element_blank()
   )
 
-#----------------------------------------(b2)¶àÊı¾çÏµÁĞºËÃÜ¶È¹À¼ÆÍ¼----------------------------------
+#----------------------------------------(b2)å¤šæ•°å‰§ç³»åˆ—æ ¸å¯†åº¦ä¼°è®¡å›¾----------------------------------
 ggplot(df, aes(x=MXSPD,  fill=Location))+ 
   geom_density(alpha=0.55,bw=1,colour="black",size=0.25)+
   theme(
