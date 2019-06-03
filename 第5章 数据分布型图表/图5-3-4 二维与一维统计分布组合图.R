@@ -1,14 +1,13 @@
-# ¶ÁÈëÊı¾İºÍ¼ÓÔØ°ü
-#data <-read.csv('d:\\data.csv',T)
+#EasyChartså›¢é˜Ÿå‡ºå“ï¼Œ
+#å¦‚æœ‰é—®é¢˜ä¿®æ­£ä¸æ·±å…¥å­¦ä¹ ï¼Œå¯è”ç³»å¾®ä¿¡ï¼šEasyCharts
+
 library(ggplot2)
 library(ellipse)
 library(gridExtra)
 library(plyr)
-#library(ReadImages)
-
 library(RColorBrewer)
-Colormap <- colorRampPalette(rev(brewer.pal(11,'Spectral')))(32)
 
+Colormap <- colorRampPalette(rev(brewer.pal(11,'Spectral')))(32)
 
 N<-300
 x1 <- rnorm(mean=1.5, N)
@@ -19,8 +18,8 @@ y2 <- rnorm(mean=2.2, N)
 data <- data.frame(x=c(x1,x2),y=c(y1,y2))
 
 
-#-------------------------¶şÎ¬Ö±·½Í¼+Ò»Î¬Ö±·½Í¼------------------------------------------------------------
-# »æÖÆÉÏ±ßµÄÖ±·½Í¼£¬²¢½«¸÷ÖÖ±ê×¢È¥³ı
+#-------------------------äºŒç»´ç›´æ–¹å›¾+ä¸€ç»´ç›´æ–¹å›¾------------------------------------------------------------
+# ç»˜åˆ¶ä¸Šè¾¹çš„ç›´æ–¹å›¾ï¼Œå¹¶å°†å„ç§æ ‡æ³¨å»é™¤
 hist_top <- ggplot()+
   geom_histogram(aes(data$x),colour='black',fill='#5E4FA2',binwidth = 0.3)+
   theme(panel.background=element_blank(),
@@ -30,7 +29,7 @@ hist_top <- ggplot()+
         axis.text.y=element_blank(),
         axis.ticks=element_blank(),
         axis.line=element_blank())
-# Í¬Ñù»æÖÆÓÒ±ßµÄÖ±·½Í¼
+# åŒæ ·ç»˜åˆ¶å³è¾¹çš„ç›´æ–¹å›¾
 hist_right <- ggplot()+
   geom_histogram(aes(data$y),colour='black',fill='#5E4FA2',binwidth = 0.3)+
   theme(panel.background=element_blank(),
@@ -59,15 +58,15 @@ scatter<-ggplot(data, aes(x,y)) +
         legend.position=c(0.10,0.80),
         legend.background=element_blank()
   )
-# ×îÖÕµÄ×éºÏ
+# æœ€ç»ˆçš„ç»„åˆ
 grid.arrange(hist_top, empty, scatter, hist_right, ncol=2, nrow=2, widths=c(4,1), heights=c(1,4))
 
-#----------------------------¶şÎ¬ºËÃÜ¶È¹À¼ÆÍ¼+Ò»Î¬ºËÃÜ¶È¹À¼ÆÍ¼--------------------------
-# »æÖÆÉÏ±ßµÄÖ±·½Í¼£¬²¢½«¸÷ÖÖ±ê×¢È¥³ı
+#----------------------------äºŒç»´æ ¸å¯†åº¦ä¼°è®¡å›¾+ä¸€ç»´æ ¸å¯†åº¦ä¼°è®¡å›¾--------------------------
+# ç»˜åˆ¶ä¸Šè¾¹çš„ç›´æ–¹å›¾ï¼Œå¹¶å°†å„ç§æ ‡æ³¨å»é™¤
 hist_top <- ggplot(data, aes(x)) +
   geom_density(colour="black",fill='#5E4FA2',size=0.25)+
   theme_void()
-# Í¬Ñù»æÖÆÓÒ±ßµÄÖ±·½Í¼
+# åŒæ ·ç»˜åˆ¶å³è¾¹çš„ç›´æ–¹å›¾
 hist_right <- ggplot(data, aes(y)) +
   geom_density(colour="black",fill='#5E4FA2',size=0.25)+
   theme_void()+
@@ -89,5 +88,5 @@ scatter<-ggplot(data, aes(x, y)) +
         legend.position=c(0.9,0.22),
         legend.background=element_blank()
   )
-# ×îÖÕµÄ×éºÏ
+# æœ€ç»ˆçš„ç»„åˆ
 grid.arrange(hist_top, empty, scatter, hist_right, ncol=2, nrow=2, widths=c(4,1), heights=c(1,4))
