@@ -1,8 +1,5 @@
-
-
-#EasyChartsÍÅ¶Ó³öÆ·£¬ÈçÓĞÉÌÓÃ±Ø¾¿£¬
-#ÈçĞèÊ¹ÓÃÓëÉîÈëÑ§Ï°£¬ÇëÁªÏµÎ¢ĞÅ£ºEasyCharts
-
+#EasyChartså›¢é˜Ÿå‡ºå“ï¼Œ
+#å¦‚æœ‰é—®é¢˜ä¿®æ­£ä¸æ·±å…¥å­¦ä¹ ï¼Œå¯è”ç³»å¾®ä¿¡ï¼šEasyCharts
 
 library(ggplot2)  
 library(RColorBrewer)  
@@ -14,7 +11,7 @@ colnames(mydata)<-c("Var1","Var2","value")
 
 mydata$AbsValue<-abs(mydata$value)
 
-#--------------------------------(b) Ë«É«½¥±äÏµÑÕÉ«·½°¸---------------------------------------------------------
+#--------------------------------(b) åŒè‰²æ¸å˜ç³»é¢œè‰²æ–¹æ¡ˆ---------------------------------------------------------
 ggplot(mydata, aes(x= Var1 , y=Var2)) +
   geom_point(aes(size=AbsValue,fill = value), shape=21, colour="black") +
   scale_fill_gradientn(colours=c(brewer.pal(7,"Set1")[2],"white",brewer.pal(7,"Set1")[1]),na.value=NA)+
@@ -25,7 +22,7 @@ ggplot(mydata, aes(x= Var1 , y=Var2)) +
     axis.text = element_text(size=12,face="plain",color="black"),
     legend.position="right"
   )
-#--------------------------------(a) R¶àÉ«ÏµÑÕÉ«·½°¸---------------------------------------------------------
+#--------------------------------(a) Rå¤šè‰²ç³»é¢œè‰²æ–¹æ¡ˆ---------------------------------------------------------
 mydata$Ceilingcound<-ceiling(mydata$value)
 
 ggplot(mydata, aes(x= Var1 , y=Var2)) +
