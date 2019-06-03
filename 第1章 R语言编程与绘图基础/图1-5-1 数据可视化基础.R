@@ -1,5 +1,5 @@
 #EasyCharts团队出品，
-#如需使用与深入学习，请联系微信：EasyCharts
+#如有问题修正与深入学习，可联系微信：EasyCharts
 
 df<-read.csv("Facet_Data.csv", header = TRUE)
 
