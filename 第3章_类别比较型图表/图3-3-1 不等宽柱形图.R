@@ -1,7 +1,6 @@
 
-
-#EasyChartsÍÅ¶Ó³öÆ·£¬ÈçÓĞÉÌÓÃ±Ø¾¿£¬
-#ÈçĞèÊ¹ÓÃÓëÉîÈëÑ§Ï°£¬ÇëÁªÏµÎ¢ĞÅ£ºEasyCharts
+#EasyChartså›¢é˜Ÿå‡ºå“ï¼Œ
+#å¦‚æœ‰é—®é¢˜ä¿®æ­£ä¸æ·±å…¥å­¦ä¹ ï¼Œå¯è”ç³»å¾®ä¿¡ï¼šEasyCharts
 
 library(ggplot2)
 library(Cairo)
@@ -12,18 +11,18 @@ mydata$xmin<-0
 for (i in 2:5){
   mydata$xmin[i]<-sum(mydata$Scale[1:i-1])
 }
-#¹¹Ôì¾ØĞÎXÖáµÄÖÕµã£¨×î´óµã£©
+#æ„é€ çŸ©å½¢Xè½´çš„ç»ˆç‚¹ï¼ˆæœ€å¤§ç‚¹ï¼‰
 for (i in 1:5){
   mydata$xmax[i]<-sum(mydata$Scale[1:i])
 }
-#¹¹ÔìÊı¾İ±êÇ©µÄºá×ø±ê£º
+#æ„é€ æ•°æ®æ ‡ç­¾çš„æ¨ªåæ ‡ï¼š
 for (i in 1:5){
   mydata$label[i]<-sum(mydata$Scale[1:i])-mydata$Scale[i]/2
 }
 
-#CairoPDF(file="²»µÈ¿íÖùĞÎÍ¼.pdf",width=4.89,height=5.53)
+#CairoPDF(file="ä¸ç­‰å®½æŸ±å½¢å›¾.pdf",width=4.89,height=5.53)
 #showtext.begin()
-#windowsFonts(myFont = windowsFont("Î¢ÈíÑÅºÚ"))
+#windowsFonts(myFont = windowsFont("å¾®è½¯é›…é»‘"))
 ggplot(mydata)+
   geom_rect(aes(xmin=xmin,xmax=xmax,ymin=0,ymax=ARPU,fill=Name),colour="black",size=0.25)+
   geom_text(aes(x=label,y=ARPU+3,label=ARPU),size=4,col="black")+
