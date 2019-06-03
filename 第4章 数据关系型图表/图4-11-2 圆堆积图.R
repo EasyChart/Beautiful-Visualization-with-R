@@ -1,7 +1,5 @@
-
-
-#EasyChartsÍÅ¶Ó³öÆ·£¬ÈçÓĞÉÌÓÃ±Ø¾¿£¬
-#ÈçĞèÊ¹ÓÃÓëÉîÈëÑ§Ï°£¬ÇëÁªÏµÎ¢ĞÅ£ºEasyCharts
+#EasyChartså›¢é˜Ÿå‡ºå“ï¼Œ
+#å¦‚æœ‰é—®é¢˜ä¿®æ­£ä¸æ·±å…¥å­¦ä¹ ï¼Œå¯è”ç³»å¾®ä¿¡ï¼šEasyCharts
 
 library(ggraph)
 library(igraph)
@@ -25,7 +23,8 @@ ggraph(mygraph, layout = 'circlepack', weight="size" ) +
   #scale_fill_viridis()
 
 
-#-------------------------------------------Ğ¡°¸Àı-----------------------------------
+#-------------------------------------------å°æ¡ˆä¾‹-----------------------------------
+#Source:https://stackoverflow.com/questions/43739749/how-to-use-circle-pack-layout-in-ggraph-library-in-r?rq=1
 library(ggraph)
 library(igraph)
 library(dplyr)
