@@ -1,10 +1,9 @@
-
-#EasyChartsÍÅ¶Ó³öÆ·£¬ÈçÓĞÉÌÓÃ±Ø¾¿£¬
-#ÈçĞèÊ¹ÓÃÓëÉîÈëÑ§Ï°£¬ÇëÁªÏµÎ¢ĞÅ£ºEasyCharts
+#EasyChartså›¢é˜Ÿå‡ºå“ï¼Œ
+#å¦‚æœ‰é—®é¢˜ä¿®æ­£ä¸æ·±å…¥å­¦ä¹ ï¼Œå¯è”ç³»å¾®ä¿¡ï¼šEasyCharts
 
 library(ggplot2)
 library(grid)
-#library(Cairo)         #Í¼Æ¬¸ßÇåµ¼³ö
+#library(Cairo)         #å›¾ç‰‡é«˜æ¸…å¯¼å‡º
 
 library(showtext)
 p1 <- ggplot(iris, aes(Sepal.Length, Sepal.Width, fill = Species)) +
@@ -16,6 +15,7 @@ p1 <- ggplot(iris, aes(Sepal.Length, Sepal.Width, fill = Species)) +
         axis.text = element_text(size = 14),
         plot.title = element_text(hjust = 0.5),
         legend.position = "none")
+
 p2 <- ggplot(iris, aes(Species, Sepal.Width, fill = Species)) +
   geom_boxplot() +
   scale_fill_manual(values= c("#00AFBB", "#E7B800", "#FC4E07"))+
@@ -30,7 +30,7 @@ p2 <- ggplot(iris, aes(Species, Sepal.Width, fill = Species)) +
         plot.title = element_text(hjust = 0.5),
         legend.position = "none")
 
-#cairo_pdf(file="×ÓÄ¸Í¼.pdf",width=6.56,height=5.09)
+#cairo_pdf(file="å­æ¯å›¾.pdf",width=6.56,height=5.09)
 #showtext.begin()
 subvp <- viewport(x = 0.78, y = 0.38, width = 0.4, height = 0.5)
 p1
