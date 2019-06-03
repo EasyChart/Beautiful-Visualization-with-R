@@ -1,6 +1,6 @@
 
-#EasyChartsÍÅ¶Ó³öÆ·£¬ÈçÓĞÉÌÓÃ±Ø¾¿£¬
-#ÈçĞèÊ¹ÓÃÓëÉîÈëÑ§Ï°£¬ÇëÁªÏµÎ¢ĞÅ£ºEasyCharts
+#EasyChartså›¢é˜Ÿå‡ºå“ï¼Œ
+#å¦‚æœ‰é—®é¢˜ä¿®æ­£ä¸æ·±å…¥å­¦ä¹ ï¼Œå¯è”ç³»å¾®ä¿¡ï¼šEasyCharts
 
 library(plot3D)
 library(RColorBrewer) 
@@ -16,8 +16,8 @@ x<-c(x1,x2)
 y<-c(y1,y2)
 df <- data.frame(x,y)
 
-#--------------------------Í¼5-3-1 ²»Í¬ÀàĞÍµÄ¶şÎ¬Í³¼ÆÖ±·½Í¼------------------
-library(gplots) #Ìá¹©hist2d()º¯Êı
+#--------------------------å›¾5-3-1 ä¸åŒç±»å‹çš„äºŒç»´ç»Ÿè®¡ç›´æ–¹å›¾------------------
+library(gplots) #æä¾›hist2d()å‡½æ•°
 df_hist<-hist2d(df$x,df$y, nbins=30)
 
 pmar <- par(mar = c(5.1, 4.1, 4.1, 6.1))
@@ -29,8 +29,8 @@ hist3D(x=df_hist$x,y=df_hist$y,z=df_hist$counts,
        colkey = list(length = 0.5, width = 1))
 
 
-#------------------------------------Í¼5-3-2 ²»Í¬ÀàĞÍµÄ¶şÎ¬ºËÃÜ¶ÈÍ³¼ÆÍ¼-----------------
-library(MASS) #Ìá¹©df_density()º¯Êı
+#------------------------------------å›¾5-3-2 ä¸åŒç±»å‹çš„äºŒç»´æ ¸å¯†åº¦ç»Ÿè®¡å›¾-----------------
+library(MASS) #æä¾›df_density()å‡½æ•°
 df_density <- kde2d(df$x,df$y, n = 50, h = c(width.SJ(df$x), width.SJ(df$y)))
 
 pmar <- par(mar = c(5.1, 4.1, 4.1, 6.1))
