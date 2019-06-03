@@ -1,7 +1,5 @@
-
-
-#EasyChartsÍÅ¶Ó³öÆ·£¬ÈçÓĞÉÌÓÃ±Ø¾¿£¬
-#ÈçĞèÊ¹ÓÃÓëÉîÈëÑ§Ï°£¬ÇëÁªÏµÎ¢ĞÅ£ºEasyCharts
+#EasyChartså›¢é˜Ÿå‡ºå“ï¼Œ
+#å¦‚æœ‰é—®é¢˜ä¿®æ­£ä¸æ·±å…¥å­¦ä¹ ï¼Œå¯è”ç³»å¾®ä¿¡ï¼šEasyCharts
 
 library(ggplot2)
 library(RColorBrewer)
@@ -11,7 +9,7 @@ library(reshape2)
 mydata<-read.csv("StackedArea_Data.csv",stringsAsFactors=FALSE) 
 mydata$Date<-as.Date(mydata$Date)
 
-#----------------------------Í¼6-1-4¶Ñ»ıÃæ»ıÍ¼.(a) ¶Ñ»ıÃæ»ıÍ¼--------------------------------
+#----------------------------å›¾6-1-4å †ç§¯é¢ç§¯å›¾.(a) å †ç§¯é¢ç§¯å›¾--------------------------------
 mydata<-melt(mydata,id="Date")
 ggplot(mydata, aes(x =Date, y = value,fill=variable) )+
   geom_area(position="stack",alpha=1)+ 
@@ -24,7 +22,7 @@ ggplot(mydata, aes(x =Date, y = value,fill=variable) )+
          legend.position = "right",
          legend.background = element_blank()) 
 
-#-----------------------------Í¼6-1-4¶Ñ»ıÃæ»ıÍ¼.  (b)°Ù·Ö±È¶Ñ»ıÃæ»ıÍ¼.----------------------------------
+#-----------------------------å›¾6-1-4å †ç§¯é¢ç§¯å›¾.  (b)ç™¾åˆ†æ¯”å †ç§¯é¢ç§¯å›¾.----------------------------------
 ggplot(mydata, aes(x =Date, y = value,fill=variable) )+
   geom_area(position="fill",alpha=1)+ 
   geom_line(position="fill",size=0.25,color="black")+
