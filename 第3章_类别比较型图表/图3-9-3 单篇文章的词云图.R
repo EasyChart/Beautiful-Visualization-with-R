@@ -1,3 +1,5 @@
+#EasyCharts团队出品，
+#如有问题修正与深入学习，可联系微信：EasyCharts
 
 library(tm)
 library(wordcloud)
@@ -32,8 +34,6 @@ commonality.cloud(term.matrix,max.words=100,random.order=FALSE,color="#E7298A")
 comparison.cloud(term.matrix, random.order=FALSE, 
                  colors = c("#00B2FF", "red", "#FF0099", "#6600CC"),
                  title.size=1.5, max.words=500)
-
-
 
 #------------------------------------------------------------------------------------------------------
 df<-data.frame(term.matrix)
