@@ -1,12 +1,10 @@
-
-
-#EasyChartsÍÅ¶Ó³öÆ·£¬ÈçÓĞÉÌÓÃ±Ø¾¿£¬
-#ÈçĞèÊ¹ÓÃÓëÉîÈëÑ§Ï°£¬ÇëÁªÏµÎ¢ĞÅ£ºEasyCharts
+#EasyChartså›¢é˜Ÿå‡ºå“ï¼Œ
+#å¦‚æœ‰é—®é¢˜ä¿®æ­£ä¸æ·±å…¥å­¦ä¹ ï¼Œå¯è”ç³»å¾®ä¿¡ï¼šEasyCharts
 
 library(ggplot2)
 library(RColorBrewer)
 
-#-------------------------------------------Method 1: ggpubr°üµÄggscatterhist()º¯Êı------------------------------
+#-------------------------------------------Method 1: ggpubråŒ…çš„ggscatterhist()å‡½æ•°------------------------------
 library(ggpubr)
 
 N<-300
@@ -17,7 +15,7 @@ y2 <- rnorm(mean=2.2, N)
 
 data1 <- data.frame(x=c(x1,x2),y=c(y1,y2))
 
-#(a) ¶şÎ¬É¢µãÓëÍ³¼ÆÖ±·½Í¼
+#(a) äºŒç»´æ•£ç‚¹ä¸ç»Ÿè®¡ç›´æ–¹å›¾
 ggscatterhist(
   data1, x ='x', y = 'y', shape=21,fill="#00AFBB",color = "black",size = 3, alpha = 1,
   #palette = c("#00AFBB", "#E7B800", "#FC4E07"),
@@ -36,7 +34,7 @@ y3 <- rnorm(mean=1.5,sd=0.2, N)
 
 data2 <- data.frame(x=c(x1,x2,x3),y=c(y1,y2,y3),class=rep(c("A","B","C"),each=200))
 
-#(b) ¶şÎ¬É¢µãÓëºËÃÜ¶È¹À¼ÆÍ¼
+#(b) äºŒç»´æ•£ç‚¹ä¸æ ¸å¯†åº¦ä¼°è®¡å›¾
 ggscatterhist(
   data2,  x ='x', y = 'y',  #iris
   shape=21,color ="black",fill= "class", size =3, alpha = 0.8,
@@ -47,11 +45,11 @@ ggscatterhist(
   ggtheme = theme_minimal())
 
 
-#-----------------------------------Method 2: ggExtra°üµÄggMarginal()º¯Êı------------------------------------
+#-----------------------------------Method 2: ggExtraåŒ…çš„ggMarginal()å‡½æ•°------------------------------------
 
 library(ggExtra)
 
-#(a) ¶şÎ¬É¢µãÓëÍ³¼ÆÖ±·½Í¼
+#(a) äºŒç»´æ•£ç‚¹ä¸ç»Ÿè®¡ç›´æ–¹å›¾
 scatter <- ggplot(data=data1,aes(x=x,y=y)) + 
   geom_point(shape=21,fill="#00AFBB",color="black",size=3)+
   theme_minimal()+
@@ -68,7 +66,7 @@ scatter <- ggplot(data=data1,aes(x=x,y=y)) +
 ggMarginal(scatter,type="histogram",color="black",fill="#00AFBB")
 
 
-#(b) ¶şÎ¬É¢µãÓëºËÃÜ¶È¹À¼ÆÍ¼
+#(b) äºŒç»´æ•£ç‚¹ä¸æ ¸å¯†åº¦ä¼°è®¡å›¾
 scatter <- ggplot(data=data2,aes(x=x,y=y,colour=class,fill=class)) + 
   geom_point(aes(fill=class),shape=21,size=3)+#,colour="black")+
   scale_fill_manual(values= c("#00AFBB", "#E7B800", "#FC4E07"))+
@@ -86,15 +84,15 @@ scatter <- ggplot(data=data2,aes(x=x,y=y,colour=class,fill=class)) +
 
 ggMarginal(scatter,type="density",color="black",groupColour = FALSE,groupFill = TRUE)
 
-#-----------------------------------method 3:grid.arrange()º¯Êı------------------------------
+#-----------------------------------method 3:grid.arrange()å‡½æ•°------------------------------
 library(gridExtra)
-#(a) ¶şÎ¬É¢µãÓëÍ³¼ÆÖ±·½Í¼
+#(a) äºŒç»´æ•£ç‚¹ä¸ç»Ÿè®¡ç›´æ–¹å›¾
 
-# »æÖÆÖ÷Í¼É¢µãÍ¼£¬²¢½«Í¼ÀıÈ¥³ı£¬ÕâÀïpoint²ãºÍpath²ãÊ¹ÓÃÁË²»Í¬µÄÊı¾İ¼¯
+# ç»˜åˆ¶ä¸»å›¾æ•£ç‚¹å›¾ï¼Œå¹¶å°†å›¾ä¾‹å»é™¤ï¼Œè¿™é‡Œpointå±‚å’Œpathå±‚ä½¿ç”¨äº†ä¸åŒçš„æ•°æ®é›†
 scatter <- ggplot() + 
   geom_point(data=data1,aes(x=x,y=y),shape=21,color="black",size=3)+
    theme_minimal()
-# »æÖÆÉÏ±ßµÄÖ±·½Í¼£¬²¢½«¸÷ÖÖ±ê×¢È¥³ı
+# ç»˜åˆ¶ä¸Šè¾¹çš„ç›´æ–¹å›¾ï¼Œå¹¶å°†å„ç§æ ‡æ³¨å»é™¤
 hist_top <- ggplot()+
   geom_histogram(aes(data1$x),colour='black',fill='#00AFBB',binwidth = 0.3)+
   theme_minimal()+
@@ -104,7 +102,7 @@ hist_top <- ggplot()+
         axis.text.x=element_blank(),
         axis.text.y=element_blank(),
         axis.ticks=element_blank())
-# Í¬Ñù»æÖÆÓÒ±ßµÄÖ±·½Í¼
+# åŒæ ·ç»˜åˆ¶å³è¾¹çš„ç›´æ–¹å›¾
 hist_right <- ggplot()+
   geom_histogram(aes(data1$y),colour='black',fill='#00AFBB',binwidth = 0.3)+
   theme_minimal()+
@@ -123,7 +121,7 @@ empty <- ggplot() +
         axis.text.x=element_blank(),
         axis.text.y=element_blank(),
         axis.ticks=element_blank())
-# ÒªÓÉËÄ¸öÍ¼ĞÎ×éºÏ¶ø³É£¬¿ÉÒÔÓÃ¿Õ°×Í¼×÷ÎªÓÒÉÏ½ÇµÄÍ¼ĞÎÒ²¿ÉÒÔ£¬µ«ÎªÁËºÃÍæ¼ÓÉÏÁËRµÄlogo£¬ÕâÊÇÒ»ÖÖÔÚggplotÖĞÔö¼ÓjpegÎ»Í¼µÄ·½·¨
+# è¦ç”±å››ä¸ªå›¾å½¢ç»„åˆè€Œæˆï¼Œå¯ä»¥ç”¨ç©ºç™½å›¾ä½œä¸ºå³ä¸Šè§’çš„å›¾å½¢ä¹Ÿå¯ä»¥ï¼Œä½†ä¸ºäº†å¥½ç©åŠ ä¸Šäº†Rçš„logoï¼Œè¿™æ˜¯ä¸€ç§åœ¨ggplotä¸­å¢åŠ jpegä½å›¾çš„æ–¹æ³•
 # logo <-  read.jpeg("d:\\Rlogo.jpg")
 # empty <- ggplot(data.frame(x=1:10,y=1:10),aes(x,y))+
 #   annotation_raster(logo,-Inf, Inf, -Inf, Inf)+
@@ -132,24 +130,24 @@ empty <- ggplot() +
 #        axis.text.x=theme_blank(),
 #        axis.text.y=theme_blank(),
 #        axis.ticks=theme_blank())
-# ×îÖÕµÄ×éºÏ
+# æœ€ç»ˆçš„ç»„åˆ
 grid.arrange(hist_top, empty, scatter, hist_right, ncol=2, nrow=2, widths=c(4,1), heights=c(1,4))
 
-#(b) ¶şÎ¬É¢µãÓëºËÃÜ¶È¹À¼ÆÍ¼
+#(b) äºŒç»´æ•£ç‚¹ä¸æ ¸å¯†åº¦ä¼°è®¡å›¾
 
-# »æÖÆÖ÷Í¼É¢µãÍ¼£¬²¢½«Í¼ÀıÈ¥³ı£¬ÕâÀïpoint²ãºÍpath²ãÊ¹ÓÃÁË²»Í¬µÄÊı¾İ¼¯
+# ç»˜åˆ¶ä¸»å›¾æ•£ç‚¹å›¾ï¼Œå¹¶å°†å›¾ä¾‹å»é™¤ï¼Œè¿™é‡Œpointå±‚å’Œpathå±‚ä½¿ç”¨äº†ä¸åŒçš„æ•°æ®é›†
 scatter <- ggplot() + 
   geom_point(data=data2,aes(x=x,y=y,fill=class),shape=21,color="black",size=3)+
   scale_fill_manual(values= c("#00AFBB", "#E7B800", "#FC4E07"))+
   theme_minimal()+
   theme(legend.position=c(0.9,0.2))
-# »æÖÆÉÏ±ßµÄÖ±·½Í¼£¬²¢½«¸÷ÖÖ±ê×¢È¥³ı
+# ç»˜åˆ¶ä¸Šè¾¹çš„ç›´æ–¹å›¾ï¼Œå¹¶å°†å„ç§æ ‡æ³¨å»é™¤
 hist_top <- ggplot()+
   geom_density(data=data2,aes(x,fill=class),colour='black',alpha=0.7)+
   scale_fill_manual(values= c("#00AFBB", "#E7B800", "#FC4E07"))+
   theme_void()+
   theme(legend.position="none")
-# Í¬Ñù»æÖÆÓÒ±ßµÄÖ±·½Í¼
+# åŒæ ·ç»˜åˆ¶å³è¾¹çš„ç›´æ–¹å›¾
 hist_right <- ggplot()+
   geom_density(data=data2,aes(y,fill=class),colour='black',alpha=0.7)+
   scale_fill_manual(values= c("#00AFBB", "#E7B800", "#FC4E07"))+
@@ -164,7 +162,7 @@ empty <- ggplot() +
         axis.text.x=element_blank(),
         axis.text.y=element_blank(),
         axis.ticks=element_blank())
-# ÒªÓÉËÄ¸öÍ¼ĞÎ×éºÏ¶ø³É£¬¿ÉÒÔÓÃ¿Õ°×Í¼×÷ÎªÓÒÉÏ½ÇµÄÍ¼ĞÎÒ²¿ÉÒÔ£¬µ«ÎªÁËºÃÍæ¼ÓÉÏÁËRµÄlogo£¬ÕâÊÇÒ»ÖÖÔÚggplotÖĞÔö¼ÓjpegÎ»Í¼µÄ·½·¨
+# è¦ç”±å››ä¸ªå›¾å½¢ç»„åˆè€Œæˆï¼Œå¯ä»¥ç”¨ç©ºç™½å›¾ä½œä¸ºå³ä¸Šè§’çš„å›¾å½¢ä¹Ÿå¯ä»¥ï¼Œä½†ä¸ºäº†å¥½ç©åŠ ä¸Šäº†Rçš„logoï¼Œè¿™æ˜¯ä¸€ç§åœ¨ggplotä¸­å¢åŠ jpegä½å›¾çš„æ–¹æ³•
 # logo <-  read.jpeg("d:\\Rlogo.jpg")
 # empty <- ggplot(data.frame(x=1:10,y=1:10),aes(x,y))+
 #   annotation_raster(logo,-Inf, Inf, -Inf, Inf)+
@@ -173,6 +171,6 @@ empty <- ggplot() +
 #        axis.text.x=theme_blank(),
 #        axis.text.y=theme_blank(),
 #        axis.ticks=theme_blank())
-# ×îÖÕµÄ×éºÏ
+# æœ€ç»ˆçš„ç»„åˆ
 grid.arrange(hist_top, empty, scatter, hist_right, ncol=2, nrow=2, widths=c(4,1), heights=c(1,4))
 
