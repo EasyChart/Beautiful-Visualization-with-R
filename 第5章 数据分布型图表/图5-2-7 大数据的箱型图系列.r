@@ -1,13 +1,12 @@
-
-#EasyChartsÍÅ¶Ó³öÆ·£¬
-#ÈçĞèÊ¹ÓÃÓëÉîÈëÑ§Ï°£¬ÇëÁªÏµÎ¢ĞÅ£ºEasyCharts
+#EasyChartså›¢é˜Ÿå‡ºå“ï¼Œ
+#å¦‚æœ‰é—®é¢˜ä¿®æ­£ä¸æ·±å…¥å­¦ä¹ ï¼Œå¯è”ç³»å¾®ä¿¡ï¼šEasyCharts
 
 library(ggplot2)
 library(RColorBrewer)
-library(SuppDists) #Ìá¹©rJohnson()º¯Êı
+library(SuppDists) #æä¾›rJohnson()å‡½æ•°
 
 
-#Reference£ºhttps://github.com/hadley/boxplots-paper
+#Referenceï¼šhttps://github.com/hadley/boxplots-paper
 
 source("lvplot/calculate.r")
 source("lvplot/draw.r")
@@ -26,13 +25,13 @@ findParams <- function(mu, sigma, skew, kurt) {
        type = c("SN", "SL", "SU", "SB")[value$type])
 }
 
-# ¾ùÖµÎª3£¬±ê×¼²îÎª1µÄÕıÌ¬·Ö²¼
+# å‡å€¼ä¸º3ï¼Œæ ‡å‡†å·®ä¸º1çš„æ­£æ€åˆ†å¸ƒ
 n <- rnorm(freq[1],3,1)
-# Johnson·Ö²¼µÄÆ«Ğ±¶È2.2ºÍ·å¶È13
+# Johnsonåˆ†å¸ƒçš„åæ–œåº¦2.2å’Œå³°åº¦13
 s <- rJohnson(freq[2], findParams(3, 1, 2, 13.1))
-# Johnson·Ö²¼µÄÆ«Ğ±¶È0ºÍ·å¶È20
+# Johnsonåˆ†å¸ƒçš„åæ–œåº¦0å’Œå³°åº¦20
 k <- rJohnson(freq[3], findParams(3, 1, 2.2, 20))
-# Á½¸ö·åµÄ¾ùÖµ¦Ì1£¬¦Ì2·Ö±ğÎª1.89ºÍ3.79£¬¦Ò1 = ¦Ò2 =0.31
+# ä¸¤ä¸ªå³°çš„å‡å€¼Î¼1ï¼ŒÎ¼2åˆ†åˆ«ä¸º1.89å’Œ3.79ï¼ŒÏƒ1 = Ïƒ2 =0.31
 mm <- rnorm(freq[4], rep(c(2, 4), each = 50) * sqrt(0.9), sqrt(0.1))
 
 mydata <- data.frame(
