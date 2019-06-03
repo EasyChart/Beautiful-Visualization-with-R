@@ -1,7 +1,5 @@
-
-#EasyChartsÍÅ¶Ó³öÆ·£¬ÈçÓĞÉÌÓÃ±Ø¾¿£¬
-#ÈçĞèÊ¹ÓÃÓëÉîÈëÑ§Ï°£¬ÇëÁªÏµÎ¢ĞÅ£ºEasyCharts
-
+#EasyChartså›¢é˜Ÿå‡ºå“ï¼Œ
+#å¦‚æœ‰é—®é¢˜ä¿®æ­£ä¸æ·±å…¥å­¦ä¹ ï¼Œå¯è”ç³»å¾®ä¿¡ï¼šEasyCharts
 
 library(plot3D)
 library(gridExtra)
@@ -10,10 +8,10 @@ library(RColorBrewer)
 
 colormap<-colorRampPalette(rev(brewer.pal(11,'RdYlGn')))(100)
 
-#--------------------------------------------------¶àÏîÊ½ÄâºÏ------------------------------------------
+#--------------------------------------------------å¤šé¡¹å¼æ‹Ÿåˆ------------------------------------------
 mydata <- read.csv("Surface_Data.csv", sep= ",", header=T)
 
-#¶àÏîÊ½ÄâºÏz=f(x,y)=a+bx+cy+dxx+eyy
+#å¤šé¡¹å¼æ‹Ÿåˆz=f(x,y)=a+bx+cy+dxx+eyy
 x <- mydata$x
 y <- mydata$y
 z <- mydata$z
@@ -22,7 +20,7 @@ y2<-y*y
 poly_z <- lm(z ~ x + y +x2+y2)
 print(poly_z)
 
-#Éè¶¨Îª30X30µÄÍø¸ñÊı¾İ(x, y)£¬²¢¸ù¾İÄâºÏ·½³ÌÇóÆäÊıÖµ
+#è®¾å®šä¸º30X30çš„ç½‘æ ¼æ•°æ®(x, y)ï¼Œå¹¶æ ¹æ®æ‹Ÿåˆæ–¹ç¨‹æ±‚å…¶æ•°å€¼
 N<-30
 xmar <- seq(min(x),max(x),(max(x)-min(x))/N)
 ymar <- seq(min(y),max(y),(max(y)-min(y))/N)
@@ -54,15 +52,15 @@ fitpoints <- predict(poly_z)
 scatter3D(z = z, x = x, y = y, pch = 21, cex = 1, 
           theta = 150, phi = 40, d=3,ticktype = "detailed",
           col = colormap,
-          surf = list(x = xmar, y = ymar, z = pred_z,border = "black",shade=0,ffit = fitpoints), # fit²ÎÊıÔö¼ÓÔ¤²âÖµÓëÕæÊµÖµÖ®¼äµÄÁ¬Ïß
+          surf = list(x = xmar, y = ymar, z = pred_z,border = "black",shade=0,ffit = fitpoints), # fitå‚æ•°å¢åŠ é¢„æµ‹å€¼ä¸çœŸå®å€¼ä¹‹é—´çš„è¿çº¿
           bty = "f", col.panel = NA,
           xlab = "0-60 mph (sec)", 
           ylab = "Gax Mileage (mpg)",
           zlab="Power (KW)",
           clab="Power (KW)",
-          zlim=c(20,180),colkey = list(length = 0.5, width = 1))# col.panel = NAÔòpanelÍ¸Ã÷
+          zlim=c(20,180),colkey = list(length = 0.5, width = 1))# col.panel = NAåˆ™panelé€æ˜
 
-#-#--------------------------------------------------loess»Ø¹éÊ½ÄâºÏ------------------------------------------
+#-#--------------------------------------------------loesså›å½’å¼æ‹Ÿåˆ------------------------------------------
 mydata <- read.csv("Surface_Data.csv", sep= ",", header=T)
 
 x <- mydata$x
@@ -81,7 +79,7 @@ elev.interp <- predict(elev.loess, expand.grid(list(x=xmar,y=ymar)))
 
 pred_z<-matrix(elev.interp, length(xmar),length(ymar))
 
-# ÏÔÊ¾ÇúÃæÍø¸ñ£¬Íø¸ñ±ßÏßÑÕÉ«ÎªÑóºì£¬ÏÔÊ¾box¿òÏß
+# æ˜¾ç¤ºæ›²é¢ç½‘æ ¼ï¼Œç½‘æ ¼è¾¹çº¿é¢œè‰²ä¸ºæ´‹çº¢ï¼Œæ˜¾ç¤ºboxæ¡†çº¿
 persp3D (xmar, ymar, pred_z,
          theta = 150, phi = 40, d=3, 
          col = colormap, 
@@ -98,11 +96,11 @@ fitpoints <- predict(elev.loess )
 scatter3D(z = z, x = x, y = y, pch = 21, cex = 1, 
                       theta = 150, phi = 40, d=3,ticktype = "detailed",
                       col = colormap,
-                      surf = list(x = xmar, y = ymar, z = pred_z,border = "black",shade=0,ffit = fitpoints), # fit²ÎÊıÔö¼ÓÔ¤²âÖµÓëÕæÊµÖµÖ®¼äµÄÁ¬Ïß
+                      surf = list(x = xmar, y = ymar, z = pred_z,border = "black",shade=0,ffit = fitpoints), # fitå‚æ•°å¢åŠ é¢„æµ‹å€¼ä¸çœŸå®å€¼ä¹‹é—´çš„è¿çº¿
                       bty = "f", col.panel = NA,
                       ylab = "0-60 mph (sec)", 
                       xlab = "Gax Mileage (mpg)",
                       zlab="Power (KW)",
-                      zlim=c(20,180))# col.panel = NAÔòpanelÍ¸Ã÷
+                      zlim=c(20,180))# col.panel = NAåˆ™panelé€æ˜
 
 
