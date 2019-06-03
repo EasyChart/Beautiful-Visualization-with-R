@@ -1,10 +1,11 @@
-
-#EasyChartsÍÅ¶Ó³öÆ·£¬ÈçÓĞÉÌÓÃ±Ø¾¿£¬
-#ÈçĞèÊ¹ÓÃÓëÉîÈëÑ§Ï°£¬ÇëÁªÏµÎ¢ĞÅ£ºEasyCharts
+#EasyChartså›¢é˜Ÿå‡ºå“ï¼Œ
+#å¦‚æœ‰é—®é¢˜ä¿®æ­£ä¸æ·±å…¥å­¦ä¹ ï¼Œå¯è”ç³»å¾®ä¿¡ï¼šEasyCharts
 
 library(ggplot2)
 
-#--------------------------------------------À×´ïÍ¼ÊµÏÖÔ­Àí-------------------------------------------------------
+#--------------------------------------------é›·è¾¾å›¾å®ç°åŸç†-------------------------------------------------------
+#Reference:https://github.com/cardiomoon/ggplot2new/blob/4e50b7dcfee3246a169702f88f7dd46cbf933f4b/coord_radar.R
+
 coord_radar <- function (theta = "x", start = 0, direction = 1) 
 {  theta <- match.arg(theta, c("x", "y"))
 r <- if (theta == "x") 
@@ -15,7 +16,7 @@ ggproto("CoordRadar", CoordPolar, theta = theta, r = r, start = start,
         is_linear = function(coord) TRUE)}
 
 
-#----------------------------------------µ¥Êı¾İÏµÁĞ--------------------------------------------------------------
+#----------------------------------------å•æ•°æ®ç³»åˆ—--------------------------------------------------------------
 label_data<-data.frame(car=c("Math" , "English" , "Biology" , "Music" , "R-Coding" ),
                     id=c(1:5) ,
                     value=c(12 , 2 ,14 ,20, 18))
@@ -28,7 +29,7 @@ myAngle<- 360- 360 * (label_data$id-1) /nrow(label_data)
 ggplot() + 
   geom_polygon(data=mydata,aes(x=id, y=value),color = "black", fill=brewer.pal(7,"Set1")[1],alpha=0.1)+
   geom_point(data=mydata,aes(x=id, y=value),size=5,shape=21,color = 'black', fill=brewer.pal(7,"Set1")[1])+
-  coord_polar() + #ÊµÏÖÎªÍ¼3-8-1(c) µÄÔ²ĞÎÀ×´ïÍ¼
+  coord_polar() + #å®ç°ä¸ºå›¾3-8-1(c) çš„åœ†å½¢é›·è¾¾å›¾
   ylim(0,22)+
   theme_light()+
   theme(axis.text.x=element_text(size = 11,colour="black"))
@@ -36,7 +37,7 @@ ggplot() +
 ggplot() + 
   geom_polygon(data=mydata,aes(x=id, y=value),color = "black", fill=brewer.pal(7,"Set1")[1],alpha=0.1)+
   geom_point(data=mydata,aes(x=id, y=value),size=5,shape=21,color = 'black', fill=brewer.pal(7,"Set1")[1])+
-  coord_polar() + #ÊµÏÖÎªÍ¼3-8-1(c) µÄÔ²ĞÎÀ×´ïÍ¼
+  coord_polar() + #å®ç°ä¸ºå›¾3-8-1(c) çš„åœ†å½¢é›·è¾¾å›¾
   #coord_radar()+  #
   scale_x_continuous(breaks =label_data$id,labels=label_data$car)+
   ylim(0,22)+
