@@ -1,6 +1,5 @@
-
-#EasyChartsÍÅ¶Ó³öÆ·£¬ÈçÓĞÉÌÓÃ±Ø¾¿£¬
-#ÈçĞèÊ¹ÓÃÓëÉîÈëÑ§Ï°£¬ÇëÁªÏµÎ¢ĞÅ£ºEasyCharts
+#EasyChartså›¢é˜Ÿå‡ºå“ï¼Œ
+#å¦‚æœ‰é—®é¢˜ä¿®æ­£ä¸æ·±å…¥å­¦ä¹ ï¼Œå¯è”ç³»å¾®ä¿¡ï¼šEasyCharts
 
 library(ggplot2)
 library(GGally)
@@ -8,7 +7,7 @@ library(RColorBrewer)
 
 #library(devtools)
 #install_github("ggobi/ggally")
-#-------------------------------Í¼7-3-1 ¾ØÕóÉ¢µãÍ¼(a)µ¥Êı¾İÏµÁĞ ----------------------------------------------
+#-------------------------------å›¾7-3-1 çŸ©é˜µæ•£ç‚¹å›¾(a)å•æ•°æ®ç³»åˆ— ----------------------------------------------
 
 lowerFn <- function(data, mapping, method = "loess", ...) {
   p <- ggplot(data = data, mapping = mapping) +
@@ -39,7 +38,7 @@ ggpairs(df,
                     strip.background = element_blank())
 
 
-#---------------------------------Í¼7-3-1 ¾ØÕóÉ¢µãÍ¼(b)¶àÊı¾İÏµÁĞ -------------------------
+#---------------------------------å›¾7-3-1 çŸ©é˜µæ•£ç‚¹å›¾(b)å¤šæ•°æ®ç³»åˆ— -------------------------
 
 library(wesanderson)
 ggpairs_theme <- theme_bw()+theme(panel.grid.major = element_blank(),
