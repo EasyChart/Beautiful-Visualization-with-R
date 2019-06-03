@@ -1,6 +1,5 @@
-
-#EasyChartsÍÅ¶Ó³öÆ·£¬ÈçÓĞÉÌÓÃ±Ø¾¿£¬
-#ÈçĞèÊ¹ÓÃÓëÉîÈëÑ§Ï°£¬ÇëÁªÏµÎ¢ĞÅ£ºEasyCharts
+#EasyChartså›¢é˜Ÿå‡ºå“ï¼Œ
+#å¦‚æœ‰é—®é¢˜ä¿®æ­£ä¸æ·±å…¥å­¦ä¹ ï¼Œå¯è”ç³»å¾®ä¿¡ï¼šEasyCharts
 
 library(ggplot2)
 library(dplyr)
@@ -26,7 +25,7 @@ for (i in 1:ncol(mydata))
 }
 
 
-mydata<-mydata[order(mydata$cut,decreasing=T),] #°´ÕÕµÚ4ÁĞ½µĞòÅÅĞò
+mydata<-mydata[order(mydata$cut,decreasing=T),] #æŒ‰ç…§ç¬¬4åˆ—é™åºæ’åº
 
 mydata$category<-as.integer(seq(1,nrow(mydata),1))
 
