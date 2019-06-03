@@ -1,8 +1,7 @@
+#EasyChartså›¢é˜Ÿå‡ºå“ï¼Œ
+#å¦‚æœ‰é—®é¢˜ä¿®æ­£ä¸æ·±å…¥å­¦ä¹ ï¼Œå¯è”ç³»å¾®ä¿¡ï¼šEasyCharts
 
-#EasyChartsÍÅ¶Ó³öÆ·£¬ÈçÓĞÉÌÓÃ±Ø¾¿£¬
-#ÈçĞèÊ¹ÓÃÓëÉîÈëÑ§Ï°£¬ÇëÁªÏµÎ¢ĞÅ£ºEasyCharts
-
-#------------------------------------Í¼ 7-7-3 ĞÇĞÎÍ¼-----------------------------
+#------------------------------------å›¾ 7-7-3 æ˜Ÿå½¢å›¾-----------------------------
 library(graphics)
 library(RColorBrewer)
 library(dplyr)
@@ -12,14 +11,14 @@ dstar<- sample_n(diamonds, 100)
 dstar$log10carat <- log10(dstar$carat)
 dstar$log10price <- log10(dstar$price)
 dstar<-dstar[order(dstar$cut,decreasing=T),]
-#ĞÇĞÎÍ¼
+#æ˜Ÿå½¢å›¾
 stars(dstar[,2:6], key.loc = c(-2, 10), scale = TRUE, 
       locations = NULL, len =1, radius = TRUE,
       full = TRUE, labels = NULL,draw.segments = TRUE,
       col.segments=palette(brewer.pal(7,"Set1"))[1:5])
 
 
-#--------------------------------Í¼ 7-7-4 É¢µãĞÇĞÎÍ¼----------------------------------------------
+#--------------------------------å›¾ 7-7-4 æ•£ç‚¹æ˜Ÿå½¢å›¾----------------------------------------------
 
 loc <- data.matrix(dstar[,11:12])
 stars(dstar[,2:6], key.loc = c(-1, 3), scale = TRUE, 
