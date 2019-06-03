@@ -1,8 +1,5 @@
-
-
-#EasyChartsÍÅ¶Ó³öÆ·£¬ÈçÓĞÉÌÓÃ±Ø¾¿£¬
-#ÈçĞèÊ¹ÓÃÓëÉîÈëÑ§Ï°£¬ÇëÁªÏµÎ¢ĞÅ£ºEasyCharts
-
+#EasyChartså›¢é˜Ÿå‡ºå“ï¼Œ
+#å¦‚éœ€ä½¿ç”¨ä¸æ·±å…¥å­¦ä¹ ï¼Œè¯·è”ç³»å¾®ä¿¡ï¼šEasyCharts
 
 library(dplyr)
 library(ggplot2)
@@ -13,11 +10,10 @@ colormap <- colorRampPalette(brewer.pal(9,'YlGnBu'))(9)
 
 dat <- read_excel("SpiralChart_Data.xlsx")
 
-
-dat$time <-  with(dat, as.POSIXct(paste(Date, Time), tz="GMT"))  #°ÑÈÕÆÚ×ª»»³ÉPOSIXct¸ñÊ½
-dat$hour <-  as.numeric(dat$time) %% (24*60*60) / 3600 #Ê±¿Ì
-dat$day <- as.Date(dat$time)   #°ÑÌìÊı×ª»»³ÉÈÕÆÚĞÍ
-dat$datt<-as.numeric(strftime(dat$day , "%d"))  #°ÑÌìÊı×ª»»³ÉÊıÖµĞÍ
+dat$time <-  with(dat, as.POSIXct(paste(Date, Time), tz="GMT"))  #æŠŠæ—¥æœŸè½¬æ¢æˆPOSIXctæ ¼å¼
+dat$hour <-  as.numeric(dat$time) %% (24*60*60) / 3600 #æ—¶åˆ»
+dat$day <- as.Date(dat$time)   #æŠŠå¤©æ•°è½¬æ¢æˆæ—¥æœŸå‹
+dat$datt<-as.numeric(strftime(dat$day , "%d"))  #æŠŠå¤©æ•°è½¬æ¢æˆæ•°å€¼å‹
 dat$datt<-dat$datt-min(dat$datt)
 
 
@@ -27,7 +23,7 @@ dat$Value2<-dat$Value/max(dat$Value)
 N<-24
 width<-0.5
 
-#---------------------------------------Í¼6-3-2 ²»Í¬ĞÎÊ½µÄÂİĞıÍ¼¡£(a) ÂİĞıÖùĞÎÍ¼--------------------------------
+#---------------------------------------å›¾6-3-2 ä¸åŒå½¢å¼çš„èºæ—‹å›¾ã€‚(a) èºæ—‹æŸ±å½¢å›¾--------------------------------
 
 bars <- dat %>% 
   mutate(hour.group = cut(hour, breaks=seq(0,24,width), labels=seq(0,23.75,width),include.lowest=TRUE), 
@@ -79,7 +75,7 @@ ggplot(poly, aes(x, y, group = interaction(hour, day),fill=value)) +
   )
  
 
-#----------------------------------------Í¼6-3-2 ²»Í¬ĞÎÊ½µÄÂİĞıÍ¼¡£(b) ÂİĞıÈÈÁ¦Í¼---------------------------------------------
+#----------------------------------------å›¾6-3-2 ä¸åŒå½¢å¼çš„èºæ—‹å›¾ã€‚(b) èºæ—‹çƒ­åŠ›å›¾---------------------------------------------
 
 bars <- dat %>% 
   mutate(hour.group = cut(hour, breaks=seq(0,24,width), labels=seq(0,23.75,width),include.lowest=TRUE), #
@@ -135,7 +131,7 @@ ggplot(poly, aes(x, y, group = interaction(hour, day),fill=value)) +
   )
 
 
-#-----------------------------------Í¼6-3-3 ²»Í¬ĞÎÊ½µÄÂİĞıÍ¼ºÍÀ×´ïÍ¼.(a) ¾¶ÏòÈÈÁ¦Í¼.------------------------------------
+#-----------------------------------å›¾6-3-3 ä¸åŒå½¢å¼çš„èºæ—‹å›¾å’Œé›·è¾¾å›¾.(a) å¾„å‘çƒ­åŠ›å›¾.------------------------------------
 
 bars <- dat %>% 
   mutate(hour.group = cut(hour, breaks=seq(0,24,width), labels=seq(0,23.75,width),include.lowest=TRUE), #
@@ -198,7 +194,7 @@ ggplot(poly, aes(x, y, group = interaction(hour, day),fill=value)) +
   )
 
 
-#--------------------------------------Í¼6-3-3 ²»Í¬ĞÎÊ½µÄÂİĞıÍ¼ºÍÀ×´ïÍ¼. (b) ÂİĞıÖùĞÎÍ¼. -----------------------------------------------
+#--------------------------------------å›¾6-3-3 ä¸åŒå½¢å¼çš„èºæ—‹å›¾å’Œé›·è¾¾å›¾. (b) èºæ—‹æŸ±å½¢å›¾. -----------------------------------------------
 
 bars <- dat %>% 
   mutate(hour.group = cut(hour, breaks=seq(0,24,width), labels=seq(0,23.75,width),include.lowest=TRUE), #
