@@ -1,12 +1,10 @@
-
-#EasyChartsÍÅ¶Ó³öÆ·£¬ÈçÓĞÉÌÓÃ±Ø¾¿£¬
-#ÈçĞèÊ¹ÓÃÓëÉîÈëÑ§Ï°£¬ÇëÁªÏµÎ¢ĞÅ£ºEasyCharts
-
+#EasyChartså›¢é˜Ÿå‡ºå“ï¼Œ
+#å¦‚æœ‰é—®é¢˜ä¿®æ­£ä¸æ·±å…¥å­¦ä¹ ï¼Œå¯è”ç³»å¾®ä¿¡ï¼šEasyCharts
 
 library(RColorBrewer)
 library(pheatmap)
 library(cowplot)
-set.seed(1020543)
+set.seed(12345)
 df1<- data.frame(matrix(rnorm(100,10,3), ncol=10))
 colnames(df1) <-LETTERS[1:10]
 rownames(df1) <- letters[1:10]
