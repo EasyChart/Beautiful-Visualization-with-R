@@ -3,6 +3,8 @@
 
 library(plot3D)
 
+# Reference:https://github.com/coconn/cso002code_BrazilTradeOffsR
+
 par(mfrow = c(1, 1))
 panelfirst <- function(pmat) {
   zmin <- min(-quakes$depth)
