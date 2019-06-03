@@ -1,12 +1,9 @@
-
-
-#EasyChartsÍÅ¶Ó³öÆ·£¬ÈçÓĞÉÌÓÃ±Ø¾¿£¬
-#ÈçĞèÊ¹ÓÃÓëÉîÈëÑ§Ï°£¬ÇëÁªÏµÎ¢ĞÅ£ºEasyCharts
-
+#EasyChartså›¢é˜Ÿå‡ºå“ï¼Œ
+#å¦‚æœ‰é—®é¢˜ä¿®æ­£ä¸æ·±å…¥å­¦ä¹ ï¼Œå¯è”ç³»å¾®ä¿¡ï¼šEasyCharts
 
 library(ggplot2)
 library(RColorBrewer)
-library(ggalt) # ggalt µÄÏÂÔØÓï¾ä£ºdevtools::install_github("hrbrmstr/ggalt")
+library(ggalt) # ggalt çš„ä¸‹è½½è¯­å¥ï¼šdevtools::install_github("hrbrmstr/ggalt")
 library(reshape2)
 colormap <- colorRampPalette(rev(brewer.pal(11,'RdYlBu')))(15)
 
