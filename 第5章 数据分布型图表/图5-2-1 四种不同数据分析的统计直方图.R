@@ -8,6 +8,7 @@ library(SuppDists) #提供rJohnson()函数
 set.seed(141079)
 
 # Generate sample data -------------------------------------------------------
+#findParams函数参考：https://github.com/hadley/boxplots-paper
 
 findParams <- function(mu, sigma, skew, kurt) {
   value <- .C("JohnsonMomentFitR", as.double(mu), as.double(sigma),
