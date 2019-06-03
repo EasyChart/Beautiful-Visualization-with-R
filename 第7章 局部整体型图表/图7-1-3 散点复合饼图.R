@@ -1,6 +1,5 @@
-
-#EasyChartsÍÅ¶Ó³öÆ·£¬ÈçÓĞÉÌÓÃ±Ø¾¿£¬
-#ÈçĞèÊ¹ÓÃÓëÉîÈëÑ§Ï°£¬ÇëÁªÏµÎ¢ĞÅ£ºEasyCharts
+#EasyChartså›¢é˜Ÿå‡ºå“ï¼Œ
+#å¦‚æœ‰é—®é¢˜ä¿®æ­£ä¸æ·±å…¥å­¦ä¹ ï¼Œå¯è”ç³»å¾®ä¿¡ï¼šEasyCharts
 
 library(ggplot2)
 library(scatterpie)
@@ -12,7 +11,7 @@ Max_radius<-max(radius)
 Bubble_Scale<-0.1
 crime$radius <- Bubble_Scale * radius/Max_radius
 
-mydata<-crime[,c(2,4,3,5:8)]  #Êı¾İ¼¯¹¹Ôì
+mydata<-crime[,c(2,4,3,5:8)]  #æ•°æ®é›†æ„é€ 
 Col_Mean<-apply(mydata,2,mean)
 Col_Sort<-sort(Col_Mean,index.return=TRUE,decreasing = TRUE)
 mydata<-mydata[,Col_Sort$ix]
@@ -30,7 +29,7 @@ mydata2<-cbind(mydata2,mydata)
 Legnd_label<-colnames(mydata2)[4:10]
 colnames(mydata2)[4:10]<-LETTERS[1:7]
 
-#---------------------------------------Í¼7-1-3 É¢µã¸´ºÏ±ıÍ¼ÏµÁĞ(a)-------------------------------------------------
+#---------------------------------------å›¾7-1-3 æ•£ç‚¹å¤åˆé¥¼å›¾ç³»åˆ—(a)-------------------------------------------------
 ggplot() + 
   geom_scatterpie(aes(x=x, y=y,r=0.05), data=mydata2, cols=colnames(mydata2)[4:10],alpha=0.9,size=0.1) +
   scale_fill_manual(values=colorRampPalette(brewer.pal(7, "Set2"))(7),labels=Legnd_label)+
@@ -48,7 +47,7 @@ ggplot() +
     legend.text = element_text(size=14,face="plain",color="black")
   )
 
-#---------------------------------------Í¼7-1-3 É¢µã¸´ºÏ±ıÍ¼ÏµÁĞ(b)-------------------------------------------------
+#---------------------------------------å›¾7-1-3 æ•£ç‚¹å¤åˆé¥¼å›¾ç³»åˆ—(b)-------------------------------------------------
 ggplot() + 
   geom_scatterpie(aes(x=x, y=y,r=radius), data=mydata2, cols=colnames(mydata2)[4:10],alpha=0.9,size=0.25) +
   scale_fill_manual(values=colorRampPalette(brewer.pal(7, "Set2"))(7),labels=Legnd_label)+
