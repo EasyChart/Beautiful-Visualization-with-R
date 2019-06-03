@@ -1,7 +1,5 @@
-
-#EasyChartsÍÅ¶Ó³öÆ·£¬ÈçÓĞÉÌÓÃ±Ø¾¿£¬
-#ÈçĞèÊ¹ÓÃÓëÉîÈëÑ§Ï°£¬ÇëÁªÏµÎ¢ĞÅ£ºEasyCharts
-
+#EasyChartså›¢é˜Ÿå‡ºå“ï¼Œ
+#å¦‚æœ‰é—®é¢˜ä¿®æ­£ä¸æ·±å…¥å­¦ä¹ ï¼Œå¯è”ç³»å¾®ä¿¡ï¼šEasyCharts
 
 library(lattice)
 library(gridExtra)
@@ -10,10 +8,10 @@ library(RColorBrewer)
 
 colormap<-colorRampPalette(rev(brewer.pal(11,'RdYlGn')))(100)
 
-#--------------------------------------------------¶àÏîÊ½ÄâºÏ------------------------------------------
+#--------------------------------------------------å¤šé¡¹å¼æ‹Ÿåˆ------------------------------------------
 mydata <- read.csv("Surface_Data.csv", sep= ",", header=T)
 
-#¶àÏîÊ½ÄâºÏz=f(x,y)=a+bx+cy+dxx+eyy
+#å¤šé¡¹å¼æ‹Ÿåˆz=f(x,y)=a+bx+cy+dxx+eyy
 x <- mydata$x
 y <- mydata$y
 z <- mydata$z
@@ -22,7 +20,7 @@ y2<-y*y
 poly_z <- lm(z ~ x + y +x2+y2)
 print(poly_z)
 
-#Éè¶¨Îª30X30µÄÍø¸ñÊı¾İ(x, y)£¬²¢¸ù¾İÄâºÏ·½³ÌÇóÆäÊıÖµ
+#è®¾å®šä¸º30X30çš„ç½‘æ ¼æ•°æ®(x, y)ï¼Œå¹¶æ ¹æ®æ‹Ÿåˆæ–¹ç¨‹æ±‚å…¶æ•°å€¼
 N<-30
 xmar <- seq(min(x),max(x),(max(x)-min(x))/N)
 ymar <- seq(min(y),max(y),(max(y)-min(y))/N)
@@ -59,7 +57,7 @@ max_z<-max(melt_df$z)
 min_z<-min(melt_df$z)
 breaks_lines<-seq(min_z,max_z,by=(max_z-min_z)/10)
 Contour1<-ggplot()+
-  geom_raster(data=melt_df,aes(y=y,x=x,fill=z),interpolate=TRUE)+#¸ù¾İ¸ß¶ÈÌî³ä
+  geom_raster(data=melt_df,aes(y=y,x=x,fill=z),interpolate=TRUE)+#æ ¹æ®é«˜åº¦å¡«å……
   geom_contour(data=melt_df,aes(y=y,x=x,z=z,colour= ..level..),breaks=breaks_lines,color="black")+#
   geom_point(data=mydata,aes(y,x,fill=z),shape=21,size=3)+
   scale_fill_gradientn(colours=colormap)+
@@ -78,7 +76,7 @@ Contour1<-ggplot()+
   )
 Contour1
 
-#-#--------------------------------------------------loess»Ø¹éÊ½ÄâºÏ------------------------------------------
+#-#--------------------------------------------------loesså›å½’å¼æ‹Ÿåˆ------------------------------------------
 mydata <- read.csv("Surface_Data.csv", sep= ",", header=T)
 
 x <- mydata$x
@@ -118,7 +116,7 @@ max_z<-max(melt_df$z)
 min_z<-min(melt_df$z)
 breaks_lines<-seq(min_z,max_z,by=(max_z-min_z)/10)
 Contour2<-ggplot()+
-  geom_raster(data=melt_df,aes(y=y,x=x,fill=z),interpolate=TRUE)+#¸ù¾İ¸ß¶ÈÌî³ä
+  geom_raster(data=melt_df,aes(y=y,x=x,fill=z),interpolate=TRUE)+#æ ¹æ®é«˜åº¦å¡«å……
   geom_contour(data=melt_df,aes(y=y,x=x,z=z,colour= ..level..),breaks=breaks_lines,color="black")+#
   geom_point(data=mydata,aes(y,x,fill=z),shape=21,size=3)+
   scale_fill_gradientn(colours=colormap)+
@@ -137,8 +135,8 @@ Contour2<-ggplot()+
 Contour2
 
 
-#-----------------------------------------------Í¼±í×éºÏ1------------------------------------------------------------------------------------------
+#-----------------------------------------------å›¾è¡¨ç»„åˆ1------------------------------------------------------------------------------------------
 grid.arrange(surface_plot1,surface_plot2, ncol=2, clip=TRUE) # Clip removes the border of the plot
 
-#-----------------------------------------------Í¼±í×éºÏ2----------------------------------------------------------------------------------
+#-----------------------------------------------å›¾è¡¨ç»„åˆ2----------------------------------------------------------------------------------
 grid.arrange(Contour1,Contour2, ncol=2, clip=TRUE) # Clip removes the border of the plot
