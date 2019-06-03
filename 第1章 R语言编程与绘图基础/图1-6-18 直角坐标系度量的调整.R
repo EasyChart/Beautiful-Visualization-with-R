@@ -1,3 +1,5 @@
+#EasyCharts团队出品，
+#如有问题修正与深入学习，可联系微信：EasyCharts
 
 library(ggplot2)
 library(RColorBrewer)
@@ -17,7 +19,6 @@ ggplot(data=df, aes(x=Time,y=value,fill=variable,shape=variable)) +
     legend.background = element_blank(),
     legend.position=c(0.2,0.8)
   )
-
 
 #--------------------------------------color+shape---------------------------
 ggplot(data=df, aes(x=Time,y=value,fill=variable,shape=variable)) + 
