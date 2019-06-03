@@ -1,8 +1,5 @@
-
-
-#EasyChartsÍÅ¶Ó³öÆ·£¬ÈçÓĞÉÌÓÃ±Ø¾¿£¬
-#ÈçĞèÊ¹ÓÃÓëÉîÈëÑ§Ï°£¬ÇëÁªÏµÎ¢ĞÅ£ºEasyCharts
-
+#EasyChartså›¢é˜Ÿå‡ºå“ï¼Œ
+#å¦‚æœ‰é—®é¢˜ä¿®æ­£ä¸æ·±å…¥å­¦ä¹ ï¼Œå¯è”ç³»å¾®ä¿¡ï¼šEasyCharts
 
 library(ggraph)
 library(igraph)
@@ -14,7 +11,7 @@ colormap <- colorRampPalette(rev(brewer.pal(5,'Reds')))(5)
 graph <- graph_from_data_frame(flare$edges, vertices = flare$vertices)
 
 
-#---------------------------------------Í¼7-2-2 ±ùÖùÍ¼-------------------------------------------------
+#---------------------------------------å›¾7-2-2 å†°æŸ±å›¾-------------------------------------------------
 ggraph(graph, layout ='partition') + 
   geom_node_tile(aes(fill = as.factor(depth)), size = 0.25)+
   geom_node_text( aes(label=shortName,filter =(depth==0)),size=6, angle=0,colour="white") +
@@ -26,7 +23,7 @@ ggraph(graph, layout ='partition') +
   theme_void()+
   theme(legend.position = "none")
 
-#--------------------------------------Í¼7-2-3 ĞñÈÕÍ¼----------------------------------------------------
+#--------------------------------------å›¾7-2-3 æ—­æ—¥å›¾----------------------------------------------------
 ggraph(graph, layout ='partition', circular = TRUE) + 
   geom_node_arc_bar(aes(fill = as.factor(depth)), size = 0.25)+
   geom_node_text( aes(label=shortName,filter =(depth==0)),size=6, angle=0,colour="white") +
