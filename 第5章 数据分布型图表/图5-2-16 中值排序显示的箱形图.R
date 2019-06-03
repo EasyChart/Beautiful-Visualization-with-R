@@ -1,15 +1,14 @@
-
-
-#EasyChartsÍÅ¶Ó³öÆ·£¬ÈçÓĞÉÌÓÃ±Ø¾¿£¬
-#ÈçĞèÊ¹ÓÃÓëÉîÈëÑ§Ï°£¬ÇëÁªÏµÎ¢ĞÅ£ºEasyCharts
+#EasyChartså›¢é˜Ÿå‡ºå“ï¼Œ
+#å¦‚æœ‰é—®é¢˜ä¿®æ­£ä¸æ·±å…¥å­¦ä¹ ï¼Œå¯è”ç³»å¾®ä¿¡ï¼šEasyCharts
 
 library(ggplot2)
 library(RColorBrewer)
-library(SuppDists) #Ìá¹©rJohnson()º¯Êı
+library(SuppDists) #æä¾›rJohnson()å‡½æ•°
 
 set.seed(141079)
 
 # Generate sample data -------------------------------------------------------
+#findParamså‡½æ•°å‚è€ƒï¼šhttps://github.com/hadley/boxplots-paper
 
 findParams <- function(mu, sigma, skew, kurt) {
   value <- .C("JohnsonMomentFitR", as.double(mu), as.double(sigma),
@@ -22,13 +21,13 @@ findParams <- function(mu, sigma, skew, kurt) {
        type = c("SN", "SL", "SU", "SB")[value$type])
 }
 
-# ¾ùÖµÎª3£¬±ê×¼²îÎª1µÄÕıÌ¬·Ö²¼
+# å‡å€¼ä¸º3ï¼Œæ ‡å‡†å·®ä¸º1çš„æ­£æ€åˆ†å¸ƒ
 n <- rnorm(100,8,1)
-# Johnson·Ö²¼µÄÆ«Ğ±¶È2.2ºÍ·å¶È13
+# Johnsonåˆ†å¸ƒçš„åæ–œåº¦2.2å’Œå³°åº¦13
 s <- rJohnson(100, findParams(4, 1, 2., 13.1))
-# Johnson·Ö²¼µÄÆ«Ğ±¶È0ºÍ·å¶È20
+# Johnsonåˆ†å¸ƒçš„åæ–œåº¦0å’Œå³°åº¦20
 k <- rJohnson(100, findParams(10, 1, 2.2, 20))
-# Á½¸ö·åµÄ¾ùÖµ¦Ì1£¬¦Ì2·Ö±ğÎª1.89ºÍ3.79£¬¦Ò1 = ¦Ò2 =0.31
+# ä¸¤ä¸ªå³°çš„å‡å€¼Î¼1ï¼ŒÎ¼2åˆ†åˆ«ä¸º1.89å’Œ3.79ï¼ŒÏƒ1 = Ïƒ2 =0.31
 mm <- rnorm(100, rep(c(2, 4), each = 50) * sqrt(0.9), sqrt(0.1))
 
 mydata <- data.frame(
@@ -37,7 +36,7 @@ mydata <- data.frame(
   Value = c(n, s, k, mm)
 )
 #write.csv(mydata,'Boxplot_Sort_Data.csv')
-#--------------------------------Î´ÅÅĞò----------------------------------------------------
+#--------------------------------æœªæ’åº----------------------------------------------------
 
 ggplot(mydata, aes(Class,Value))+
   geom_boxplot(aes(fill = Class),notch = FALSE,outlier.alpha  =1) +
@@ -51,7 +50,7 @@ ggplot(mydata, aes(Class,Value))+
         legend.position="none"
   )
 
-#------------------------------½µĞòĞò´¦Àí-------------------------------------------------------
+#------------------------------é™åºåºå¤„ç†-------------------------------------------------------
 Order_Class<-with(mydata,reorder(Class,Value,median))
 
 Order_Class<-factor(Order_Class,levels=rev(levels(Order_Class)))
