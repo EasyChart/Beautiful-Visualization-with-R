@@ -1,8 +1,5 @@
-
-
-#EasyCharts团队出品，如有商用必究，
-#如需使用与深入学习，请联系微信：EasyCharts
-
+#EasyCharts鍥㈤槦鍑哄搧锛屽鏈夊晢鐢ㄥ繀绌讹紝
+#濡傞渶浣跨敤涓庢繁鍏ュ涔狅紝璇疯仈绯诲井淇★細EasyCharts
 
 library(ggplot2)
 library(RColorBrewer)  
@@ -14,7 +11,7 @@ mydata0<-read.csv("Facting_Data.csv",check.names =FALSE)
 N<-ncol(mydata0)-1
 labels_Y<-colnames(mydata0)[1:N+1]
 colnames(mydata0)<-c("x",seq(1,N,1))
-mydata<-data.frame(x=numeric(),y=numeric(),variable=character()) #创建空的Data.Frame
+mydata<-data.frame(x=numeric(),y=numeric(),variable=character()) #鍒涘缓绌虹殑Data.Frame
 
 for (i in 1:N){
   newdata<-data.frame(spline(mydata0[,1],mydata0[,i+1],n=300,method= "natural"))
