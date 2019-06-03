@@ -1,3 +1,6 @@
+#EasyChartså›¢é˜Ÿå‡ºå“ï¼Œ
+#å¦‚æœ‰é—®é¢˜ä¿®æ­£ä¸æ·±å…¥å­¦ä¹ ï¼Œå¯è”ç³»å¾®ä¿¡ï¼šEasyCharts
+
 library(ggplot2)
 
 N<-20
@@ -5,13 +8,13 @@ df1 <- data.frame(x=sort(rnorm(N)),y=sort(rnorm(N)))
 df2 <- data.frame(x=df1$x+0.1*rnorm(N),y=df1$y+0.1*rnorm(N))
 
 
-# ËùÓĞÍ¼²ã¹²ÏíÊı¾İÔ´ºÍÃÀÑ§Ó³Éä²ÎÊı
+# æ‰€æœ‰å›¾å±‚å…±äº«æ•°æ®æºå’Œç¾å­¦æ˜ å°„å‚æ•°
 ggplot(df1,aes(x,y,colour=x+y))+
   geom_line(size=1)+
   geom_point(shape=16,size=5)+
   guides(color=guide_colorbar(title="Point\nLine"))
 
-#ËùÓĞÍ¼²ã½ö¹²ÏíÊı¾İÔ´
+#æ‰€æœ‰å›¾å±‚ä»…å…±äº«æ•°æ®æº
 ggplot(df1,aes(x,y))+
   geom_line(aes(colour=x+y),size=1)+    
   geom_point(aes(fill=x+y),color="black",shape=21,
@@ -20,7 +23,7 @@ ggplot(df1,aes(x,y))+
   scale_color_distiller(name="Line",palette="Blues")
 
 
-#¸÷Í¼²ã¶ÔÏó¾ùÊ¹ÓÃ¶ÀÁ¢µÄÊı¾İÔ´ÓëÃÀÑ§Ó³Éä²ÎÊı
+#å„å›¾å±‚å¯¹è±¡å‡ä½¿ç”¨ç‹¬ç«‹çš„æ•°æ®æºä¸ç¾å­¦æ˜ å°„å‚æ•°
 ggplot()+
   geom_line(aes(x,y,colour=x+y),df1,size=1)+    
   geom_point(aes(x,y,fill=x+y),df2,color="black",
