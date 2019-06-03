@@ -1,6 +1,5 @@
-
-#EasyChartsÍÅ¶Ó³öÆ·£¬ÈçÓĞÉÌÓÃ±Ø¾¿£¬
-#ÈçĞèÊ¹ÓÃÓëÉîÈëÑ§Ï°£¬ÇëÁªÏµÎ¢ĞÅ£ºEasyCharts
+#EasyChartså›¢é˜Ÿå‡ºå“ï¼Œ
+#å¦‚æœ‰é—®é¢˜ä¿®æ­£ä¸æ·±å…¥å­¦ä¹ ï¼Œå¯è”ç³»å¾®ä¿¡ï¼šEasyCharts
 
 library(ggplot2)
 library(RColorBrewer)
@@ -15,7 +14,7 @@ x<-c(x1,x2)
 y<-c(y1,y2)
 df <- data.frame(x,y)
 
-#--------------------------Í¼5-3-1 ²»Í¬ÀàĞÍµÄ¶şÎ¬Í³¼ÆÖ±·½Í¼------------------
+#--------------------------å›¾5-3-1 ä¸åŒç±»å‹çš„äºŒç»´ç»Ÿè®¡ç›´æ–¹å›¾------------------
 ggplot(df, aes(x,y))+ 
   stat_bin2d(bins=40) + scale_fill_gradientn(colours=colormap)+
   theme_classic()+
