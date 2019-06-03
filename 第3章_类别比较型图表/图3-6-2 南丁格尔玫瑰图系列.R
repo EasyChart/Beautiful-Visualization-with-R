@@ -1,9 +1,9 @@
 
-#EasyChartsÍÅ¶Ó³öÆ·£¬ÈçÓĞÉÌÓÃ±Ø¾¿£¬
-#ÈçĞèÊ¹ÓÃÓëÉîÈëÑ§Ï°£¬ÇëÁªÏµÎ¢ĞÅ£ºEasyCharts
+#EasyChartså›¢é˜Ÿå‡ºå“ï¼Œ
+#å¦‚æœ‰é—®é¢˜ä¿®æ­£ä¸æ·±å…¥å­¦ä¹ ï¼Œå¯è”ç³»å¾®ä¿¡ï¼šEasyCharts
 
 library(ggplot2)
-#----------------------------------µ¥Êı¾İÏµÁĞ¼«×ø±êÖùĞÎÍ¼-----------------------------------------
+#----------------------------------å•æ•°æ®ç³»åˆ—æåæ ‡æŸ±å½¢å›¾-----------------------------------------
 mydata <- data.frame( a=c("Monday","Tuesday","Wednesday","Thursday","Friday","Saturday","Sunday"),
                       b=c(50, 60, 70, 20,90,110,30))
 myAngle <-seq(-20,-340,length.out =7)
@@ -21,7 +21,7 @@ ggplot(mydata) +
          axis.line.y = element_line(size=0.25),
          axis.text.x=element_text(size = 13,colour="black",angle = myAngle))
 
-#--------------------------------¶àÊı¾İÏµÁĞ¼«×ø±êÖùĞÎÍ¼-------------------------------------------
+#--------------------------------å¤šæ•°æ®ç³»åˆ—æåæ ‡æŸ±å½¢å›¾-------------------------------------------
 
 diamonds<-cbind(diamonds,Cou=rep(1,nrow(diamonds)))
 sum_clarity<-aggregate(Cou~clarity,diamonds,sum)
