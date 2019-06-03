@@ -30,7 +30,6 @@ ggplot(df, aes(x,y))+
   )
 
 
-# Log scaling
 ggplot(df, aes(x,y))+
   stat_binhex(bins=40) + scale_fill_gradientn(colours=colormap)+
   theme_classic()+
