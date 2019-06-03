@@ -1,14 +1,11 @@
 
-#EasyChartsÍÅ¶Ó³öÆ·£¬ÈçÓĞÉÌÓÃ±Ø¾¿£¬
-#ÈçĞèÊ¹ÓÃÓëÉîÈëÑ§Ï°£¬ÇëÁªÏµÎ¢ĞÅ£ºEasyCharts
+#EasyChartså›¢é˜Ÿå‡ºå“ï¼Œ
+#å¦‚æœ‰é—®é¢˜ä¿®æ­£ä¸æ·±å…¥å­¦ä¹ ï¼Œå¯è”ç³»å¾®ä¿¡ï¼šEasyCharts
 
 library(ggplot2)
 library(reshape2)
 
-setwd("F:/1.Ñ§ÊõÍ¼±í»æÖÆÖ¸ÄÏ/1. RÓïÑÔÊı¾İ¿ÉÊÓ»¯Ö®ÃÀ/R-Àà±ğ±È½Ï/")
-
-
-#-------------------------------- (a)°ô°ôÌÇÍ¼ ----------------------------------------------
+#-------------------------------- (a)æ£’æ£’ç³–å›¾ ----------------------------------------------
 
 mydata<-read.csv("DotPlots_Data.csv",sep=",",na.strings="NA",stringsAsFactors=FALSE)
 mydata$sum<-rowSums(mydata[,2:3])
@@ -28,7 +25,7 @@ ggplot(mydata, aes(sum, City)) +
     legend.title=element_text(size=14,face="plain",color="black")
   )
 
-#-------------------------------- (b) ¿ËÀû·òÀ¼µãÍ¼  ----------------------------------------------
+#-------------------------------- (b) å…‹åˆ©å¤«å…°ç‚¹å›¾  ----------------------------------------------
 
 mydata<-read.csv("DotPlots_Data.csv",sep=",",na.strings="NA",stringsAsFactors=FALSE)
 mydata$sum<-rowSums(mydata[,2:3])
@@ -44,7 +41,7 @@ ggplot(mydata, aes(sum, City)) +
     legend.title=element_text(size=14,face="plain",color="black")
   )
 
-#----------------------------------(c) ÑÆÁåÍ¼------------------------
+#----------------------------------(c) å“‘é“ƒå›¾------------------------
 mydata<-read.csv("DotPlots_Data.csv",sep=",",na.strings="NA",stringsAsFactors=FALSE)
 mydata$City <- factor(mydata$City, levels = mydata$City[order(mydata$Female)])
 mydata<-melt(mydata,id.vars='City')
