@@ -1,6 +1,6 @@
 
-#EasyChartsÍÅ¶Ó³öÆ·£¬ÈçÓĞÉÌÓÃ±Ø¾¿£¬
-#ÈçĞèÊ¹ÓÃÓëÉîÈëÑ§Ï°£¬ÇëÁªÏµÎ¢ĞÅ£ºEasyCharts
+#EasyChartså›¢é˜Ÿå‡ºå“ï¼Œ
+#å¦‚æœ‰é—®é¢˜ä¿®æ­£ä¸æ·±å…¥å­¦ä¹ ï¼Œå¯è”ç³»å¾®ä¿¡ï¼šEasyCharts
 
 library(ggplot2)
 library(RColorBrewer)
@@ -19,16 +19,16 @@ mydata<-transform(mydata, label1=ifelse(Difference>=0, Team, NA),
 
 mydata$Team <- factor(mydata$Team, levels = mydata$Team[order(mydata$Difference)])
 
-#CairoPDF(file="Í¼1-8-15(a)_ÌõĞÎÍ¼.pdf",width=5.28,height=5.47) 
+#CairoPDF(file="å›¾1-8-15(a)_æ¡å½¢å›¾.pdf",width=5.28,height=5.47) 
 #showtext.begin()
 ggplot(data = mydata, aes(x = Team, y = Difference,fill = Difference)) +
   geom_bar(stat = "identity", width = 0.8,colour="black",size=0.25)+
   scale_fill_gradient2(low=brewer.pal(7,"Set1")[2],mid="grey90",high=brewer.pal(7,"Set1")[1],midpoint=0)+
-  geom_text(aes(y = 0,     label=label2),size=3,hjust=-0.1)+ #Ìí¼Ó¸ºÖµ²¿·ÖµÄÊı¾İ±êÇ©
-  geom_text(aes(y = -0.001,label=label1),size=3,hjust= 1.1)+ #Ìí¼ÓÕıÖµ²¿·ÖµÄÊı¾İ±êÇ©
-  coord_flip() +   #×ø±êÖá·­×ª
+  geom_text(aes(y = 0,     label=label2),size=3,hjust=-0.1)+ #æ·»åŠ è´Ÿå€¼éƒ¨åˆ†çš„æ•°æ®æ ‡ç­¾
+  geom_text(aes(y = -0.001,label=label1),size=3,hjust= 1.1)+ #æ·»åŠ æ­£å€¼éƒ¨åˆ†çš„æ•°æ®æ ‡ç­¾
+  coord_flip() +   #åæ ‡è½´ç¿»è½¬
   ylim(-5,5)+
-  theme_minimal() + #Í¼±íÖ÷ÌâÉè¶¨
+  theme_minimal() + #å›¾è¡¨ä¸»é¢˜è®¾å®š
   theme(
         panel.grid.major=element_blank(),
         panel.grid.minor=element_blank(),
