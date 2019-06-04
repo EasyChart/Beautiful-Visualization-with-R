@@ -9,8 +9,12 @@ treemap(proglangs,
         index=c("parent", "id"),
         vSize="value",
         vColor="parent",
-        fontcolor.labels="black",
+        type="index",
+        border.lwds=c(2,0.1),
+        fontcolor.labels=c('white',"grey10"),
         title="",
+        align.labels = list(c("center", "center"), c("right", "bottom")),
+        fontsize.labels=c(12, 9),
         palette="Set1")
 
 #-------------------------------------------------图7-3-2 树状图(b)--------------------------------------------------------------------------------
