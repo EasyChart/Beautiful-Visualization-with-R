@@ -1,7 +1,8 @@
-#EasyChartså›¢é˜Ÿå‡ºå“ï¼Œ
-#å¦‚æœ‰é—®é¢˜ä¿®æ­£ä¸æ·±å…¥å­¦ä¹ ï¼Œå¯è”ç³»å¾®ä¿¡ï¼šEasyCharts
 
-#------------------------------------------------å›¾7-5-1 å—çŠ¶åå¤«é¥¼å›¾(a)-------------------------------------------------------
+#EasyChartsÍÅ¶Ó³öÆ·£¬
+#ÈçĞèÊ¹ÓÃÓëÉîÈëÑ§Ï°£¬ÇëÁªÏµÎ¢ĞÅ£ºEasyCharts
+
+#------------------------------------------------Í¼7-5-1 ¿é×´»ª·ò±ıÍ¼(a)-------------------------------------------------------
 library(ggplot2)
 library(RColorBrewer)  
 
@@ -35,8 +36,26 @@ ggplot(df, aes(x = y, y = x, fill = category)) +
     # legend.title = element_blank(),
     legend.position = "right")
 
-
-#------------------------------------------------å›¾7-5-1 å—çŠ¶åå¤«é¥¼å›¾(b)------------------------------------------
+#------------------------------------------------------------------------------------------
+library(ggforce)
+ggplot(df, aes(x0 = y, y0 = x, fill = category,r=0.5)) + 
+  geom_circle(color = "black", size = 0.25) +
+  #geom_point(color = "black",shape=21,size=6) + 
+  coord_fixed(ratio = 1)+
+  scale_x_continuous(trans = 'reverse') +#expand = c(0, 0),
+  scale_y_continuous(trans = 'reverse') +#expand = c(0, 0),
+  scale_fill_manual(name = "Category", 
+                    #labels = names(sort_table),
+                    values = Color)+
+  theme(#panel.border = element_rect(fill=NA,size = 2),
+    panel.background  = element_blank(),
+    plot.title = element_text(size = rel(1.2)),
+    #axis.text = element_blank(),
+    #axis.title = element_blank(),
+    #axis.ticks = element_blank(),
+    # legend.title = element_blank(),
+    legend.position = "right")
+#------------------------------------------------Í¼7-5-1 ¿é×´»ª·ò±ıÍ¼(b)------------------------------------------
 library(dplyr)
 nrows <- 10
 ndeep <- 10
@@ -76,4 +95,22 @@ ggplot(tb4waffles, aes(x = x, y = y, fill = names)) +
         # legend.title = element_blank(),
         legend.position = "right")
 
+#------------------------------------------------------------------------------------------
+library(ggforce)
 
+ggplot(tb4waffles, aes(x0 = x, y0 = y, fill = names,r=0.5)) + 
+  #geom_tile(color = "white") + # 
+  geom_circle(color = "black",size=0.25) + # 
+  scale_fill_manual(name = "Category", 
+                    values = Color)+
+  xlab("1 square = 100")+
+  ylab("")+
+  coord_fixed(ratio = 1)+
+  theme(#panel.border = element_rect(fill=NA,size = 2),
+    panel.background  = element_blank(),
+    plot.title = element_text(size = rel(1.2)),
+    #axis.text = element_blank(),
+    #axis.title = element_blank(),
+    #axis.ticks = element_blank(),
+    # legend.title = element_blank(),
+    legend.position = "right")
