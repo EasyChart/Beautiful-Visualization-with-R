@@ -1,0 +1,41 @@
+"id","value","parent","rank"
+"Java (general)",423,"Java",40
+"PHP (general)",253,"PHP",39
+"dotNet (general)",220,"dotNet",38
+"Python (general)",219,"Python",37
+"AngularJS",185,"JavaScript",36
+"Django",121,"Python",35
+"JSF",91,"Java",34
+"Spring MVC",89,"Java",33
+"WordPress",83,"PHP",32
+"CodeIgniter",79,"PHP",31
+"RoR",70,"Ruby",30
+"CakePHP",63,"PHP",29
+"Play",43,"Java",28
+"Jersey",36,"Java",27
+"Scala",33,"Java",26
+"ReactJS",29,"JavaScript",25
+"Joomla",28,"PHP",24
+"Vaadin",25,"Java",23
+"Struts",22,"Java",22
+"DotNetNuke",21,"dotNet",20.5
+"Drupal",21,"PHP",20.5
+"GWT",19,"Java",18.5
+"MeteorJS",19,"JavaScript",18.5
+"TotalJS",18,"JavaScript",17
+"Nooku",17,"PHP",15.5
+"KoaJS",17,"JavaScript",15.5
+"Grails",7,"Java",12
+"Dropwizard",7,"Java",12
+"Clojure",7,"Java",12
+"Laravel",7,"PHP",12
+"SocetIO",7,"JavaScript",12
+"Symfony2",6,"PHP",8.5
+"MeanJS",6,"JavaScript",8.5
+"ExpressJS",5,"JavaScript",7
+"Magento",4,"PHP",6
+"Zend",3,"Python",5
+"Phalcon",1,"PHP",2.5
+"PloymerJS",1,"JavaScript",2.5
+"Yii2",1,"JavaScript",2.5
+"HapiJS",1,"JavaScript",2.5
