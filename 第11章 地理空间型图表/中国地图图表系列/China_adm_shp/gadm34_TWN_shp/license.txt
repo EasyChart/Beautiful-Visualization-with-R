@@ -1,0 +1,1 @@
+These data were extracted from the GADM database (www.gadm.org), version 3.4, April 2018. They can be used for non-commercial purposes only.  It is not allowed to redistribute these data, or use them for commercial purposes, without prior consent. See the website (www.gadm.org) for more information.
