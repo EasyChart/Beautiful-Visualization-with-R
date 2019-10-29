@@ -1,10 +1,10 @@
 
-#EasyChartsÍÅ¶Ó³öÆ·£¬
-#ÈçĞèÊ¹ÓÃÓëÉîÈëÑ§Ï°£¬ÇëÁªÏµÎ¢ĞÅ£ºEasyCharts
+#EasyChartså›¢é˜Ÿå‡ºå“ï¼Œ
+#å¦‚éœ€ä½¿ç”¨ä¸æ·±å…¥å­¦ä¹ ï¼Œè¯·è”ç³»å¾®ä¿¡ï¼šEasyCharts
 
 library(ComplexHeatmap )
 library(circlize)
-
+#æ•°æ®æ¥æºï¼šhttps://raw.githubusercontent.com/holtzy/data_to_viz/master/Example_dataset/13_AdjacencyUndirectedUnweighted.csv
 df <-read.csv("AdjacencyUndirectedUnweighted.csv",row.names=1,header=TRUE,check.names = FALSE)
 
 df <- df[which(rowSums(df,na.rm =TRUE)>=3), which(colSums(df,na.rm =TRUE)>=3)]
