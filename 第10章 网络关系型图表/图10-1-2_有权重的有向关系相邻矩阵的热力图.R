@@ -1,10 +1,12 @@
 
-#EasyChartsÍÅ¶Ó³öÆ·£¬
-#ÈçĞèÊ¹ÓÃÓëÉîÈëÑ§Ï°£¬ÇëÁªÏµÎ¢ĞÅ£ºEasyCharts
+#EasyChartså›¢é˜Ÿå‡ºå“ï¼Œ
+#å¦‚éœ€ä½¿ç”¨ä¸æ·±å…¥å­¦ä¹ ï¼Œè¯·è”ç³»å¾®ä¿¡ï¼šEasyCharts
+
 
 library(RColorBrewer)
 library(ggplot2)
 library(reshape2)
+#æ•°æ®æ¥æºï¼šhttps://raw.githubusercontent.com/holtzy/data_to_viz/master/Example_dataset/13_AdjacencyDirectedWeighted.csv
 df <- read.csv("AdjacencyDirectedWeighted.csv",header=TRUE,stringsAsFactors = FALSE)
 
 df_sum<-apply(df[,2:ncol(df)],2,sum)#+apply(df[,2:ncol(df)],1,sum)
