@@ -1,8 +1,8 @@
 
-#EasyChartsÍÅ¶Ó³öÆ·£¬
-#ÈçĞèÊ¹ÓÃÓëÉîÈëÑ§Ï°£¬ÇëÁªÏµÎ¢ĞÅ£ºEasyCharts
+#EasyShuå›¢é˜Ÿå‡ºå“ï¼Œæ›´å¤šæ–‡ç« è¯·å…³æ³¨å¾®ä¿¡å…¬ä¼—å·ã€EasyShuã€‘
+#å¦‚æœ‰é—®é¢˜ä¿®æ­£ä¸æ·±å…¥å­¦ä¹ ï¼Œå¯è”ç³»å¾®ä¿¡ï¼šEasyCharts
 
-library(rgdal)   #Ìá¹©readOGR()º¯Êı
+library(rgdal)   #æä¾›readOGR()å‡½æ•°
 library(ggplot2)
 library(dplyr)
 library(RColorBrewer)
@@ -32,20 +32,20 @@ Density_map<-SpatialPoints(expand.grid(x=cycle_dens$eval.points[,1],
 Density_map<-SpatialPixelsDataFrame(Density_map, data.frame(kde = array(cycle_dens$estimate, 
                                                            length(cycle_dens$estimate))))
 
-#(b) ¶şÎ¬ºËÃÜ¶È¹À¼ÆÈÈÁ¦Í¼-------------------------------------------------------------
+#(b) äºŒç»´æ ¸å¯†åº¦ä¼°è®¡çƒ­åŠ›å›¾-------------------------------------------------------------
 df_density<-data.frame(Density_map)
 # min_z<-min(df_density$Density_map.kde)
 # max_z<-max(df_density$Density_map.kde)
 # breaks_lines<-seq(min_z,max_z,by=(max_z-min_z)/20)
 ggplot(df_density,aes(x=x,y=y,z=kde))+
-  geom_tile(aes(fill=kde))+          #¸ù¾İ¸ß¶ÈÌî³ä
+  geom_tile(aes(fill=kde))+          #æ ¹æ®é«˜åº¦å¡«å……
   scale_fill_gradientn(colours=colormap)+
   #stat_contour(aes(colour= ..level..),breaks=breaks_lines,color="black")+
   labs(fill='kde',
        x='long',
        y='lat')
 
-#(c) ¶şÎ¬ºËÃÜ¶È¹À¼ÆÈÈÁ¦µØÍ¼--------------------------------------------------------------
+#(c) äºŒç»´æ ¸å¯†åº¦ä¼°è®¡çƒ­åŠ›åœ°å›¾--------------------------------------------------------------
 group<-1:length(dataProjected)
 mypolys<-lapply(group,
                 function(x) {
