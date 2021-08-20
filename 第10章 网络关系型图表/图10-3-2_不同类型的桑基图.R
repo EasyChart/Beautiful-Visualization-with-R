@@ -1,7 +1,7 @@
 
 
-#EasyChartsÍÅ¶Ó³öÆ·£¬
-#ÈçĞèÊ¹ÓÃÓëÉîÈëÑ§Ï°£¬ÇëÁªÏµÎ¢ĞÅ£ºEasyCharts
+#EasyShuå›¢é˜Ÿå‡ºå“ï¼Œæ›´å¤šæ–‡ç« è¯·å…³æ³¨å¾®ä¿¡å…¬ä¼—å·ã€EasyShuã€‘
+#å¦‚æœ‰é—®é¢˜ä¿®æ­£ä¸æ·±å…¥å­¦ä¹ ï¼Œå¯è”ç³»å¾®ä¿¡ï¼šEasyCharts
 
 library(ggalluvial)
 library(ggplot2)
@@ -17,7 +17,7 @@ df_melt$to<-as.character(df_melt$to)
 df_melt$group<-seq(1,nrow(df_melt))
 df_melt<-melt(df_melt,id.vars = c('weight','group'),value.name ='Region',factorsAsStrings=FALSE)
 
-#--------------------------------------ÅÅĞò:×İÏòÉ£»ùÍ¼-----------------------------------------------
+#--------------------------------------æ’åº:çºµå‘æ¡‘åŸºå›¾-----------------------------------------------
 df_sum<-apply(df[,2:ncol(df)],2,sum)
 order<-sort(df_sum,index.return=TRUE,decreasing =TRUE)
 
@@ -42,7 +42,7 @@ ggplot(df_melt,
         axis.ticks =element_blank() )
 
 
-#--------------------------------------ÅÅĞò£ººáÏòÉ£»ùÍ¼-----------------------------------------------
+#--------------------------------------æ’åºï¼šæ¨ªå‘æ¡‘åŸºå›¾-----------------------------------------------
 f_sum<-apply(df[,2:ncol(df)],2,sum)
 order<-sort(df_sum,index.return=TRUE,decreasing =FALSE)
 
