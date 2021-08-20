@@ -1,6 +1,5 @@
-
-#EasyChartsÍÅ¶Ó³öÆ·£¬
-#ÈçĞèÊ¹ÓÃÓëÉîÈëÑ§Ï°£¬ÇëÁªÏµÎ¢ĞÅ£ºEasyCharts
+#EasyShuå›¢é˜Ÿå‡ºå“ï¼Œæ›´å¤šæ–‡ç« è¯·å…³æ³¨å¾®ä¿¡å…¬ä¼—å·ã€EasyShuã€‘
+#å¦‚æœ‰é—®é¢˜ä¿®æ­£ä¸æ·±å…¥å­¦ä¹ ï¼Œå¯è”ç³»å¾®ä¿¡ï¼šEasyCharts
 
 library(tidyverse)
 library(igraph)
@@ -52,7 +51,7 @@ mycolor <- wes_palette("Darjeeling1", max(vertices$group), type = "continuous")
 mycolor <- sample(mycolor, length(mycolor))
 
 
-#-----------------------------------MDS(¶à³ß¶È·ÖÎö²¼¾Ö)-------------------------------------------
+#-----------------------------------MDS(å¤šå°ºåº¦åˆ†æå¸ƒå±€)-------------------------------------------
 ggraph(mygraph,layout='mds') + 
   geom_edge_link(edge_colour="black", edge_alpha=0.2, edge_width=0.3) +
   geom_node_point(aes(size=n, fill=as.factor(group)), shape=21,color='black',alpha=0.9) +
@@ -72,7 +71,7 @@ ggraph(mygraph,layout='mds') +
     #panel.spacing=unit(c(0,0,0,0), "null")
   )
 
-#------------------------------nicely(¼òµ¥¾ö²ßÊ÷simpe decision tree)---------------------------
+#------------------------------nicely(ç®€å•å†³ç­–æ ‘simpe decision tree)---------------------------
 ggraph(mygraph,layout='nicely') + 
   geom_edge_link(edge_colour="black", edge_alpha=0.2, edge_width=0.3) +
   geom_node_point(aes(size=n, fill=as.factor(group)), shape=21,color='black',alpha=0.9) +
@@ -90,7 +89,7 @@ ggraph(mygraph,layout='nicely') +
     axis.title = element_blank())
 
 
-#----------------------------------fr(Fruchterman-Reingold Ëã·¨µÄÁ¦µ¼Ïò²¼¾Ö)-----------------------
+#----------------------------------fr(Fruchterman-Reingold ç®—æ³•çš„åŠ›å¯¼å‘å¸ƒå±€)-----------------------
 ggraph(mygraph,layout='fr') + 
   geom_edge_link(edge_colour="black", edge_alpha=0.2, edge_width=0.3) +
   geom_node_point(aes(size=n, fill=as.factor(group)), shape=21,color='black',alpha=0.9) +
@@ -110,7 +109,7 @@ ggraph(mygraph,layout='fr') +
     #panel.spacing=unit(c(0,0,0,0), "null")
   )
 
-#----------------------------------------randomly(Ëæ»ú²¼¾Ö)------------------------------------------
+#----------------------------------------randomly(éšæœºå¸ƒå±€)------------------------------------------
 ggraph(mygraph,layout='randomly') + 
   geom_edge_link(edge_colour="black", edge_alpha=0.2, edge_width=0.3) +
   geom_node_point(aes(size=n, fill=as.factor(group)), shape=21,color='black',alpha=0.9) +
@@ -130,7 +129,7 @@ ggraph(mygraph,layout='randomly') +
     #panel.spacing=unit(c(0,0,0,0), "null")
   )
 
-#----------------------------------------drl(drlµ¼Ïò²¼¾Ö)---------------------------------------------
+#----------------------------------------drl(drlå¯¼å‘å¸ƒå±€)---------------------------------------------
 ggraph(mygraph,layout='drl') + 
   geom_edge_link(edge_colour="black", edge_alpha=0.2, edge_width=0.3) +
   geom_node_point(aes(size=n, fill=as.factor(group)), shape=21,color='black',alpha=0.9) +
