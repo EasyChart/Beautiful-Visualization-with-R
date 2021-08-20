@@ -10,7 +10,7 @@
 本书所用R版本为：3.3.3。R作为开源免费的软件，数据分析与可视化的包更新迭代很快，这是它的优势。但是有时候有些代码运行可能会由于R或者R包版本的更新，而出现函数弃用（deprecated）的情况。此时，需要自己更新代码，使用新的函数替代原有的函数等。
 
 ---
-### 如有问题，可以联系作者-张杰的微信：EasyCharts
+### 如有问题，可以联系EasyShu团队的微信：EasyCharts
 <p>
     <img src="https://github.com/Easy-Shu/EasyShu-WeChat/blob/master/WeChat_ZhangJie.png" alt="开发者微信号"  width="250" height="250">
 </p>
