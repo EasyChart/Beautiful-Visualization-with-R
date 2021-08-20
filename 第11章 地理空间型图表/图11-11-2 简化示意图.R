@@ -1,10 +1,10 @@
+#EasyShuå›¢é˜Ÿå‡ºå“ï¼Œæ›´å¤šæ–‡ç« è¯·å…³æ³¨å¾®ä¿¡å…¬ä¼—å·ã€EasyShuã€‘
+#å¦‚æœ‰é—®é¢˜ä¿®æ­£ä¸æ·±å…¥å­¦ä¹ ï¼Œå¯è”ç³»å¾®ä¿¡ï¼šEasyCharts
 
-#EasyChartsÍÅ¶Ó³öÆ·£¬
-#ÈçĞèÊ¹ÓÃÓëÉîÈëÑ§Ï°£¬ÇëÁªÏµÎ¢ĞÅ£ºEasyCharts
 library(ggplot2)
 df_point<-read.csv("China_Grid.csv",stringsAsFactors=TRUE)
 
-#Í¼11-11-2(a)¾ØĞÎ
+#å›¾11-11-2(a)çŸ©å½¢
 ggplot(data= df_point,aes(x=col,y=row))+
   geom_tile(colour="black",size=0.1,fill="white")+
   geom_text(aes(label=code),size=3)+
@@ -12,14 +12,14 @@ ggplot(data= df_point,aes(x=col,y=row))+
   scale_y_reverse(limits =c(8.5,0.5))
 
 
-#Í¼11-11-2(b)Ô²È¦
+#å›¾11-11-2(b)åœ†åœˆ
 ggplot(data= df_point,aes(x=col,y=row))+
   geom_point(shape=21,colour="black",size=14,fill="white")+
   geom_text(aes(label=code),size=3)+
   xlim(0.5,7.5)+
   scale_y_reverse(limits =c(8.5,0.5))
 
-##Í¼11-11-2(c)Áù½ÇĞÎ
+##å›¾11-11-2(c)å…­è§’å½¢
 df_hexmap<-read.csv("ChinaMap.csv",stringsAsFactors=FALSE)
 ggplot()+
   geom_polygon(data= df_hexmap, aes(x=x, y=y, group=Province), fill="white", colour="black",size=0.25)+
