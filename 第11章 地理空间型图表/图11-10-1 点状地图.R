@@ -1,8 +1,8 @@
 
-#EasyChartsÍÅ¶Ó³öÆ·£¬
-#ÈçĞèÊ¹ÓÃÓëÉîÈëÑ§Ï°£¬ÇëÁªÏµÎ¢ĞÅ£ºEasyCharts
+#EasyShuå›¢é˜Ÿå‡ºå“ï¼Œæ›´å¤šæ–‡ç« è¯·å…³æ³¨å¾®ä¿¡å…¬ä¼—å·ã€EasyShuã€‘
+#å¦‚æœ‰é—®é¢˜ä¿®æ­£ä¸æ·±å…¥å­¦ä¹ ï¼Œå¯è”ç³»å¾®ä¿¡ï¼šEasyCharts
 
-library(rgdal)   #Ìá¹©readOGR()º¯Êı
+library(rgdal)   #æä¾›readOGR()å‡½æ•°
 library(ggplot2)
 library(dplyr)
 library(RColorBrewer)
@@ -51,14 +51,14 @@ for (i in group){
   df_freq<-rbind(df_freq,cbind(mypolys[[i]]@coords,mypolys[[i]]@data))
 }
 
-#(a) ÀëÉ¢µã×´µØÍ¼
+#(a) ç¦»æ•£ç‚¹çŠ¶åœ°å›¾
 ggplot() +
   #geom_circle(data=df_freq,aes(x0=long,y0=lat,fill=value,r=bins/2),size=0.1)+
   #geom_polygon(data=df_map, aes(x=long, y=lat, group=group),fill='white',alpha=0.9,color=NA,size=1)+
   geom_point(data=df_freq,aes(x=long,y=lat),fill='black',size=2,shape=21,stroke=0.1)+
   geom_path(data=df_map, aes(x=long, y=lat, group=group),colour="black",size=1)
 
-#(b) Í³¼ÆÖ±·½µÄµã×´µØÍ¼
+#(b) ç»Ÿè®¡ç›´æ–¹çš„ç‚¹çŠ¶åœ°å›¾
 ggplot() +
   #geom_circle(data=df_freq,aes(x0=long,y0=lat,fill=value,r=bins/2),size=0.1)+
   geom_point(data=df_freq,aes(x=long,y=lat,fill=value),size=3,shape=21,stroke=0.1)+
