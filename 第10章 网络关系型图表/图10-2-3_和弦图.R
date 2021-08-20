@@ -1,6 +1,6 @@
 
-#EasyChartsÍÅ¶Ó³öÆ·£¬
-#ÈçĞèÊ¹ÓÃÓëÉîÈëÑ§Ï°£¬ÇëÁªÏµÎ¢ĞÅ£ºEasyCharts
+#EasyShuå›¢é˜Ÿå‡ºå“ï¼Œæ›´å¤šæ–‡ç« è¯·å…³æ³¨å¾®ä¿¡å…¬ä¼—å·ã€EasyShuã€‘
+#å¦‚æœ‰é—®é¢˜ä¿®æ­£ä¸æ·±å…¥å­¦ä¹ ï¼Œå¯è”ç³»å¾®ä¿¡ï¼šEasyCharts
 
 library(circlize)
 library(viridis)
@@ -11,7 +11,7 @@ df_melt<-melt(df,id.vars = 'Region')
 colnames(df_melt)<-c('from','to','value')
 df_melt$to<-as.character(df_melt$to)
 
-#ÅÅĞò
+#æ’åº
 df_sum<-apply(df[,2:ncol(df)],2,sum)+apply(df[,2:ncol(df)],1,sum)
 order<-sort(df_sum,index.return=TRUE,decreasing =TRUE)
 
@@ -19,7 +19,7 @@ df_melt$from<-factor(df_melt$from,levels=df$Region[order$ix],order=TRUE)
 
 df_melt<-dplyr:: arrange (df_melt, from)
 
-# ÑÕÉ«Ö÷Ìâ·½°¸
+# é¢œè‰²ä¸»é¢˜æ–¹æ¡ˆ
 mycolor <- viridis(10, alpha = 1, begin = 0, end = 1, option = "D")
 names(mycolor) <-df$Region
 
@@ -40,14 +40,14 @@ chordDiagram(
   link.sort = TRUE,
   link.largest.ontop = TRUE)
 
-# Ìí¼ÓÊı¾İ±êÇ©ºÍ×ø±êÖá
+# æ·»åŠ æ•°æ®æ ‡ç­¾å’Œåæ ‡è½´
 circos.trackPlotRegion(
   track.index = 1,
   bg.border = NA,
   panel.fun = function(x, y) {
     xlim = get.cell.meta.data("xlim")
     sector.index = get.cell.meta.data("sector.index")
-    # Ìí¼ÓÊı¾İ±êÇ©
+    # æ·»åŠ æ•°æ®æ ‡ç­¾
     circos.text(
       x = mean(xlim),
       y = 3.2,
@@ -55,7 +55,7 @@ circos.trackPlotRegion(
       facing = "bending",
       cex = 1
     )
-    # Ìí¼Ó×ø±êÖá
+    # æ·»åŠ åæ ‡è½´
     circos.axis(
       h = "top",
       major.at = seq(from = 0, to = xlim[2], by = ifelse(test = xlim[2]>10, yes = 2, no = 1)),
