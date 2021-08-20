@@ -1,7 +1,6 @@
 
-
-#EasyChartsÍÅ¶Ó³öÆ·£¬
-#ÈçĞèÊ¹ÓÃÓëÉîÈëÑ§Ï°£¬ÇëÁªÏµÎ¢ĞÅ£ºEasyCharts
+#EasyShuå›¢é˜Ÿå‡ºå“ï¼Œæ›´å¤šæ–‡ç« è¯·å…³æ³¨å¾®ä¿¡å…¬ä¼—å·ã€EasyShuã€‘
+#å¦‚æœ‰é—®é¢˜ä¿®æ­£ä¸æ·±å…¥å­¦ä¹ ï¼Œå¯è”ç³»å¾®ä¿¡ï¼šEasyCharts
 
 #reference:https://www.data-imaginist.com/2017/ggraph-introduction-layouts/
 
@@ -64,7 +63,7 @@ mygraph <- graph_from_data_frame( connect, vertices = vertices, directed = FALSE
 
 mycolor <- wes_palette("Darjeeling1", max(vertices$group), type = "continuous")
 
-#(b)ÇúÏßÁ´½Ó
+#(b)æ›²çº¿é“¾æ¥
 ggraph(mygraph,layout = 'linear', circular = TRUE) +
   geom_edge_arc(aes(edge_colour=as.factor(group)), edge_alpha=0.5, edge_width=0.3) +
   geom_node_point(aes(size=n, fill=as.factor(group)), shape=21,color='black',alpha=0.9) +
@@ -88,7 +87,7 @@ ggraph(mygraph,layout = 'linear', circular = TRUE) +
     panel.spacing=unit(c(0,0,0,0), "null")
   ) 
 
-# (a) Ö±ÏßÁ´½Ó
+# (a) ç›´çº¿é“¾æ¥
 ggraph(mygraph,layout = 'linear', circular = TRUE) +
   geom_edge_link(aes(edge_colour=as.factor(group)),  edge_alpha=0.5, edge_width=0.3) +
   geom_node_point(aes(size=n, fill=as.factor(group)), shape=21,color='black',alpha=0.9) +
