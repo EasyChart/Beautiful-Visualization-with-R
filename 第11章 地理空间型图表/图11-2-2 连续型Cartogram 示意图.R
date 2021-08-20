@@ -1,13 +1,13 @@
 
-#EasyChartsÍÅ¶Ó³öÆ·£¬
-#ÈçĞèÊ¹ÓÃÓëÉîÈëÑ§Ï°£¬ÇëÁªÏµÎ¢ĞÅ£ºEasyCharts
+#EasyShuå›¢é˜Ÿå‡ºå“ï¼Œæ›´å¤šæ–‡ç« è¯·å…³æ³¨å¾®ä¿¡å…¬ä¼—å·ã€EasyShuã€‘
+#å¦‚æœ‰é—®é¢˜ä¿®æ­£ä¸æ·±å…¥å­¦ä¹ ï¼Œå¯è”ç³»å¾®ä¿¡ï¼šEasyCharts
 
-library(rgdal)   #Ìá¹©readOGR()º¯Êı
+library(rgdal)   #æä¾›readOGR()å‡½æ•°
 library(ggplot2)
 library(dplyr)
 library(RColorBrewer)
-library(cartogram) #Ìá¹©cartogram()º¯Êı
-library(rgeos) #Ìá¹©gCentroid()º¯Êı
+library(cartogram) #æä¾›cartogram()å‡½æ•°
+library(rgeos) #æä¾›gCentroid()å‡½æ•°
 
 dataProjected <- readOGR("Virtual_Map1.shp")
 
@@ -16,7 +16,7 @@ df_city<-read.csv("Virtual_City.csv")
 
 dataProjected@data<-left_join(dataProjected@data,df_city[c('country','orange')],by = "country")
 
-my_cartogram <- cartogram(dataProjected, 'orange') #ĞÂ°æº¯Êı£ºcartogram_cont()
+my_cartogram <- cartogram(dataProjected, 'orange') #æ–°ç‰ˆå‡½æ•°ï¼šcartogram_cont()
 
 
 carto_fortified <- fortify(my_cartogram,region='country')
@@ -26,7 +26,7 @@ carto_fortified <- carto_fortified %>% left_join(. , my_cartogram@data, by=c("id
 df_centers <- cbind.data.frame(data.frame(gCentroid(my_cartogram, byid=TRUE), 
                                           id=my_cartogram@data$country))
 
-#ÒÔorange ÊıÖµ×÷ÎªÓ³Éä
+#ä»¥orange æ•°å€¼ä½œä¸ºæ˜ å°„
 ggplot() +
   geom_polygon(data = carto_fortified, aes(fill = orange, x = long, y = lat, group = group) , size=0.05, alpha=0.9, color="black") +
   geom_text(data=df_centers, aes(x=x, y=y, label=id), color="black", size=2, alpha=0.6) +
