@@ -1,14 +1,14 @@
 
-#EasyChartsÍÅ¶Ó³öÆ·£¬
-#ÈçĞèÊ¹ÓÃÓëÉîÈëÑ§Ï°£¬ÇëÁªÏµÎ¢ĞÅ£ºEasyCharts
+#EasyShuå›¢é˜Ÿå‡ºå“ï¼Œæ›´å¤šæ–‡ç« è¯·å…³æ³¨å¾®ä¿¡å…¬ä¼—å·ã€EasyShuã€‘
+#å¦‚æœ‰é—®é¢˜ä¿®æ­£ä¸æ·±å…¥å­¦ä¹ ï¼Œå¯è”ç³»å¾®ä¿¡ï¼šEasyCharts
 
 
-library(rgdal)   #Ìá¹©readOGR()º¯Êı
+library(rgdal)   #æä¾›readOGR()å‡½æ•°
 library(ggplot2)
 library(dplyr)
 library(RColorBrewer)
 
-#---------------------------------·½·¨1£ºrgdal::readOGR()-------------------------------------
+#---------------------------------æ–¹æ³•1ï¼šrgdal::readOGR()-------------------------------------
 dataProjected <- readOGR("Virtual_Map1.shp")
 dataProjected@data$id <- rownames(dataProjected@data)
 watershedPoints <- fortify(dataProjected)
@@ -21,7 +21,7 @@ df_city<-read.csv("Virtual_City.csv")
 
 df <- left_join(df_Map, df_city[c('country','orange')], by = "country")
 
-#(a) µ¥É«½¥±äÏµÑÕÉ«Ö÷Ìâ
+#(a) å•è‰²æ¸å˜ç³»é¢œè‰²ä¸»é¢˜
 ggplot()+
   geom_polygon(data=df, aes(x=long, y=lat, group=group,fill=orange),colour="black",size=0.25)+
   geom_text(data=df_city,aes(x=long, y=lat, label=country),colour="black",size=3)+
@@ -30,7 +30,7 @@ ggplot()+
         legend.background = element_blank())
 
 
-#(b) Ë«É«½¥±äÏµÑÕÉ«Ö÷Ìâ
+#(b) åŒè‰²æ¸å˜ç³»é¢œè‰²ä¸»é¢˜
 ggplot()+
   geom_polygon(data=df, aes(x=long, y=lat, group=group,fill=orange),colour="black",size=0.25)+
   geom_text(data=df_city,aes(x=long, y=lat, label=country),colour="black",size=3)+
@@ -40,8 +40,8 @@ ggplot()+
         legend.background = element_blank())
 
 
-#---------------------------------------·½·¨2£ºsf::st_read()----------------------------------------------
-library(sf)  #Ìá¹©st_read()º¯Êı
+#---------------------------------------æ–¹æ³•2ï¼šsf::st_read()----------------------------------------------
+library(sf)  #æä¾›st_read()å‡½æ•°
 library(ggplot2)
 library(dplyr)
 
@@ -49,7 +49,7 @@ nz<-st_read("Virtual_Map1.shp")
 df_city<-read.csv("Virtual_City.csv")  
 df_map<-left_join(nz,df_city[c('country','orange')],by = "country")
 
-#(b) Ë«É«½¥±äÏµÑÕÉ«Ö÷Ìâ
+#(b) åŒè‰²æ¸å˜ç³»é¢œè‰²ä¸»é¢˜
 ggplot() + 
   geom_sf(data = df_map, aes(fill = orange))+
   coord_sf(datum = st_crs("+proj=longlat +datum=WGS84"))+
