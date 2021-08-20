@@ -1,9 +1,9 @@
 
-#EasyChartsÍÅ¶Ó³öÆ·£¬
-#ÈçĞèÊ¹ÓÃÓëÉîÈëÑ§Ï°£¬ÇëÁªÏµÎ¢ĞÅ£ºEasyCharts
+#EasyShuå›¢é˜Ÿå‡ºå“ï¼Œæ›´å¤šæ–‡ç« è¯·å…³æ³¨å¾®ä¿¡å…¬ä¼—å·ã€EasyShuã€‘
+#å¦‚æœ‰é—®é¢˜ä¿®æ­£ä¸æ·±å…¥å­¦ä¹ ï¼Œå¯è”ç³»å¾®ä¿¡ï¼šEasyCharts
 
 
-library(rgdal)   #Ìá¹©readOGR()º¯Êı
+library(rgdal)   #æä¾›readOGR()å‡½æ•°
 library(ggplot2)
 library(dplyr)
 library(RColorBrewer)
@@ -21,7 +21,7 @@ df_huouse<-read.csv("Virtual_huouse.csv")
 set.seed(12345)
 df_huouse<-df_huouse[sample(1:nrow(df_huouse),200),1:3]
 
-#(a) ÃèµãµØÍ¼------------------------------------------------------------------------------
+#(a) æç‚¹åœ°å›¾------------------------------------------------------------------------------
 ggplot()+
   geom_polygon(data=df_map, aes(x=long, y=lat, group=group),
                fill='white',colour="black",size=0.25)+
@@ -29,7 +29,7 @@ ggplot()+
   
   scale_fill_gradientn(colours=colormap,name='value')
 
-#loessÊı¾İÆ½»¬-----------------------------------------------------------------------------
+#loessæ•°æ®å¹³æ»‘-----------------------------------------------------------------------------
 long_mar <-seq(105,135, 0.1)
 lat_mar <- seq(30,60,0.05)
 
@@ -51,18 +51,18 @@ df_loessmap$lat<-as.numeric(as.character(df_loessmap$lat))
 Interp_map<- SpatialPixelsDataFrame(SpatialPoints(df_loessmap[c('long','lat')]),
                                     data.frame(value = df_loessmap$value))
 
-#(a) ¶şÎ¬²åÖµÈÈÁ¦Í¼-----------------------------------------------------------------
+#(a) äºŒç»´æ’å€¼çƒ­åŠ›å›¾-----------------------------------------------------------------
 df_interp<-data.frame(Interp_map)
 min_z<-min(df_interp$value)
 max_z<-max(df_interp$value)
 breaks_lines<-seq(min_z,max_z,by=(max_z-min_z)/20)
 
 ggplot(df_interp,aes(x=long,y=lat,z=value))+
-  geom_tile(aes(fill=value))+          #¸ù¾İ¸ß¶ÈÌî³ä
+  geom_tile(aes(fill=value))+          #æ ¹æ®é«˜åº¦å¡«å……
   #geom_contour(data=df_interp,aes(x=long,y=lat,z=value),color="white",breaks=breaks_lines)+
   scale_fill_gradientn(colours=colormap)
 
-#(b) ¶şÎ¬²åÖµµÈÎ»µØÍ¼--------------------------------------------------------------------
+#(b) äºŒç»´æ’å€¼ç­‰ä½åœ°å›¾--------------------------------------------------------------------
 group<-1:length(dataProjected)
 mypolys<-lapply(group,
                 function(x) {
