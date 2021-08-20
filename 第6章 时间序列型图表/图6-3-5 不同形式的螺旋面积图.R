@@ -1,7 +1,7 @@
 
 
-#EasyChartsÍÅ¶Ó³öÆ·£¬ÈçÓĞÉÌÓÃ±Ø¾¿£¬
-#ÈçĞèÊ¹ÓÃÓëÉîÈëÑ§Ï°£¬ÇëÁªÏµÎ¢ĞÅ£ºEasyCharts
+#EasyShuå›¢é˜Ÿå‡ºå“ï¼Œæ›´å¤šæ–‡ç« è¯·å…³æ³¨å¾®ä¿¡å…¬ä¼—å·ã€EasyShuã€‘
+#å¦‚æœ‰é—®é¢˜ä¿®æ­£ä¸æ·±å…¥å­¦ä¹ ï¼Œå¯è”ç³»å¾®ä¿¡ï¼šEasyCharts
 
 library(ggplot2)
 library(data.table)
@@ -16,7 +16,7 @@ dtData[, ValueCol := ValueCol + (strftime(date,"%u") %in% c(6,7) * runif(1) * 0.
 dtData[, ValueCol := ValueCol + (abs(as.numeric(strftime(date,"%m")) - 6.5)) * runif(1) * 0.75, .I]
 
 
-dtData$Year<- as.integer(strftime(dtData$date, '%Y'))   #Äê·İ
+dtData$Year<- as.integer(strftime(dtData$date, '%Y'))   #å¹´ä»½
 
 dtData$DateNum<-as.numeric(dtData$date)-as.numeric(as.Date(paste(as.character(strftime(dtData$date, "%Y")),"-01-01", sep = "")))
 
@@ -32,7 +32,7 @@ circlelabel<-c("Jan","Feb","Mar","Apr","May","Jun","Jul","Aug","Sep","Oct","Nov"
 circlemonth<-seq(15,345,length=12)
 circlebj<-rep(c(-circlemonth[1:3],rev(circlemonth[1:3])),2)
 
-#-------------------------------------Í¼6-3-5²»Í¬ĞÎÊ½µÄÂİĞıÃæ»ıÍ¼. (b)ÑÕÉ«Ó³ÉäÌî³ä----------------------------------------
+#-------------------------------------å›¾6-3-5ä¸åŒå½¢å¼çš„èºæ—‹é¢ç§¯å›¾. (b)é¢œè‰²æ˜ å°„å¡«å……----------------------------------------
 Height<-4.8
 dtData$Valueht<-(dtData$ValueCol-min(dtData$ValueCol))/(max(dtData$ValueCol)-min(dtData$ValueCol))*Height
        
@@ -46,7 +46,7 @@ ggplot()+
   scale_y_continuous(limits=c(-5,28),breaks=c(2.5,7.5,12.5,17.5),labels=c("2014","2015","2016","2017"))+
   scale_color_gradientn(colours=rev(brewer.pal(11,'Spectral')))+
   geom_text(data=NULL,aes(x=circlemonth,y=28,label=circlelabel,
-                          angle=circlebj),size=4,color="grey50")+#,hjust=0.5,vjust=.5£¬family="myfont",
+                          angle=circlebj),size=4,color="grey50")+#,hjust=0.5,vjust=.5ï¼Œfamily="myfont",
   ylab("Year")+
   theme_bw()+
   theme( panel.background = element_blank(),
@@ -62,7 +62,7 @@ ggplot()+
   )
 
 
-#----------------------------------------Í¼6-3-5²»Í¬ĞÎÊ½µÄÂİĞıÃæ»ıÍ¼.(a)´¿É«Ìî³ä-----------------------------------------
+#----------------------------------------å›¾6-3-5ä¸åŒå½¢å¼çš„èºæ—‹é¢ç§¯å›¾.(a)çº¯è‰²å¡«å……-----------------------------------------
 ggplot()+
   geom_ribbon(data=dtData,aes(x=DateNum,ymin=Asst-5,ymax=Asst+Valueht-5,group=Year,fill=Year),
               size =0.75,fill="#FF8B49")+
