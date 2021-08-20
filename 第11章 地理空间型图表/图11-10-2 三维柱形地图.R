@@ -1,9 +1,9 @@
 
-#EasyChartsÍÅ¶Ó³öÆ·£¬
-#ÈçĞèÊ¹ÓÃÓëÉîÈëÑ§Ï°£¬ÇëÁªÏµÎ¢ĞÅ£ºEasyCharts
+#EasyShuå›¢é˜Ÿå‡ºå“ï¼Œæ›´å¤šæ–‡ç« è¯·å…³æ³¨å¾®ä¿¡å…¬ä¼—å·ã€EasyShuã€‘
+#å¦‚æœ‰é—®é¢˜ä¿®æ­£ä¸æ·±å…¥å­¦ä¹ ï¼Œå¯è”ç³»å¾®ä¿¡ï¼šEasyCharts
 
 library(plot3D)
-library(rgdal)   #Ìá¹©readOGR()º¯Êı
+library(rgdal)   #æä¾›readOGR()å‡½æ•°
 library(ggplot2)
 library(dplyr)
 library(RColorBrewer)
@@ -64,7 +64,7 @@ rownames(z)<-z$lat
 
 
 
-#(a) Spectral ¶àÉ«½¥±äÏµ
+#(a) Spectral å¤šè‰²æ¸å˜ç³»
 cols<-colorRampPalette(colormap)(20) 
 hist3D(x=long_mar,y=lat_mar,z=as.matrix(z[,2:ncol(z)]),
        col = cols, border = "gray",space=0,alpha = 1,lwd=0.1,
@@ -73,7 +73,7 @@ hist3D(x=long_mar,y=lat_mar,z=as.matrix(z[,2:ncol(z)]),
        theta = 35, phi = 20, d=3,
        colkey = list(length = 0.5, width = 1))
 
-#(b) µ¥É«½¥±äÏµ
+#(b) å•è‰²æ¸å˜ç³»
 cols<-colorRampPalette(c("#F7FBFF", "red"))(20)    
 
 hist3D(x=long_mar,y=lat_mar,z=as.matrix(z[,2:ncol(z)]),
