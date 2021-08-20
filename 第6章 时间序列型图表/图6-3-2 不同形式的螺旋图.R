@@ -1,5 +1,5 @@
-#EasyCharts团队出品，
-#如需使用与深入学习，请联系微信：EasyCharts
+#EasyShu团队出品，更多文章请关注微信公众号【EasyShu】
+#如有问题修正与深入学习，可联系微信：EasyCharts
 
 library(dplyr)
 library(ggplot2)
