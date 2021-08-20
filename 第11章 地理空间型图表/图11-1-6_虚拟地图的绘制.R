@@ -1,12 +1,12 @@
 
-#EasyChartsÍÅ¶Ó³öÆ·£¬
-#ÈçĞèÊ¹ÓÃÓëÉîÈëÑ§Ï°£¬ÇëÁªÏµÎ¢ĞÅ£ºEasyCharts
+#EasyShuå›¢é˜Ÿå‡ºå“ï¼Œæ›´å¤šæ–‡ç« è¯·å…³æ³¨å¾®ä¿¡å…¬ä¼—å·ã€EasyShuã€‘
+#å¦‚æœ‰é—®é¢˜ä¿®æ­£ä¸æ·±å…¥å­¦ä¹ ï¼Œå¯è”ç³»å¾®ä¿¡ï¼šEasyCharts
 
-library(rgdal)   #Ìá¹©readOGR()º¯Êı
+library(rgdal)   #æä¾›readOGR()å‡½æ•°
 library(ggplot2)
 library(dplyr)
 
-#(a) Â½µØµºÓì
+#(a) é™†åœ°å²›å±¿
 dataProjected <- readOGR("Virtual_Map0.shp")
 dataProjected@data$id <- rownames(dataProjected@data)
 watershedPoints <- fortify(dataProjected)
@@ -14,7 +14,7 @@ df_Map <- merge(watershedPoints, dataProjected@data, by = "id")
 ggplot()+
   geom_polygon(data=df_Map, aes(x=long, y=lat, group=group,fill=type),colour="black",size=0.25)
 
-#(b) ¹ú¼Ò
+#(b) å›½å®¶
 dataProjected <- readOGR("Virtual_Map1.shp")
 dataProjected@data$id <- rownames(dataProjected@data)
 watershedPoints <- fortify(dataProjected)
