@@ -1,10 +1,10 @@
 
-#EasyChartsÍÅ¶Ó³öÆ·£¬
-#ÈçĞèÊ¹ÓÃÓëÉîÈëÑ§Ï°£¬ÇëÁªÏµÎ¢ĞÅ£ºEasyCharts
+#EasyShuå›¢é˜Ÿå‡ºå“ï¼Œæ›´å¤šæ–‡ç« è¯·å…³æ³¨å¾®ä¿¡å…¬ä¼—å·ã€EasyShuã€‘
+#å¦‚æœ‰é—®é¢˜ä¿®æ­£ä¸æ·±å…¥å­¦ä¹ ï¼Œå¯è”ç³»å¾®ä¿¡ï¼šEasyCharts
 
 #Reference: https://stackoverflow.com/questions/47493197/how-to-draw-two-half-circles-in-ggplot-in-r/47493452#47493452
 
-library(rgdal)   #Ìá¹©readOGR()º¯Êı
+library(rgdal)   #æä¾›readOGR()å‡½æ•°
 library(ggplot2)
 library(dplyr)
 library(RColorBrewer)
@@ -33,7 +33,7 @@ df_city<-df_city[c("lat","long","city","orange","apple")]
 df_city<-melt(df_city,id.vars=c("lat","long","city"))
 
 
-#(a) Ë®Æ½Ë«ÆøÅİ£¨Á½¸öÊı¾İÏµÁĞ£©------------------------------------------------------------------
+#(a) æ°´å¹³åŒæ°”æ³¡ï¼ˆä¸¤ä¸ªæ•°æ®ç³»åˆ—ï¼‰------------------------------------------------------------------
 df_city$start<- rep(c(-pi/2, pi/2), each=nrow(df_city)/2)
 df_city$vjust<- rep(c(1, -1), each=nrow(df_city)/2)
 r <- 0.04
@@ -64,7 +64,7 @@ ggplot()+
   theme(legend.position = c(0.9,0.15),
         legend.background = element_blank())
 
-#(b) ÊúÖ±Ë«ÆøÅİ£¨Á½¸öÊı¾İÏµÁĞ£©------------------------------------------------------------------
+#(b) ç«–ç›´åŒæ°”æ³¡ï¼ˆä¸¤ä¸ªæ•°æ®ç³»åˆ—ï¼‰------------------------------------------------------------------
 df_city$start<- rep(c(0, pi), each=nrow(df_city)/2)
 df_city$vjust<- rep(c(1, -1), each=nrow(df_city)/2)
 r <- 0.04
