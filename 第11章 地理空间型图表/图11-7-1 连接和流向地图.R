@@ -1,9 +1,9 @@
 
-#EasyChartsÍÅ¶Ó³öÆ·£¬
-#ÈçĞèÊ¹ÓÃÓëÉîÈëÑ§Ï°£¬ÇëÁªÏµÎ¢ĞÅ£ºEasyCharts
+#EasyShuå›¢é˜Ÿå‡ºå“ï¼Œæ›´å¤šæ–‡ç« è¯·å…³æ³¨å¾®ä¿¡å…¬ä¼—å·ã€EasyShuã€‘
+#å¦‚æœ‰é—®é¢˜ä¿®æ­£ä¸æ·±å…¥å­¦ä¹ ï¼Œå¯è”ç³»å¾®ä¿¡ï¼šEasyCharts
 
 
-library(rgdal)   #Ìá¹©readOGR()º¯Êı
+library(rgdal)   #æä¾›readOGR()å‡½æ•°
 library(ggplot2)
 library(dplyr)
 library(RColorBrewer)
@@ -21,7 +21,7 @@ df_connect<-df_connect %>%
   left_join(df_city,by=c('start'='city'))%>%
   left_join(df_city,by=c('end'='city'))
 
-#(a) Ö±ÏßÁ¬½ÓµØÍ¼-------------------------------------------------------------
+#(a) ç›´çº¿è¿æ¥åœ°å›¾-------------------------------------------------------------
 ggplot() +
   geom_polygon(data=df_map, aes(x = long, y = lat,group=group),
                fill="white",colour="black",size=0.25)+
@@ -30,7 +30,7 @@ ggplot() +
   geom_point(data =df_connect,aes(x=long.y,y=lat.y),
              size=4,shape=21,fill="#F00000",colour="black",stroke=0.1)
 
-#(b) ÇúÏßÁ¬½ÓµØÍ¼-------------------------------------------------------------
+#(b) æ›²çº¿è¿æ¥åœ°å›¾-------------------------------------------------------------
 ggplot() +
   geom_polygon(data=df_map, aes(x = long, y = lat,group=group),
                fill="white",colour="black",size=0.25)+
@@ -39,7 +39,7 @@ ggplot() +
   geom_point(data =df_connect,aes(x=long.y,y=lat.y),
              size=4,shape=21,fill="#F00000",colour="black",stroke=0.1)
 
-#(c) ÎŞ¼ıÍ·µÄÁ÷ÏòµØÍ¼-------------------------------------------------------------
+#(c) æ— ç®­å¤´çš„æµå‘åœ°å›¾-------------------------------------------------------------
 ggplot() +
   geom_polygon(data=df_map, aes(x = long, y = lat,group=group),
                fill="white",colour="black",size=0.25)+
@@ -50,7 +50,7 @@ ggplot() +
   geom_point(data =df_connect,aes(x=long.y,y=lat.y),
              size=4,shape=21,fill="white",colour="black",stroke=0.5)
 
-#(d) ´ø¼ıÍ·µÄÁ÷ÏòµØÍ¼-------------------------------------------------------------
+#(d) å¸¦ç®­å¤´çš„æµå‘åœ°å›¾-------------------------------------------------------------
 ggplot() +
   geom_polygon(data=df_map, aes(x = long, y = lat,group=group),
                fill="white",colour="black",size=0.25)+
