@@ -20,3 +20,16 @@
 <p>
     <img src="https://github.com/Easy-Shu/EasyShu-WeChat/blob/master/WeChat.jpg" alt="微信公众号"  width="250" height="250">
 </p>
+
+## 引用
+如果这本书对你的科研图表绘制有用，也可引用该书：
+```
+@book{Zhang2019r,
+  title={Beautiful Data Visualization of {R}- How to Make Professional Charts},
+  author={Zhang, Jie},
+  isbn={9787121374432},
+  url={https://books.google.com.hk/books?id=aDxYzQEACAAJ},
+  year={2019},
+  publisher={Publishing House of Electronic Industry}
+}
+```
