@@ -28,7 +28,7 @@ df_melt$variable<-factor(df_melt$variable,levels=c('from','to'))
 mycolor <- colorRampPalette(brewer.pal(9,'YlGnBu'))(13)
 
 ggplot(df_melt,
-       aes(x = variable,weight = weight,
+       aes(x = variable,y = weight,
            stratum = Region, alluvium = group,
            fill = Region, label = Region)) +
   geom_flow(alpha = 0.7,width=0.25,color = "darkgray") +
@@ -50,7 +50,7 @@ df_melt$Region<-factor(df_melt$Region,levels=df$Region[order$ix])
 df_melt$variable<-factor(df_melt$variable,levels=c('from','to'))
 
 ggplot(df_melt,
-       aes(x = variable,weight = weight,
+       aes(x = variable,y = weight,
            stratum = Region, alluvium = group,
            fill = Region, label = Region)) +
   geom_flow(alpha = 0.7,width=0.25,color = "darkgray") +
